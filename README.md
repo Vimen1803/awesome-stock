@@ -62,9 +62,7 @@ Esto creará `data.json` con 500 productos, proveedores reales y operaciones ent
    * Se recomienda usar un servidor local para evitar problemas de CORS al cargar `data.json`:
 
 ```bash
-npx http-server
-# o
-python -m http.server
+node server.js
 ```
 
 ---
