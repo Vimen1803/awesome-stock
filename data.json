@@ -1,0 +1,49 @@
+{
+  "productos": {
+    "P001": {
+      "nombre": "prueba",
+      "proveedor": "prueba",
+      "precioCompra": 1,
+      "precioVenta": 111,
+      "stock": 900,
+      "ventasTotales": 100,
+      "imagen": "",
+      "fechaAñadido": "2025-09-25T04:49:48.446Z"
+    }
+  },
+  "historial": [
+    {
+      "fecha": "2025-09-25T04:49:48.446Z",
+      "accion": "Añadido",
+      "productoID": "P001",
+      "productoNombre": "prueba",
+      "cantidad": 0
+    },
+    {
+      "fecha": "2025-09-25T04:49:58.276Z",
+      "accion": "Comprado",
+      "productoID": "P001",
+      "productoNombre": "prueba",
+      "cantidad": 1000
+    },
+    {
+      "fecha": "2025-09-25T04:50:21.756Z",
+      "accion": "Vendido",
+      "productoID": "P001",
+      "productoNombre": "prueba",
+      "cantidad": 100
+    }
+  ],
+  "finanzas": [
+    {
+      "fecha": "2025-09-25T04:49:58.276Z",
+      "tipo": "gasto",
+      "monto": 1000
+    },
+    {
+      "fecha": "2025-09-25T04:50:21.756Z",
+      "tipo": "ingreso",
+      "monto": 11100
+    }
+  ]
+}

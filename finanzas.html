@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VimenStock - Finanzas</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="left">
+    <img src="https://victormenjon.es/favicon.ico" class="icon">
+    <span>VimenStock</span>
+  </div>
+  <div class="center">
+    <a href="index.html">Productos</a>
+    <a href="historial.html">Historial</a>
+    <a href="finanzas.html">Finanzas</a>
+  </div>
+  <div class="right">
+    <button id="toggle-dark" class="toggle-btn">
+      <span class="icon icon-sun"></span>
+      <span class="icon icon-moon"></span>
+    </button>
+  </div>
+</header>
+
+<div class="container finanzas-container">
+
+  <!-- Columna izquierda: calendario + beneficio -->
+  <div class="finanzas-left">
+    <label for="select-periodo">Periodo:
+      <select id="select-periodo">
+        <option value="diaria">Diaria</option>
+        <option value="semanal">Semanal</option>
+        <option value="mensual">Mensual</option>
+        <option value="anual">Anual</option>
+      </select>
+    </label>
+
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prev-month">«</button>
+        <span id="month-year"></span>
+        <button id="next-month">»</button>
+      </div>
+      <table id="calendar">
+        <thead>
+          <tr>
+            <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th>
+            <th>Vie</th><th>Sáb</th><th>Dom</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="beneficio-total">Beneficio Total: 0 €</div>
+  </div>
+
+  <!-- Columna derecha: gráfico -->
+  <div class="finanzas-right">
+    <canvas id="grafico"></canvas>
+  </div>
+
+</div>
+
+<script src="finanzas.js"></script>
+<script src="lightdark.js"></script>
+</body>
+</html>
