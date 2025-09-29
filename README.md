@@ -406,7 +406,6 @@ vimenstock/
 ### 🎨 Interfaz y UX
 
 - 🌙 **Modo Oscuro** persistente para reducir fatiga visual
-- 📱 **Diseño Responsivo** adaptable a diferentes pantallas
 - 🔔 **Notificaciones** visuales inmediatas
 - 🧭 **Navegación intuitiva** con menú superior
 - ⚡ **Feedback visual** en todas las operaciones
