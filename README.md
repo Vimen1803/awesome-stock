@@ -20,8 +20,6 @@
 
 ---
 
-## 📞 Soporte
-
 <table>
 <tr>
 <td width="33%" align="center">
@@ -60,18 +58,6 @@ Consulta el archivo licencia y las guías necesarias
 ![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
-
-</div>
-
----
-
-## 🌟 Características Destacadas
-
-<div align="center">
-
-| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
-|:---:|:---:|:---:|:---:|
-| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
 
 </div>
 
@@ -312,6 +298,18 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 - ✅ Soporte para múltiples productos
 
 </details>
+
+---
+
+## 🌟 Características Destacadas
+
+<div align="center">
+
+| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
+|:---:|:---:|:---:|:---:|
+| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
+
+</div>
 
 ---
 
