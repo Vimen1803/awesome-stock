@@ -50,18 +50,6 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-## 📊 Estadísticas del Proyecto
-
-<div align="center">
-
-![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
-![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
-![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
-
-</div>
-
----
-
 ## 🌟 Características Destacadas
 
 <div align="center">
@@ -811,6 +799,14 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 [![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
+![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
+![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
+
+</div>
 
 ---
 <div align="center">
