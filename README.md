@@ -695,38 +695,47 @@ npm start
 
 ## 🔌 API Endpoints
 
-### 📊 Datos
+<details>
+<summary>📊 Datos</summary>
 
 | Método | Endpoint | Descripción | Body/Params |
 |--------|----------|-------------|-------------|
 | `GET` | `/api/data` | Obtener todos los datos | - |
 | `POST` | `/api/data` | Guardar/actualizar datos | JSON completo |
+</details>
 
-### 🎫 Tickets y Documentos
+<details>
+<summary>🎫 Tickets y Documentos</summary>
 
 | Método | Endpoint | Descripción | Params |
 |--------|----------|-------------|--------|
 | `POST` | `/api/generar-ticket` | Generar ticket PDF | `{ tipo, operacion, productos, total }` |
 | `GET` | `/api/descargar-ticket/:tipo/:fileName` | Descargar ticket | `tipo: compra\|venta` |
 | `GET` | `/api/exportar-excel` | Exportar a Excel | - |
+</details>
 
-### 🏷️ Códigos de Barras
+<details>
+<summary>🏷️ Códigos de Barras</summary>
 
 | Método | Endpoint | Descripción | Body |
 |--------|----------|-------------|------|
 | `POST` | `/api/generar-codigo-barras` | Generar código de barras | `{ productoID, nombre }` |
+</details>
 
-### ⚠️ Alertas
+<details>
+<summary>⚠️ Alertas</summary>
 
 | Método | Endpoint | Descripción | Body |
 |--------|----------|-------------|------|
 | `POST` | `/api/registrar-alerta-stock` | Registrar alerta | `{ productoID, nombre, stock }` |
+</details>
 
 ---
 
 ## 🔒 Seguridad
 
-### ⚠️ Aviso Importante
+<details>
+<summary>⚠️ Aviso Importante</summary>
 
 Este sistema **NO incluye autenticación** y está diseñado para:
 - ✅ Uso local (localhost)
@@ -736,6 +745,7 @@ Este sistema **NO incluye autenticación** y está diseñado para:
 **Recursos recomendados:**
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+</details>
 
 ---
 
