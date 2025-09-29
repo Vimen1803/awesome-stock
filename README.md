@@ -786,7 +786,6 @@ Ver archivo LICENSE para el texto completo.
 ![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
 
 </div>
----
 
 <div align="center">
 
