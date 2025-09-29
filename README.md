@@ -148,14 +148,17 @@ vimenstock/
 
 ## 🚀 Instalación
 
-### 📋 Requisitos Previos
+<detail>
+<summary> 📋 Requisitos Previos</summary>
 
 ```bash
 Node.js v14 o superior
 npm v6 o superior
 ```
 
-### 📥 Guía de Instalación
+</detail>
+<detail>
+<summary> 📥 Guía de Instalación</summary>
 
 ```bash
 # 1️⃣ Clonar el repositorio
@@ -174,15 +177,19 @@ npm start
 # Para desarrollo con auto-reload
 npm run dev
 ```
+</detail>
 
-### 🌐 Acceder a la Aplicación
+<detail>
+<summary>🌐 Acceder a la Aplicación</summary> 
 
 Abre tu navegador en: **http://localhost:3000**
+</detail>
 
 ---
 ## ⚙️ Configuración
 
-### 🔌 Cambiar Puerto del Servidor
+<detail>
+<summary>🔌 Cambiar Puerto del Servidor</summary> 
 
 ```javascript
 // Archivo: src/server.js
@@ -197,9 +204,11 @@ const PORT = 3000; // Cambiar a 3001, 8080, etc.
 - `3001` - Si 3000 está ocupado
 - `5000` - Otra alternativa común
 
+</detail>
 ---
 
-### 🎲 Configurar Datos de Prueba
+<detail>
+<summary> 🎲 Configurar Datos de Prueba</summary>
 
 ```javascript
 // Archivo: src/generateData.js
@@ -220,9 +229,12 @@ const stock = Math.floor(Math.random() * (200 - 10) + 10);
 //                                        Máx   Mín
 ```
 
+</detail>
+
 ---
 
-### 🌐 Acceso desde Otros Dispositivos
+<detail>
+<summary>🌐 Acceso desde Otros Dispositivos</summary> 
 
 ```bash
 # 1️⃣ Encontrar tu IP local
@@ -245,6 +257,8 @@ http://192.168.1.100:3000
 # Windows: Permitir Node.js en el firewall
 # Linux: sudo ufw allow 3000/tcp
 ```
+</detail>
+
 ---
 ## 💾 Backup y Recuperación
 
