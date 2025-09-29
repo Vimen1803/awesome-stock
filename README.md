@@ -792,20 +792,6 @@ Ver archivo LICENSE para el texto completo.
 
 ---
 
-## 👨‍💻 Autor
-
-<div align="center">
-
-**Victor Menjon**
-
-[![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
-[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/vimen1803)
-[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
-
-</div>
----
-
----
 ## 🙏 Agradecimientos
 
 Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
@@ -828,10 +814,17 @@ Gracias a todos los que han probado, dado feedback y contribuido durante el desa
 Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ---
+## 👨‍💻 Autor
 
-**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+<div align="center">
 
-**v2.0.0** | Septiembre 2025
+**Victor Menjon**
+
+[![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
+[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/vimen1803)
+[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
+
+</div>
 
 ---
 
@@ -846,3 +839,6 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 </div>
 
 ---
+**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+
+**v2.0.0** | Septiembre 2025
