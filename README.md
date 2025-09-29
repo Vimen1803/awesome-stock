@@ -6,24 +6,6 @@
 
 > Sistema de gestión de inventario con generación automática de tickets PDF, análisis financiero y seguimiento completo de operaciones.
 
-## 📑 Tabla de Contenidos
-
-- [Características principales](#-características-principales)
-- [Capturas de pantalla](#-capturas-de-pantalla)
-- [Instalación](#-instalación)
-- [Estructura del proyecto](#-estructura-del-proyecto)
-- [Uso](#-uso)
-- [Categorías](#-categorías)
-- [Tecnologías utilizadas](#-tecnologías-utilizadas)
-- [Backup y Recuperación](#-backup-y-recuperación)
-- [Configuración](#-configuración)
-- [Solución de problemas](#-solución-de-problemas)
-- [Preguntas Frecuentes](#-preguntas-frecuentes)
-- [Roadmap](#-roadmap)
-- [Licencia](#-licencia)
-- [Autor](#-autor)
-- [Soporte](#-soporte)
-
 ## 📋 Características principales
 
 ✨ **Gestión de Productos** - Añadir, editar y eliminar productos con información detallada  
@@ -359,7 +341,6 @@ MIT License - Ver archivo [LICENSE](LICENSE) para más detalles
 
 * Consultar la sección de [Preguntas Frecuentes](#-preguntas-frecuentes)
 * Revisar los [logs del sistema](#-sistema-de-logs)
-* Consultar el [historial de cambios](CHANGELOG.md)
 
 ## 🙏 Agradecimientos
 
