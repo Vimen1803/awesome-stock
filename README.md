@@ -511,6 +511,19 @@ const PORT = 3000; // Cambiar a 3001, 8080, etc.
 ---
 
 <details>
+<summary>⚠️ Umbral de Stock Bajo</summary>
+
+**Por defecto:** `25 unidades`
+
+```javascript
+// Editar: src/app.js
+const STOCKBAJO = 25; // Ajustar según necesidades
+```
+</details>
+
+---
+
+<details>
 <summary> 🎲 Configurar Datos de Prueba</summary>
 
 ```javascript
@@ -815,35 +828,6 @@ P123 - Pan Integral - Stock Disponible: 3 - 29/09/2025 14:40:20
 - ⚪ **Normal** (≥25): Sin alertas
 
 ---
-
-## ⚙️ Configuración
-
-### 🔌 Puerto del Servidor
-
-**Por defecto:** `3000`
-
-```javascript
-// Editar: src/server.js
-const PORT = 3000; // Cambiar al puerto deseado
-```
-
-### ⚠️ Umbral de Stock Bajo
-
-**Por defecto:** `25 unidades`
-
-```javascript
-// Editar: src/app.js
-const STOCKBAJO = 25; // Ajustar según necesidades
-```
-
-### 🎲 Datos de Prueba
-
-```javascript
-// Editar: src/generateData.js
-for (let i = 1; i <= 200; i++) { // Cambiar cantidad
-  // Generación de productos
-}
-```
 
 ## 🔌 API Endpoints
 
