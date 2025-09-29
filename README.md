@@ -670,7 +670,7 @@ npm start
 ---
 
 <details>
-<summary>### ⚠️ Consideraciones Importantes</summary>
+<summary>⚠️ Consideraciones Importantes</summary>
 
 | Aspecto | Detalle |
 |---------|---------|
