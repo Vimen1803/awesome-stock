@@ -389,6 +389,24 @@ vimenstock/
 <summary>📂 Categorías Predefinidas</summary>
 
 El sistema incluye **10 categorías** por defecto:
+
+```javascript
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
+
+const dataInicial = {
+  categorias: [
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
+  ],
+  productos: {},
+  historial: [],
+  finanzas: [],
+  ultimaIDUsada: 0
+};
+```
 </details>
 
 <details>
@@ -448,8 +466,6 @@ npm start
 </details>
 </details>
 
----
-
 <details>
 <summary>⚠️ Consideraciones Importantes</summary>
 
@@ -468,8 +484,6 @@ npm start
 3. O mantener las categorías antiguas como "legacy"
 
 </details>
-
----
 
 ---
 
