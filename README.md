@@ -446,14 +446,7 @@ npm start
 ```
 
 </details>
-
-**⚠️ Consideraciones:**
-- ✅ Productos existentes mantienen su categoría
-- ✅ Historial conserva categorías originales
-- ✅ Filtros se actualizan automáticamente
 </details>
-
----
 
 ---
 
