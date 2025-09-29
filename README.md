@@ -204,12 +204,32 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ![Pantalla de estadísticas](docs/screenshots/estadisticas.png)
 
-**Características:**
-- ✅ KPIs en tiempo real
-- ✅ 4 gráficos interactivos
-- ✅ Top 10 productos más vendidos
-- ✅ Análisis de stock bajo
-- ✅ Filtros por período
+**KPIs en Tiempo Real:**
+
+| Métrica | Descripción | Cálculo |
+|---------|-------------|---------|
+| 💵 Ingresos | Total vendido | Suma de todas las ventas |
+| 💸 Gastos | Total comprado | Suma de todas las compras |
+| 💰 Beneficio | Ganancia neta | Ingresos - Gastos |
+| 📊 Margen | Rentabilidad | (Beneficio / Ingresos) × 100 |
+| 🛒 Ventas | Nº operaciones | Conteo de ventas |
+| 🎯 Ticket Medio | Promedio venta | Ingresos / Nº ventas |
+
+**Gráficos Interactivos:**
+
+```
+📈 Evolución de Ventas (Línea)
+   └─ Ventas diarias en el período seleccionado
+   └─ Hover para ver detalles exactos
+
+📊 Categorías Rentables (Barras)
+   └─ Beneficio por categoría
+   └─ Ordenadas de mayor a menor
+
+🍩 Distribución de Stock (Pie)
+   └─ Stock por categoría
+   └─ Porcentajes visuales
+```
 
 </details>
 
@@ -537,7 +557,7 @@ vimenstock/
    └─ Beneficio por categoría
    └─ Ordenadas de mayor a menor
 
-🍩 Distribución de Stock (Dona)
+🍩 Distribución de Stock (Pie)
    └─ Stock por categoría
    └─ Porcentajes visuales
 ```
@@ -567,41 +587,13 @@ vimenstock/
 📄 HOJAS INCLUIDAS
 
 📦 HOJA 1: Productos
-├─ ID del producto
-├─ Nombre
-├─ Categoría
-├─ Proveedor
-├─ Precio de compra
-├─ Precio de venta
-├─ Stock actual
-├─ Ventas totales
-└─ Balance
 
 📜 HOJA 2: Historial
-├─ Fecha y hora
-├─ Tipo de operación
-├─ ID del producto
-├─ Nombre del producto
-├─ Cantidad
-├─ Precio
-└─ Ticket ID
 
 💰 HOJA 3: Finanzas
-├─ Fecha
-├─ Tipo (Ingreso/Gasto)
-├─ Categoría
-├─ Producto
-├─ Cantidad
-└─ Monto
 
 📈 HOJA 4: Resumen
-├─ Total de productos
-├─ Stock total
-├─ Ingresos totales
-├─ Gastos totales
-├─ Beneficio neto
-├─ Margen bruto
-└─ Otras métricas
+
 ```
 
 ### ⚠️ Alertas de Stock Bajo
@@ -788,21 +780,6 @@ for (let i = 1; i <= 200; i++) { // Cambiar cantidad
 }
 ```
 
-### 🌐 Acceso en Red Local
-
-```bash
-# Encontrar tu IP local
-# Windows
-ipconfig
-
-# Linux/Mac
-ifconfig
-
-# Acceder desde otro dispositivo
-http://[TU_IP_LOCAL]:3000
-# Ejemplo: http://192.168.1.100:3000
-```
-
 ---
 
 ## 💾 Backup y Recuperación
@@ -869,44 +846,6 @@ npm start
 | Método | Endpoint | Descripción | Body |
 |--------|----------|-------------|------|
 | `POST` | `/api/registrar-alerta-stock` | Registrar alerta | `{ productoID, nombre, stock }` |
-
-**Ejemplo de uso (JavaScript):**
-
-```javascript
-// Obtener datos
-const response = await fetch('/api/data');
-const data = await response.json();
-
-// Generar código de barras
-await fetch('/api/generar-codigo-barras', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    productoID: 'P001',
-    nombre: 'Producto Ejemplo'
-  })
-});
-
-// Exportar a Excel
-window.location.href = '/api/exportar-excel';
-```
-
----
-
-## 🎨 Características Adicionales
-
-### ✨ Funcionalidades Extra
-
-| Característica | Descripción |
-|----------------|-------------|
-| 🌙 **Modo Oscuro** | Persistente en localStorage |
-| 🔄 **Ordenación** | Clic en cabeceras de tabla |
-| 💶 **Formato Moneda** | Automático formato español (€) |
-| ✅ **Validaciones** | Stock, duplicados, campos requeridos |
-| 🔔 **Notificaciones** | Feedback visual de operaciones |
-| 🏷️ **Códigos Barras** | Code 128 automático |
-| 📱 **Responsive** | Adaptable a móviles y tablets |
-| ⚡ **Performance** | Carga bajo demanda |
 
 ---
 
