@@ -5,7 +5,6 @@ let chartVentas, chartCategorias, chartRotacion, chartStock;
 
 const selectPeriodo = document.getElementById("select-periodo");
 
-// Cargar datos
 async function cargarDatos() {
   try {
     const res = await fetch("/api/data");
@@ -20,7 +19,6 @@ async function cargarDatos() {
   }
 }
 
-// Calcular fecha límite según período
 function getFechaLimite() {
   const dias = parseInt(selectPeriodo.value);
   if (dias === 'all' || isNaN(dias)) return null;
@@ -30,7 +28,6 @@ function getFechaLimite() {
   return fecha;
 }
 
-// Filtrar datos por período
 function filtrarPorPeriodo(datos) {
   const fechaLimite = getFechaLimite();
   if (!fechaLimite) return datos;
@@ -38,7 +35,6 @@ function filtrarPorPeriodo(datos) {
   return datos.filter(d => new Date(d.fecha) >= fechaLimite);
 }
 
-// Calcular todas las estadísticas
 function calcularEstadisticas() {
   const finanzasFiltradas = filtrarPorPeriodo(finanzas);
   const historialFiltrado = filtrarPorPeriodo(historial);
@@ -52,7 +48,6 @@ function calcularEstadisticas() {
   renderStockBajo();
 }
 
-// Calcular KPIs principales
 function calcularKPIs(finanzasFiltradas, historialFiltrado) {
   const ingresos = finanzasFiltradas
     .filter(f => f.tipo === "ingreso")
@@ -70,7 +65,6 @@ function calcularKPIs(finanzasFiltradas, historialFiltrado) {
   
   const ticketMedio = ventasRealizadas > 0 ? (ingresos / ventasRealizadas) : 0;
   
-  // Actualizar valores
   document.getElementById("kpi-ingresos").textContent = 
     `€${ingresos.toFixed(2)}`;
   document.getElementById("kpi-gastos").textContent = 
@@ -84,11 +78,9 @@ function calcularKPIs(finanzasFiltradas, historialFiltrado) {
   document.getElementById("kpi-ticket").textContent = 
     `€${ticketMedio.toFixed(2)}`;
   
-  // Calcular tendencias (comparar con período anterior)
   calcularTendencias();
 }
 
-// Calcular tendencias comparando períodos
 function calcularTendencias() {
   const diasActual = parseInt(selectPeriodo.value);
   if (diasActual === 'all' || isNaN(diasActual)) {
@@ -128,7 +120,6 @@ function calcularTendencias() {
   actualizarTendencia('trend-ingresos', cambioIngresos);
 }
 
-// Actualizar elemento de tendencia
 function actualizarTendencia(id, cambio) {
   const el = document.getElementById(id);
   if (cambio > 0) {
@@ -143,11 +134,9 @@ function actualizarTendencia(id, cambio) {
   }
 }
 
-// Gráfico de evolución de ventas
 function renderChartVentas(finanzasFiltradas) {
   const ventas = finanzasFiltradas.filter(f => f.tipo === "ingreso");
   
-  // Agrupar por fecha
   const ventasPorFecha = {};
   ventas.forEach(v => {
     const fecha = new Date(v.fecha).toLocaleDateString('es-ES');
@@ -192,7 +181,6 @@ function renderChartVentas(finanzasFiltradas) {
   });
 }
 
-// Gráfico de categorías más rentables
 function renderChartCategorias(finanzasFiltradas) {
   const ingresosPorCategoria = {};
   
@@ -242,7 +230,6 @@ function renderChartCategorias(finanzasFiltradas) {
   });
 }
 
-// Gráfico de rotación de inventario
 function renderChartRotacion() {
   const rotacion = {};
   
@@ -293,7 +280,6 @@ function renderChartRotacion() {
   });
 }
 
-// Gráfico de distribución de stock
 function renderChartStock() {
   const categorias = {};
   
@@ -334,7 +320,6 @@ function renderChartStock() {
   });
 }
 
-// Top 10 productos más vendidos
 function renderTopProductos(historialFiltrado) {
   const ventasPorProducto = {};
   
@@ -394,7 +379,6 @@ function renderTopProductos(historialFiltrado) {
   });
 }
 
-// Productos con stock bajo
 function renderStockBajo() {
   const STOCK_MINIMO = 25;
   const fechaLimite = new Date();
@@ -457,8 +441,6 @@ function renderStockBajo() {
   });
 }
 
-// Eventos
 selectPeriodo.addEventListener('change', calcularEstadisticas);
 
-// Inicializar
 cargarDatos();
