@@ -683,6 +683,24 @@ npm start
 <summary>📂 Categorías Predefinidas</summary>
 
 El sistema incluye **10 categorías** por defecto:
+
+```javascript
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
+
+const dataInicial = {
+  categorias: [
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
+  ],
+  productos: {},
+  historial: [],
+  finanzas: [],
+  ultimaIDUsada: 0
+};
+```
 </details>
 
 <details>
@@ -740,11 +758,25 @@ npm start
 ```
 
 </details>
+</details>
 
-**⚠️ Consideraciones:**
-- ✅ Productos existentes mantienen su categoría
-- ✅ Historial conserva categorías originales
-- ✅ Filtros se actualizan automáticamente
+<details>
+<summary>⚠️ Consideraciones Importantes</summary>
+
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Productos Existentes** | Mantienen su categoría asignada incluso si eliminas esa categoría del array |
+| **Historial** | Las operaciones registradas conservan las categorías originales |
+| **Finanzas** | Los registros financieros mantienen las categorías históricas |
+| **Filtros** | Se actualizan automáticamente con las nuevas categorías |
+| **Compatibilidad** | Los productos con categorías eliminadas seguirán funcionando |
+
+**Recomendación:** Si vas a cambiar categorías con productos existentes, considera:
+1. Hacer backup de `data/data.json`
+2. Editar manualmente los productos para asignar nuevas categorías
+3. O mantener las categorías antiguas como "legacy"
+
 </details>
 
 ---
