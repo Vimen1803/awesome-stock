@@ -1,19 +1,16 @@
 const fs = require("fs");
 const path = require("path");
 
-// Verificar si la carpeta 'data' existe, y si no, crearla
 const dataDir = path.join(__dirname, '../data');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-// Lista de categorías centralizada
 const categorias = [
   "Alimentación", "Bebidas", "Limpieza", "Tecnología", "Hogar", 
   "Juguetes", "Cosmética", "Ropa", "Deportes", "Otro"
 ];
 
-// Lista de proveedores reales
 const proveedores = [
   "Mercadona", "Carrefour", "El Corte Inglés", "Lidl", "Dia", 
   "Alcampo", "Amazon", "Walmart", "Mediamarkt", "Decathlon"
@@ -31,11 +28,9 @@ const nombres = [
   "Crema", "Perfume", "Maquillaje", "Cepillo de dientes", "Pasta de dientes", "Jabón de manos",
 ];
 
-// Definir fechas de inicio y fin
-const startDate = new Date(2024, 0, 1); // 1 de enero de 2024
-const today = new Date(); // Fecha actual (hoy)
+const startDate = new Date(2024, 0, 1);
+const today = new Date(); 
 
-// Función para generar una fecha aleatoria entre startDate y today, con tiempo aleatorio
 function getRandomDate(start, end) {
   const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   randomDate.setHours(Math.floor(Math.random() * 24));
@@ -45,8 +40,7 @@ function getRandomDate(start, end) {
   return randomDate.toISOString();
 }
 
-// Generar 500 productos con datos realistas
-for (let i = 1; i <= 245; i++) {
+for (let i = 1; i <= 200; i++) {
   const id = "P" + i.toString().padStart(3, "0");
   const nombreBase = nombres[Math.floor(Math.random() * nombres.length)];
   const nombre = nombreBase + (i > nombres.length ? " " + Math.ceil(i / nombres.length) : "");
@@ -56,22 +50,20 @@ for (let i = 1; i <= 245; i++) {
   productos[id] = {
     nombre,
     categoria,
-    proveedor, // Proveedor asignado aleatoriamente
+    proveedor,
     precioCompra: parseFloat((Math.random() * 10 + 0.5).toFixed(2)),
     precioVenta: parseFloat((Math.random() * 20 + 2).toFixed(2)),
     stock: Math.floor(Math.random() * 100),
     ventasTotales: Math.floor(Math.random() * 50),
-    balance: 0.00, // Inicializar el balance en 0
+    balance: 0.00,
     imagen: "",
-    fechaAñadido: getRandomDate(startDate, today) // Fecha aleatoria desde 2024-01-01 hasta hoy
+    fechaAñadido: getRandomDate(startDate, today)
   };
 
-  // Generar historial de operaciones para cada producto
   const numOps = Math.floor(Math.random() * 10) + 5;
   for (let j = 0; j < numOps; j++) {
     const tipo = Math.random() < 0.6 ? "Vendido" : "Comprado";
     const cantidad = Math.floor(Math.random() * 20) + 1;
-    // Fecha aleatoria desde 2024-01-01 hasta hoy
     const fecha = getRandomDate(startDate, today);
 
     if (tipo === "Vendido" && productos[id].stock < cantidad) continue;
@@ -130,7 +122,6 @@ for (let i = 1; i <= 245; i++) {
   }
 }
 
-// Guardar los resultados en un archivo JSON
 const dataCompleta = {
   categorias,
   productos,
