@@ -787,6 +787,8 @@ Ver archivo LICENSE para el texto completo.
 
 </div>
 
+---
+
 <div align="center">
 
 ## ⭐ ¿Te gusta VimenStock?
