@@ -282,8 +282,36 @@ Consulta el archivo licencia y las guías necesarias
 <summary>📝 Sistema de Logs</summary>
 
 - **Log de aplicación**: `data/logs/app.log` - Todas las operaciones del sistema
-- **Alertas de stock**: `data/logs/stock_alerts.txt` - Productos con stock bajo
 - **Formato estructurado**: Timestamp, nivel y mensaje detallado
+</details>
+
+<details>
+<summary>⚠️ Alertas de Stock Bajo</summary>
+
+**Sistema Automático:**
+
+```
+🔔 SE ACTIVA CUANDO:
+└─ Stock < 25 unidades (configurable)
+
+📝 REGISTRO EN LOG:
+└─ Archivo: data/logs/stock_alerts.txt
+└─ Formato: [ID] - [Nombre] - Stock: [X] - [Fecha]
+└─ Ejemplo: P001 - Leche Entera - Stock Disponible: 15 - 29/09/2025 14:30
+
+🎨 VISUALIZACIÓN:
+└─ Número de stock en ROJO y NEGRITA en la tabla
+└─ Fácil identificación visual
+└─ Se actualiza en cada venta
+```
+
+**Configurar Umbral:**
+
+Editar en `src/app.js`:
+```javascript
+const STOCKBAJO = 25; // Cambiar a tu preferencia
+```
+
 </details>
 
 <details>
@@ -465,33 +493,7 @@ Abre tu navegador en: **http://localhost:3000**
 ---
 
 
-### ⚠️ Alertas de Stock Bajo
 
-**Sistema Automático:**
-
-```
-🔔 SE ACTIVA CUANDO:
-└─ Stock < 25 unidades (configurable)
-
-📝 REGISTRO EN LOG:
-└─ Archivo: data/logs/stock_alerts.txt
-└─ Formato: [ID] - [Nombre] - Stock: [X] - [Fecha]
-└─ Ejemplo: P001 - Leche Entera - Stock Disponible: 15 - 29/09/2025 14:30
-
-🎨 VISUALIZACIÓN:
-└─ Número de stock en ROJO y NEGRITA en la tabla
-└─ Fácil identificación visual
-└─ Se actualiza en cada venta
-```
-
-**Configurar Umbral:**
-
-Editar en `src/app.js`:
-```javascript
-const STOCKBAJO = 25; // Cambiar a tu preferencia
-```
-
----
 
 ## 🛠️ Tecnologías Utilizadas
 
