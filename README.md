@@ -845,44 +845,6 @@ for (let i = 1; i <= 200; i++) { // Cambiar cantidad
 }
 ```
 
----
-
-## 💾 Backup y Recuperación
-
-### 📦 Hacer Backup Manual
-
-```bash
-# Backup del archivo de datos
-cp data/data.json data/backup_$(date +%Y%m%d).json
-
-# Backup completo de la carpeta data
-cp -r data/ backup_data_$(date +%Y%m%d)/
-
-# Backup de códigos de barras
-cp -r docs/bar_code/ backup_bar_code_$(date +%Y%m%d)/
-
-# Backup todo en uno (Linux/Mac)
-tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/ docs/bar_code/
-```
-
-### ♻️ Restaurar desde Backup
-
-```bash
-# 1️⃣ Detener el servidor
-Ctrl + C
-
-# 2️⃣ Restaurar archivo
-cp data/backup_20250929.json data/data.json
-
-# 3️⃣ Restaurar carpetas completas (si es necesario)
-cp -r backup_data_20250929/* data/
-
-# 4️⃣ Reiniciar servidor
-npm start
-```
-
----
-
 ## 🔌 API Endpoints
 
 <details>
