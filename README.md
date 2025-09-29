@@ -27,8 +27,8 @@
 <tr>
 <td width="33%" align="center">
 
-### 📖 Documentación
-Consulta la documentación completa y guías de uso
+### 🛠 Tecnologías
+Consulta las tecnologías usadas tanto en el front como en el back
 
 [Ver Docs](#-uso)
 
