@@ -752,3 +752,37 @@ cat data/data.json | python -m json.tool
 df -h
 
 # 4️⃣
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia **MIT**.
+
+```
+MIT License
+
+Copyright (c) 2025 Victor Menjon
+
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
+de este software y archivos de documentación asociados (el "Software"), para usar
+el Software sin restricciones, incluyendo sin limitación los derechos de usar,
+copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias
+del Software...
+
+Ver archivo LICENSE para el texto completo.
+```
+
+---
+
+## 👨‍💻 Autor
+
+<div align="center">
+
+**Victor Menjon**
+
+[![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
+[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/vimen1803)
+[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
+
+</div>
