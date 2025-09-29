@@ -488,7 +488,8 @@ npm start
 
 ### 💰 Análisis Financiero
 
-**Períodos Disponibles:**
+<details>
+<summary>Períodos Disponibles:</summary>
 
 | Período | Descripción | Uso |
 |---------|-------------|-----|
@@ -498,7 +499,10 @@ npm start
 | 📅 **Anual** | 365 días | Último año |
 | 📅 **Siempre** | Todo | Histórico completo |
 
-**Filtros Adicionales:**
+</details>
+
+<details>
+<summary>Filtros Adicionales:</summary>
 
 ```
 🔍 Filtrar por:
@@ -512,8 +516,10 @@ npm start
 ├─ 💰 Beneficio total destacado
 └─ Hover para ver detalles exactos
 ```
+</details>
 
-**Cómo usar:**
+<details>
+<sumamry>Cómo usar:</sumamry>
 
 ```
 1️⃣ Seleccionar período predefinido
@@ -531,6 +537,7 @@ npm start
 4️⃣ Analizar tendencias
    └─ Identificar períodos más rentables
 ```
+</details>
 
 ---
 
