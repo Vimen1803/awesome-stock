@@ -567,9 +567,7 @@ npm start
 
 ---
 
-## 🏷️ Categorías
-
-### ✏️ Cómo Editar las Categorías
+## ✏️ Cómo Editar las Categorías
 
 <details>
 <summary><b>Método 1: Antes del Primer Inicio</b> ⭐ Recomendado</summary>
