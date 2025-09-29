@@ -54,9 +54,9 @@ Consulta el archivo licencia y las guías necesarias
 
 <div align="center">
 
-| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
+| 🌚 Modo Oscuro | 📇 Filtro | 📈 Estadísticas | ⚠️ Guardado Automático |
 |:---:|:---:|:---:|:---:|
-| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
+| Elección Oscuro/Claro | Filtros Variados | Grafico Beneficios | API conectada a JSON |
 
 </div>
 
