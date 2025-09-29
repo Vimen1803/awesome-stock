@@ -12,6 +12,7 @@ Sistema de gestión de inventario profesional con generación automática de tic
 - **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
 - **⚠️ Alertas de Stock Bajo**: Sistema automático de alertas cuando el stock es inferior a 25 unidades
 - **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado
+- **🎱 Dashboard con métricas en tiempo real
 - **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
 - **🔧 Optimizaciones**: Mejor rendimiento y gestión de memoria
 
@@ -483,16 +484,14 @@ Code 128, uno de los formatos más utilizados en retail y logística.
 ## 🗺️ Roadmap
 
 ### Versión 2.1.0 (próximamente)
-- [ ] Impresión directa de códigos de barras
-- [ ] Lector de códigos de barras con webcam
+- [ ] Base de datos (MongoDB)
 - [ ] Notificaciones por email para alertas de stock
 - [ ] Backup automático programado
 
 ### Versión 3.0.0 (futuro)
-- [ ] Base de datos (MongoDB)
+- [ ] Lector de códigos de barras con webcam
 - [ ] Autenticación y autorización multiusuario
 - [ ] API REST completa para integraciones
-- [ ] Dashboard con métricas en tiempo real
 
 ## 📄 Licencia
 
@@ -516,4 +515,4 @@ Gracias a todos los que han probado y dado feedback durante el desarrollo de Vim
 
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
-*Versión 2.0 - Septiembre 2025*
+*Versión 2.0.0 - Septiembre 2025*
