@@ -279,7 +279,7 @@ Consulta el archivo licencia y las guías necesarias
 </div>
 
 
-## 📝 Sistema de Logs
+### 📝 Sistema de Logs
 
 <details>
 <summary>📄 Log de Aplicación</summary>
@@ -317,6 +317,9 @@ P123 - Pan Integral - Stock Disponible: 3 - 29/09/2025 14:40:20
 </details>
 
 <details>
+
+---
+   
 <summary>🎨 Interfaz y UX</summary>
 
 - 🌙 **Modo Oscuro** persistente para reducir fatiga visual
