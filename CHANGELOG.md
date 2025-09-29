@@ -133,7 +133,7 @@ Esta es una actualización importante que introduce múltiples funcionalidades p
 
 ---
 
-## [1.0.0] - 2024-01-01
+## [1.0.0] - 2025-09-15
 
 ### 🎉 Lanzamiento Inicial
 
@@ -233,5 +233,6 @@ Primera versión estable de VimenStock con funcionalidades básicas de gestión 
 - **PATCH** (0.0.X): Correcciones de errores compatibles con versiones anteriores
 
 ---
+
 
 *Última actualización: 29 de Septiembre de 2025*
