@@ -1,4 +1,4 @@
-# VimenStock v2.0
+# VimenStock v2.0.0
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
@@ -6,7 +6,7 @@
 
 Sistema de gestión de inventario profesional con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.
 
-## 🎉 Novedades en v2.0
+## 🎉 Novedades en v2.0.0
 
 - **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
 - **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
