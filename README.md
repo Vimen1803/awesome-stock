@@ -950,8 +950,8 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 --- 
 Desarrollado con ❤️ para facilitar la gestión de inventarios
 
-[![Made in Spain](https://img.shields.io/badge/Made%20in-Spain%20🇪🇸-red?style=for-the-badge)]()
-
 *v1.0.0 | Agosto 2025*
+
+[![Made in Spain](https://img.shields.io/badge/Made%20in-Spain%20🇪🇸-red?style=for-the-badge)]()
 </div>
 </div>
