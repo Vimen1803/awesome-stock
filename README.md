@@ -21,7 +21,7 @@
 
 [Documentación](#-uso) •
 [Instalación](#-instalación) •
-[Road Map](#-8F-roadmap)
+[Road Map](#%EF%B8%8F-roadmap)
 
 </div>
 
