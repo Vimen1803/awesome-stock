@@ -13,9 +13,9 @@
 
 >  ⚠️ **Nota:** Esta es la versión 1.0.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.0.0](https://github.com/Vimen1803/awesome-stock/blob/2.0.0/README.md)
 
-[Características](#-características-destacadas) •
+[Documentación](#-uso) •
 [Instalación](#-instalación) •
-[Documentación](#-uso)
+[Características](#-características-destacadas)
 
 </div>
 
