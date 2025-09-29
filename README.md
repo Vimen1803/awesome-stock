@@ -10,7 +10,6 @@ Sistema de gestión de inventario profesional con generación automática de tic
 
 - **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
 - **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
-- **📝 Sistema de Logs Avanzado**: Registro completo de operaciones con Winston
 - **⚠️ Alertas de Stock Bajo**: Sistema automático de alertas cuando el stock es inferior a 25 unidades
 - **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado
 - **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
@@ -131,7 +130,7 @@ vimenstock/
 ├── data/
 │   ├── data.json           # Base de datos JSON
 │   ├── logs/              # Archivos de registro
-│   │   ├── app.log        # Log general de la aplicación (NUEVO)
+│   │   ├── app.log        # Log general de la aplicación
 │   │   └── stock_alerts.txt # Alertas de stock bajo (NUEVO)
 │   └── tickets/           # Tickets PDF generados
 │       ├── compra/        # Tickets de compra
