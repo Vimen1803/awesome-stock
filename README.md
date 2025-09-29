@@ -753,13 +753,12 @@ df -h
 
 # 4️⃣
 
+```
 ---
-
 ## 📜 Licencia
 
 Este proyecto está bajo la licencia **MIT**.
 
-```
 MIT License
 
 Copyright (c) 2025 Victor Menjon
