@@ -157,6 +157,7 @@ npm v6 o superior
 ```
 
 </detail>
+
 <detail>
 <summary> 📥 Guía de Instalación</summary>
 
@@ -177,15 +178,18 @@ npm start
 # Para desarrollo con auto-reload
 npm run dev
 ```
+
 </detail>
 
 <detail>
 <summary>🌐 Acceder a la Aplicación</summary> 
 
 Abre tu navegador en: **http://localhost:3000**
+
 </detail>
 
 ---
+
 ## ⚙️ Configuración
 
 <detail>
@@ -205,6 +209,7 @@ const PORT = 3000; // Cambiar a 3001, 8080, etc.
 - `5000` - Otra alternativa común
 
 </detail>
+
 ---
 
 <detail>
@@ -257,9 +262,11 @@ http://192.168.1.100:3000
 # Windows: Permitir Node.js en el firewall
 # Linux: sudo ufw allow 3000/tcp
 ```
+
 </detail>
 
 ---
+
 ## 💾 Backup y Recuperación
 
 ### 📦 Hacer Backup Manual
