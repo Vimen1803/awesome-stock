@@ -21,32 +21,101 @@
 
 ---
 
-## 📋 Características Principales
+## 📞 Soporte
 
 <table>
 <tr>
-<td width="50%">
+<td width="33%" align="center">
 
-### 🎯 Funcionalidades Core
-- ✅ **Gestión de Productos** - CRUD completo
-- ✅ **Control de Inventario** - Compras y ventas
-- ✅ **Tickets PDF** - Generación automática
-- ✅ **Historial Completo** - Todas las operaciones
-- ✅ **Análisis Financiero** - Gráficos y reportes
+### 📖 Documentación
+Consulta la documentación completa y guías de uso
+
+[Ver Docs](#-uso)
 
 </td>
-<td width="50%">
+<td width="33%" align="center">
 
-### 🛠️ Herramientas
-- ✅ **Categorización** - 10 categorías predefinidas
-- ✅ **Filtros Avanzados** - Búsqueda múltiple
-- ✅ **Modo Oscuro** - Confort visual
-- ✅ **Sistema de Logs** - Registro con Winston
-- ✅ **Responsive** - Adaptable a pantallas
+### ❓ FAQ
+Encuentra respuestas a preguntas y errores comunes
+
+[Ver FAQ](#-preguntas-frecuentes)
+
+</td>
+<td width="33%" align="center">
+
+### 📰 LICENCIA
+Consulta el archivo licencia y las guías necesarias
+
+[Ver LICENCIA](#-licencia-1)
 
 </td>
 </tr>
 </table>
+
+---
+
+## 🙏 Agradecimientos
+
+Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
+
+**Tecnologías y librerías open source utilizadas:**
+- [Node.js](https://nodejs.org/) - Entorno de ejecución
+- [Express](https://expressjs.com/) - Framework web
+- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
+- [PDFKit](https://pdfkit.org/) - Generación de PDFs
+- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
+- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
+- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
+
+---
+
+## 📊 Estadísticas del Proyecto
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
+![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
+![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
+
+</div>
+
+---
+
+## 🌟 Características Destacadas
+
+<div align="center">
+
+| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
+|:---:|:---:|:---:|:---:|
+| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
+
+</div>
+
+---
+
+<div align="center">
+
+## ⭐ ¿Te gusta VimenStock?
+
+Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
+
+---
+
+**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+
+**v2.0.0** | Septiembre 2025
+
+---
+
+[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+
+---
+
+[⬆ Volver arriba](#-vimenstock)
+
+</div>
 
 ---
 
