@@ -365,19 +365,6 @@ vimenstock/
 
 El sistema incluye **10 categorías** por defecto:
 
-| # | Categoría | Icono | Ejemplos de Productos |
-|---|-----------|-------|----------------------|
-| 1 | **Alimentación** | 🍞 | Pan, leche, cereales, frutas |
-| 2 | **Bebidas** | 🥤 | Agua, refrescos, jugos, alcohol |
-| 3 | **Limpieza** | 🧹 | Detergentes, desinfectantes, toallas |
-| 4 | **Tecnología** | 💻 | Cables, accesorios, gadgets |
-| 5 | **Hogar** | 🏠 | Decoración, utensilios, textiles |
-| 6 | **Juguetes** | 🧸 | Juegos, muñecos, puzzles |
-| 7 | **Cosmética** | 💄 | Maquillaje, perfumes, cremas |
-| 8 | **Ropa** | 👕 | Camisetas, pantalones, zapatos |
-| 9 | **Deportes** | ⚽ | Equipamiento, ropa deportiva |
-| 10 | **Otro** | 📦 | Productos no categorizados |
-
 ---
 
 ### ✏️ Cómo Editar las Categorías
