@@ -792,21 +792,6 @@ Ver archivo LICENSE para el texto completo.
 
 ---
 
-## 🙏 Agradecimientos
-
-Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
-
-**Tecnologías y librerías open source utilizadas:**
-- [Node.js](https://nodejs.org/) - Entorno de ejecución
-- [Express](https://expressjs.com/) - Framework web
-- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
-- [PDFKit](https://pdfkit.org/) - Generación de PDFs
-- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
-- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
-- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
-
----
-
 <div align="center">
 
 ## ⭐ ¿Te gusta VimenStock?
@@ -839,6 +824,8 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 </div>
 
 ---
+<div align="center">
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
 **v2.0.0** | Septiembre 2025
+</div>
