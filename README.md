@@ -145,211 +145,6 @@ vimenstock/
 
 ---
 
-## 🚀 Instalación
-
-<details>
-<summary> 📋 Requisitos Previos</summary>
-
-```bash
-Node.js v14 o superior
-npm v6 o superior
-```
-
-</details>
-
-<details>
-<summary> 📥 Guía de Instalación</summary>
-
-```bash
-# 1️⃣ Clonar el repositorio
-git clone https://github.com/tu-usuario/vimenstock.git
-cd vimenstock
-
-# 2️⃣ Instalar dependencias
-npm install
-
-# 3️⃣ (Opcional) Generar datos de prueba
-npm run data
-
-# 4️⃣ Iniciar servidor
-npm start
-
-# Para desarrollo con auto-reload
-npm run dev
-```
-
-</details>
-
-<details>
-<summary>🌐 Acceder a la Aplicación</summary> 
-
-Abre tu navegador en: **http://localhost:3000**
-
-</details>
-
----
-
-## ⚙️ Configuración
-
-<details>
-<summary>🔌 Cambiar Puerto del Servidor</summary> 
-
-```javascript
-// Archivo: src/server.js
-// Línea: ~15
-
-const PORT = 3000; // Cambiar a 3001, 8080, etc.
-```
-
-**Puertos comunes:**
-- `3000` - Por defecto
-- `8080` - Alternativa popular
-- `3001` - Si 3000 está ocupado
-- `5000` - Otra alternativa común
-
-</details>
-
----
-
-<details>
-<summary> 🎲 Configurar Datos de Prueba</summary>
-
-```javascript
-// Archivo: src/generateData.js
-
-// Cambiar cantidad de productos generados
-for (let i = 1; i <= 200; i++) { // Cambiar 200 por el número deseado
-  // ... código de generación
-}
-
-// Personalizar rangos de precios
-const precioCompra = (Math.random() * (50 - 1) + 1).toFixed(2);
-//                                      ↑    ↑
-//                                    Máx  Mín
-
-// Personalizar stock inicial
-const stock = Math.floor(Math.random() * (200 - 10) + 10);
-//                                          ↑     ↑
-//                                        Máx   Mín
-```
-
-</details>
-
----
-
-<details>
-<summary>🌐 Acceso desde Otros Dispositivos</summary> 
-
-```bash
-# 1️⃣ Encontrar tu IP local
-
-# Windows:
-ipconfig
-# Buscar: "Dirección IPv4"
-
-# Linux/macOS:
-ifconfig
-# O
-ip addr show
-
-# 2️⃣ Acceder desde otro dispositivo
-# Formato: http://[TU_IP]:3000
-# Ejemplo:
-http://192.168.1.100:3000
-
-# 3️⃣ Asegurarse que el firewall permite conexiones
-# Windows: Permitir Node.js en el firewall
-# Linux: sudo ufw allow 3000/tcp
-```
-
-</details>
-
----
-
-## 💾 Backup y Recuperación
-
-### 📦 Hacer Backup Manual
-
-<details>
-<summary><b>Linux / macOS</b></summary>
-
-```bash
-# Backup rápido del archivo principal
-cp data/data.json data/backup_$(date +%Y%m%d).json
-
-# Backup completo de la carpeta data
-cp -r data/ backup_data_$(date +%Y%m%d)/
-
-# Backup comprimido (recomendado)
-tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/
-
-# Listar backups
-ls -lh backup_*.tar.gz
-```
-
-</details>
-
-<details>
-<summary><b>Windows</b></summary>
-
-```bash
-REM Backup del archivo principal
-copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
-
-REM Backup completo de la carpeta
-xcopy data backup_data_%date:~-4,4%%date:~-7,2%%date:~-10,2%\ /E /I
-
-REM Comprimir con PowerShell
-powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.zip
-```
-
-</details>
-
----
-
-### ♻️ Restaurar desde Backup
-
-<details>
-<summary><b>Linux / macOS</b></summary>
-  
-```bash
-# 1️⃣ Detener el servidor
-Ctrl + C
-
-# 2️⃣ Restaurar archivo de datos
-cp data/backup_20250828.json data/data.json
-
-# 3️⃣ O restaurar carpeta completa
-rm -rf data/
-cp -r backup_data_20250828/ data/
-
-# 4️⃣ Reiniciar servidor
-npm start
-```
-</details>
-
-<details>
-<summary><b>Windows</b></summary>
-
-```bash
-# 1️⃣ Detener el servidor
-Ctrl + C
-
-# 2️⃣ Restaurar archivo de datos
-copy data\backup_20250828.json data\data.json
-
-# 3️⃣ O restaurar carpeta completa
-rmdir /s /q data
-xcopy /e /i backup_data_20250828 data
-
-# 4️⃣ Reiniciar servidor
-npm start
-```
-
-</details>
-
----
-
 ## 🎯 Uso
 
 ### 📦 Gestión de Productos
@@ -687,6 +482,214 @@ npm start
 </details>
 
 ---
+
+---
+
+## 🚀 Instalación
+
+<details>
+<summary> 📋 Requisitos Previos</summary>
+
+```bash
+Node.js v14 o superior
+npm v6 o superior
+```
+
+</details>
+
+<details>
+<summary> 📥 Guía de Instalación</summary>
+
+```bash
+# 1️⃣ Clonar el repositorio
+git clone https://github.com/tu-usuario/vimenstock.git
+cd vimenstock
+
+# 2️⃣ Instalar dependencias
+npm install
+
+# 3️⃣ (Opcional) Generar datos de prueba
+npm run data
+
+# 4️⃣ Iniciar servidor
+npm start
+
+# Para desarrollo con auto-reload
+npm run dev
+```
+
+</details>
+
+<details>
+<summary>🌐 Acceder a la Aplicación</summary> 
+
+Abre tu navegador en: **http://localhost:3000**
+
+</details>
+
+---
+
+## ⚙️ Configuración
+
+<details>
+<summary>🔌 Cambiar Puerto del Servidor</summary> 
+
+```javascript
+// Archivo: src/server.js
+// Línea: ~15
+
+const PORT = 3000; // Cambiar a 3001, 8080, etc.
+```
+
+**Puertos comunes:**
+- `3000` - Por defecto
+- `8080` - Alternativa popular
+- `3001` - Si 3000 está ocupado
+- `5000` - Otra alternativa común
+
+</details>
+
+---
+
+<details>
+<summary> 🎲 Configurar Datos de Prueba</summary>
+
+```javascript
+// Archivo: src/generateData.js
+
+// Cambiar cantidad de productos generados
+for (let i = 1; i <= 200; i++) { // Cambiar 200 por el número deseado
+  // ... código de generación
+}
+
+// Personalizar rangos de precios
+const precioCompra = (Math.random() * (50 - 1) + 1).toFixed(2);
+//                                      ↑    ↑
+//                                    Máx  Mín
+
+// Personalizar stock inicial
+const stock = Math.floor(Math.random() * (200 - 10) + 10);
+//                                          ↑     ↑
+//                                        Máx   Mín
+```
+
+</details>
+
+---
+
+<details>
+<summary>🌐 Acceso desde Otros Dispositivos</summary> 
+
+```bash
+# 1️⃣ Encontrar tu IP local
+
+# Windows:
+ipconfig
+# Buscar: "Dirección IPv4"
+
+# Linux/macOS:
+ifconfig
+# O
+ip addr show
+
+# 2️⃣ Acceder desde otro dispositivo
+# Formato: http://[TU_IP]:3000
+# Ejemplo:
+http://192.168.1.100:3000
+
+# 3️⃣ Asegurarse que el firewall permite conexiones
+# Windows: Permitir Node.js en el firewall
+# Linux: sudo ufw allow 3000/tcp
+```
+
+</details>
+
+---
+
+## 💾 Backup y Recuperación
+
+### 📦 Hacer Backup Manual
+
+<details>
+<summary><b>Linux / macOS</b></summary>
+
+```bash
+# Backup rápido del archivo principal
+cp data/data.json data/backup_$(date +%Y%m%d).json
+
+# Backup completo de la carpeta data
+cp -r data/ backup_data_$(date +%Y%m%d)/
+
+# Backup comprimido (recomendado)
+tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/
+
+# Listar backups
+ls -lh backup_*.tar.gz
+```
+
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+```bash
+REM Backup del archivo principal
+copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
+
+REM Backup completo de la carpeta
+xcopy data backup_data_%date:~-4,4%%date:~-7,2%%date:~-10,2%\ /E /I
+
+REM Comprimir con PowerShell
+powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.zip
+```
+
+</details>
+
+---
+
+### ♻️ Restaurar desde Backup
+
+<details>
+<summary><b>Linux / macOS</b></summary>
+  
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo de datos
+cp data/backup_20250828.json data/data.json
+
+# 3️⃣ O restaurar carpeta completa
+rm -rf data/
+cp -r backup_data_20250828/ data/
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo de datos
+copy data\backup_20250828.json data\data.json
+
+# 3️⃣ O restaurar carpeta completa
+rmdir /s /q data
+xcopy /e /i backup_data_20250828 data
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+
+</details>
+
+---
+
 
 ## 🛠️ Tecnologías Utilizadas
 
