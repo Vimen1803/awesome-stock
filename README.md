@@ -669,6 +669,7 @@ npm start
 
 ---
 
+<details>
 ### ⚠️ Consideraciones Importantes
 
 | Aspecto | Detalle |
@@ -683,6 +684,8 @@ npm start
 1. Hacer backup de `data/data.json`
 2. Editar manualmente los productos para asignar nuevas categorías
 3. O mantener las categorías antiguas como "legacy"
+
+</details>
 
 ---
 
