@@ -301,7 +301,6 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 - 📈 Evolución de ventas
 - 📊 Categorías rentables
 - 🍩 Distribución de stock
-- ↔️ Rotación de inventario
 
 </td>
 <td width="33%">
@@ -310,7 +309,6 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 - 📊 Excel (4 hojas)
 - 🎫 Tickets PDF
 - 📜 Historial completo
-- 💾 Backup de datos
 
 </td>
 </tr>
