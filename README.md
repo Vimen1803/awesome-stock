@@ -383,105 +383,77 @@ vimenstock/
 
 ---
 
-## ✏️ Cómo Editar las Categorías
+## 🏷️ Categorías
 
 <details>
-<summary><b>Método 1: Antes del Primer Inicio</b> ⭐ Recomendado</summary>
+<summary>📂 Categorías Predefinidas</summary>
 
-<br>
+El sistema incluye **10 categorías** por defecto:
+</details>
 
-**Paso a paso:**
+<details>
+<summary>✏️ Personalizar Categorías</summary>
+
+<details>
+<summary><b>Opción 1: Antes del Primer Inicio</b> (Recomendado)</summary>
 
 ```javascript
-// 1️⃣ Abrir archivo: src/server.js
-
-// 2️⃣ Buscar la función: inicializarDataJSON()
-
-// 3️⃣ Modificar el array de categorías:
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
 
 const dataInicial = {
   categorias: [
-    "Electrónica",        // Tu categoría 1
-    "Muebles",            // Tu categoría 2
-    "Decoración",         // Tu categoría 3
-    "Accesorios",         // Tu categoría 4
-    "Ferretería",         // Tu categoría 5
-    "Papelería",          // Tu categoría 6
-    "Mascotas",           // Tu categoría 7
-    "Libros",             // Tu categoría 8
-    "Música",             // Tu categoría 9
-    "Otros"               // Tu categoría 10
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
   ],
   productos: {},
   historial: [],
   finanzas: [],
   ultimaIDUsada: 0
 };
-
-// 4️⃣ Guardar archivo
-
-// 5️⃣ Ejecutar:
 ```
-
-```bash
-npm start
-```
-
-✅ **Ventajas:**
-- Las categorías están desde el inicio
-- No hay productos con categorías antiguas
-- Configuración limpia
 
 </details>
 
 <details>
-<summary><b>Método 2: Después del Primer Inicio</b></summary>
-
-<br>
-
-**Paso a paso:**
+<summary><b>Opción 2: Después del Primer Inicio</b></summary>
 
 ```bash
-# 1️⃣ Detener el servidor
+# 1. Detener el servidor
 Ctrl + C
 
-# 2️⃣ Abrir archivo de datos
-# Ubicación: data/data.json
+# 2. Editar data/data.json
 ```
 
 ```json
 {
   "categorias": [
-    "Tu Nueva Categoría 1",
-    "Tu Nueva Categoría 2",
-    "Tu Nueva Categoría 3",
-    "..."
+    "Electrónica",
+    "Muebles",
+    "Decoración",
+    "Accesorios"
   ],
-  "productos": { 
-    // No modificar esta sección
-  },
-  "historial": [
-    // No modificar esta sección
-  ],
-  "finanzas": [
-    // No modificar esta sección
-  ]
+  "productos": { ... },
+  "historial": [ ... ]
 }
 ```
 
 ```bash
-# 3️⃣ Guardar cambios
-
-# 4️⃣ Reiniciar servidor
+# 3. Reiniciar
 npm start
 ```
 
-⚠️ **Consideraciones:**
-- Los productos existentes mantienen su categoría anterior
-- Asegúrate de que el JSON sea válido (usa un validador online)
-- Haz backup antes de modificar
-
 </details>
+
+**⚠️ Consideraciones:**
+- ✅ Productos existentes mantienen su categoría
+- ✅ Historial conserva categorías originales
+- ✅ Filtros se actualizan automáticamente
+</details>
+
+---
 
 ---
 
