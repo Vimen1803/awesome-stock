@@ -24,7 +24,7 @@
 
 <table>
 <tr>
-<td width="33%" align="center">
+<td width="40%" align="center">
 
 ### 📖 Documentación
 Consulta la documentación completa y guías de uso
