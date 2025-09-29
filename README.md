@@ -15,8 +15,7 @@
 
 [Características](#-características-principales) •
 [Instalación](#-instalación) •
-[Documentación](#-uso) •
-[Migrar a v2.0](#-migrar-a-v20)
+[Documentación](#-uso)
 
 </div>
 
