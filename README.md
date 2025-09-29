@@ -679,11 +679,14 @@ npm start
 
 ## 🏷️ Categorías
 
-### 📂 Categorías Predefinidas
+<details>
+<summary>📂 Categorías Predefinidas</summary>
 
 El sistema incluye **10 categorías** por defecto:
+</details>
 
-### ✏️ Personalizar Categorías
+<details>
+<summary>✏️ Personalizar Categorías</summary>
 
 <details>
 <summary><b>Opción 1: Antes del Primer Inicio</b> (Recomendado)</summary>
@@ -742,6 +745,7 @@ npm start
 - ✅ Productos existentes mantienen su categoría
 - ✅ Historial conserva categorías originales
 - ✅ Filtros se actualizan automáticamente
+</details>
 
 ---
 
