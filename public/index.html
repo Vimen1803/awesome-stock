@@ -27,19 +27,16 @@
 </header>
 
 <div class="container">
-  <!-- BOTONES FORMULARIOS EN LA MISMA FILA -->
   <div id="botones-formularios" style="display:flex; gap:10px; margin-bottom:15px;">
     <button id="btn-toggle-add" class="form-toggle-btn">▼ AÑADIR PRODUCTO ▼</button>
     <button id="btn-toggle-comprar" class="form-toggle-btn">▼ COMPRAR▼ </button>
     <button id="btn-toggle-vender" class="form-toggle-btn">▼ VENDER ▼</button>
   </div>
 
-  <!-- FORMULARIOS -->
   <form id="form-add" class="collapsible-form">
     <label>Nombre<input type="text" id="nombre" required></label>
     <label>Categoría
       <select id="categoria" required>
-        <!-- Se poblarán dinámicamente desde data.json -->
       </select>
     </label>
     <label>Proveedor<input type="text" id="proveedor" required></label>
@@ -62,18 +59,15 @@
     <button type="button" id="btn-confirm-vender">Confirmar Venta</button>
   </form>
 
-  <!-- FILTROS EN UNA LINEA -->
   <div id="filtros-container" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
     <input type="text" id="busqueda-producto" placeholder="Buscar por ID o nombre" style="flex:1;">
     <select id="filtro-categoria" style="flex:0.5;">
       <option value="todos">Todos</option>
-      <!-- Se poblarán dinámicamente desde data.json -->
     </select>
     <button type="button" id="btn-reset-filtros">Quitar filtros</button>
     <button type="button" id="btn-exportar-excel" style="background-color:#28a745; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">📊 Exportar a Excel</button>
   </div>
 
-  <!-- TABLA -->
   <table id="tabla-productos">
     <thead>
       <tr>
@@ -96,7 +90,6 @@
 
 <script src="app.js"></script>
 <script>
-  // ABRIR/CERRAR FORMULARIOS - SOLO UNO ABIERTO
   const botones = [
     {btn: document.getElementById("btn-toggle-add"), form: document.getElementById("form-add")},
     {btn: document.getElementById("btn-toggle-comprar"), form: document.getElementById("form-comprar")},
@@ -114,4 +107,5 @@
   });
 </script>
 </body>
+
 </html>
