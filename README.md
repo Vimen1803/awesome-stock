@@ -670,6 +670,7 @@ npm start
 <details>
 <summary>⚠️ Consideraciones Importantes</summary>
 
+
 | Aspecto | Detalle |
 |---------|---------|
 | **Productos Existentes** | Mantienen su categoría asignada incluso si eliminas esa categoría del array |
