@@ -370,9 +370,10 @@ vimenstock/
 
 ---
 
-## 📋 Características Principales
+## 📋 Características Principales 
 
 ### 📦 Gestión de Inventario
+> Para obtener una descripción detallada de cada función visita [Capturas de pantalla](#-capturas-de-pantalla)
 
 <table>
 <tr>
@@ -400,6 +401,7 @@ vimenstock/
 </table>
 
 ### 🎫 Operaciones y Tickets
+> Para obtener una descripción detallada de cada función visita [Capturas de pantalla](#-capturas-de-pantalla)
 
 - ✅ **Tickets PDF profesionales** para cada operación
 - ✅ **Operaciones múltiples** (varios productos en una transacción)
@@ -408,6 +410,7 @@ vimenstock/
 - ✅ **Registro detallado** de precios y cantidades
 
 ### 📊 Análisis y Reportes
+> Para obtener una descripción detallada de cada función visita [Capturas de pantalla](#-capturas-de-pantalla)
 
 <table>
 <tr>
