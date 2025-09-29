@@ -226,7 +226,7 @@ vimenstock/
 
 ```
 ┌─────────────────────────────────────────┐
-│ 1. Clic en "▼ COMPRAR ▼"               │
+│ 1. Clic en "▼ COMPRAR ▼"                │
 ├─────────────────────────────────────────┤
 │ 2. Añadir productos:                    │
 │    ├─ Código de producto (P001, etc.)   │
@@ -253,7 +253,7 @@ vimenstock/
 
 ```
 ┌─────────────────────────────────────────┐
-│ 1. Clic en "▼ VENDER ▼"                │
+│ 1. Clic en "▼ VENDER ▼"                 │
 ├─────────────────────────────────────────┤
 │ 2. Añadir productos:                    │
 │    ├─ Código de producto                │
