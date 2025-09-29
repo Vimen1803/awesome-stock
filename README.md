@@ -959,7 +959,7 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 <div align="center">
   
-[⬆ Volver arriba](#-vimenstock-v100)
+[⬆ Volver arriba](#-vimenstock-v120)
   
 --- 
 Desarrollado con ❤️ para facilitar la gestión de inventarios
