@@ -1343,7 +1343,7 @@ Ver archivo LICENSE para el texto completo.
 **Victor Menjon**
 
 [![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
-[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/victormenjon)
-[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:contact@victormenjon.es)
+[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/vimen1803)
+[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
 
 </div>
