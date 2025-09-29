@@ -829,6 +829,7 @@ df -h
 
 <details>
 <summary> Versión 2.0.0 (próximamente)</summary>
+   
 - [ ] **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
    
 - [ ] **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
@@ -845,6 +846,7 @@ df -h
 
 <details>
 <summary> Versión 2.1.0 (futuro)</summary>
+   
 - [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
    
 - [ ] **⚠️ Alertas de Stock Bajo**: Notificaciones por email para alertas de stock
