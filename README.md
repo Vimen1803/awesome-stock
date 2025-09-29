@@ -820,7 +820,7 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 <div align="center">
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
-**v2.0.0** | Septiembre 2025
+**v1.0.0** | Septiembre 2025
 </div>
 
 --- 
