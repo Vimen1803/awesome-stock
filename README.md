@@ -61,41 +61,6 @@ Consulta el archivo licencia y las guías necesarias
 </div>
 
 ---
-## 📁 Estructura del Proyecto
-
-```
-vimenstock/
-│
-├── 📂 data/                    # Datos de la aplicación
-│   ├── 📄 data.json            # Base de datos JSON principal
-│   ├── 📂 logs/                # Archivos de registro
-│   │   └── 📄 app.log          # Log de la aplicación
-│   └── 📂 tickets/             # Tickets PDF generados
-│       ├── 📂 compra/          # Tickets de compras
-│       └── 📂 venta/           # Tickets de ventas
-│
-├── 📂 docs/                    # Documentación
-│   └── 📂 screenshots/         # Capturas de pantalla
-│
-├── 📂 public/                  # Archivos del frontend
-│   ├── 🌐 index.html           # Página principal (productos)
-│   ├── 🌐 historial.html       # Página de historial
-│   ├── 🌐 finanzas.html        # Página de finanzas
-│   └── 🎨 style.css            # Estilos CSS principales
-│
-├── 📂 src/                     # Código del servidor
-│   ├── ⚙️ server.js            # Servidor Express principal
-│   ├── 🔧 generateData.js      # Generador de datos de prueba
-│   └── 📱 *.js                 # Módulos del servidor
-│
-├── 📄 .gitignore               # Archivos ignorados por Git
-├── 📜 LICENSE                  # Licencia MIT
-├── 📖 README.md                # Este archivo
-├── 📦 package.json             # Dependencias y scripts
-└── 🔒 package-lock.json        # Versiones exactas de dependencias
-```
-
----
 
 ## 📸 Capturas de Pantalla
 
@@ -143,6 +108,42 @@ vimenstock/
 - Cálculo automático de beneficios
 
 </details>
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+vimenstock/
+│
+├── 📂 data/                    # Datos de la aplicación
+│   ├── 📄 data.json            # Base de datos JSON principal
+│   ├── 📂 logs/                # Archivos de registro
+│   │   └── 📄 app.log          # Log de la aplicación
+│   └── 📂 tickets/             # Tickets PDF generados
+│       ├── 📂 compra/          # Tickets de compras
+│       └── 📂 venta/           # Tickets de ventas
+│
+├── 📂 docs/                    # Documentación
+│   └── 📂 screenshots/         # Capturas de pantalla
+│
+├── 📂 public/                  # Archivos del frontend
+│   ├── 🌐 index.html           # Página principal (productos)
+│   ├── 🌐 historial.html       # Página de historial
+│   ├── 🌐 finanzas.html        # Página de finanzas
+│   └── 🎨 style.css            # Estilos CSS principales
+│
+├── 📂 src/                     # Código del servidor
+│   ├── ⚙️ server.js            # Servidor Express principal
+│   ├── 🔧 generateData.js      # Generador de datos de prueba
+│   └── 📱 *.js                 # Módulos del servidor
+│
+├── 📄 .gitignore               # Archivos ignorados por Git
+├── 📜 LICENSE                  # Licencia MIT
+├── 📖 README.md                # Este archivo
+├── 📦 package.json             # Dependencias y scripts
+└── 🔒 package-lock.json        # Versiones exactas de dependencias
+```
 
 ---
 
