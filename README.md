@@ -406,21 +406,16 @@ Sí, usa la IP local del servidor: `http://192.168.1.X:3000` (reemplaza X con tu
 
 ## 🗺️ Roadmap
 
-### Versión 1.1
+### Versión 2.0 (en proceso)
 - [ ] Exportar datos a Excel/CSV
 - [ ] Códigos de barras QR para productos
 - [ ] Alertas de stock mínimo por email
 - [ ] Estadísticas avanzadas (productos más vendidos, etc.)
 
-### Versión 2.0
+### Version 3.0 (futuro)
+- [ ] Integración con lectores de código de barras
 - [ ] Base de datos SQL (MongoDB)
 - [ ] Autenticación y autorización
-- [ ] App móvil (React Native)
-
-### Futuro
-- [ ] Integración con lectores de código de barras
-- [ ] Módulo de facturación
-- [ ] Sincronización en la nube
 
 ## 📄 Licencia
 
