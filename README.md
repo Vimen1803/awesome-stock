@@ -278,40 +278,42 @@ Consulta el archivo licencia y las guías necesarias
 
 </div>
 
-<details>
-<summary>📝 Sistema de Logs</summary>
 
-- **Log de aplicación**: `data/logs/app.log` - Todas las operaciones del sistema
-- **Formato estructurado**: Timestamp, nivel y mensaje detallado
+## 📝 Sistema de Logs
+
+<details>
+<summary>📄 Log de Aplicación</summary>
+
+**Ubicación:** `data/logs/app.log`
+
+**Formato:**
+```
+2025-09-29 14:30:45 info: Servidor corriendo en http://localhost:3000
+2025-09-29 14:31:12 info: Ticket generado: ticket_venta_VENTA-1727621472123-456.pdf
+2025-09-29 14:31:15 info: Excel exportado: data.xlsx
+2025-09-29 14:32:00 info: Código de barras generado: P123.png
+2025-09-29 14:32:30 warn: Intento de venta con stock insuficiente: P045
+2025-09-29 14:33:00 error: Error al generar PDF: [detalles del error]
+```
 </details>
 
 <details>
-<summary>⚠️ Alertas de Stock Bajo</summary>
+<summary>⚠️ Log de Alertas de Stock</summary>
 
-**Sistema Automático:**
+**Ubicación:** `data/logs/stock_alerts.txt`
 
+**Formato:**
 ```
-🔔 SE ACTIVA CUANDO:
-└─ Stock < 25 unidades (configurable)
-
-📝 REGISTRO EN LOG:
-└─ Archivo: data/logs/stock_alerts.txt
-└─ Formato: [ID] - [Nombre] - Stock: [X] - [Fecha]
-└─ Ejemplo: P001 - Leche Entera - Stock Disponible: 15 - 29/09/2025 14:30
-
-🎨 VISUALIZACIÓN:
-└─ Número de stock en ROJO y NEGRITA en la tabla
-└─ Fácil identificación visual
-└─ Se actualiza en cada venta
+P001 - Leche Entera - Stock Disponible: 18 - 29/09/2025 14:31:12
+P045 - Café Molido - Stock Disponible: 12 - 29/09/2025 14:31:12
+P089 - Azúcar Blanco - Stock Disponible: 8 - 29/09/2025 14:35:45
+P123 - Pan Integral - Stock Disponible: 3 - 29/09/2025 14:40:20
 ```
 
-**Configurar Umbral:**
-
-Editar en `src/app.js`:
-```javascript
-const STOCKBAJO = 25; // Cambiar a tu preferencia
-```
-
+**Niveles de Alerta:**
+- 🔴 **Crítico** (0-10): Requiere atención inmediata
+- 🟡 **Bajo** (11-24): Planificar reabastecimiento
+- ⚪ **Normal** (≥25): Sin alertas
 </details>
 
 <details>
@@ -791,41 +793,6 @@ npm start
 3. O mantener las categorías antiguas como "legacy"
 
 </details>
-
----
-
-## 📝 Sistema de Logs
-
-### 📄 Log de Aplicación
-
-**Ubicación:** `data/logs/app.log`
-
-**Formato:**
-```
-2025-09-29 14:30:45 info: Servidor corriendo en http://localhost:3000
-2025-09-29 14:31:12 info: Ticket generado: ticket_venta_VENTA-1727621472123-456.pdf
-2025-09-29 14:31:15 info: Excel exportado: data.xlsx
-2025-09-29 14:32:00 info: Código de barras generado: P123.png
-2025-09-29 14:32:30 warn: Intento de venta con stock insuficiente: P045
-2025-09-29 14:33:00 error: Error al generar PDF: [detalles del error]
-```
-
-### ⚠️ Log de Alertas de Stock
-
-**Ubicación:** `data/logs/stock_alerts.txt`
-
-**Formato:**
-```
-P001 - Leche Entera - Stock Disponible: 18 - 29/09/2025 14:31:12
-P045 - Café Molido - Stock Disponible: 12 - 29/09/2025 14:31:12
-P089 - Azúcar Blanco - Stock Disponible: 8 - 29/09/2025 14:35:45
-P123 - Pan Integral - Stock Disponible: 3 - 29/09/2025 14:40:20
-```
-
-**Niveles de Alerta:**
-- 🔴 **Crítico** (0-10): Requiere atención inmediata
-- 🟡 **Bajo** (11-24): Planificar reabastecimiento
-- ⚪ **Normal** (≥25): Sin alertas
 
 ---
 
