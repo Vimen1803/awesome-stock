@@ -762,6 +762,7 @@ df -h
 
 Este proyecto está bajo la licencia **MIT**.
 
+```
 MIT License
 
 Copyright (c) 2025 Victor Menjon
@@ -773,6 +774,7 @@ copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copia
 del Software...
 
 Ver archivo LICENSE para el texto completo.
+```
 
 ---
 
