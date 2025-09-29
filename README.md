@@ -692,7 +692,6 @@ npm start
 
 ---
 
-
 ## 🛠️ Tecnologías Utilizadas
 
 <details>
@@ -717,6 +716,25 @@ npm start
 | **Chart.js** | CDN (v3.9.1) | Gráficos interactivos |
 | **Flatpickr** | CDN (v4.6.13) | Selector de fechas avanzado |
 </details>
+
+---
+
+## 🔒 Seguridad
+
+<details>
+<summary>⚠️ Aviso Importante</summary>
+
+Este sistema **NO incluye autenticación** y está diseñado para:
+- ✅ Uso local (localhost)
+- ✅ Redes privadas confiables
+- ❌ NO para uso en internet público
+
+**Recursos recomendados:**
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+</details>
+
+---
 
 ## 🔧 Solución de Problemas
 
