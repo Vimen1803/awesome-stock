@@ -238,6 +238,7 @@ vimenstock/
 
 * Se activan automáticamente cuando el stock es inferior a 25 unidades
 * Registro en `data/logs/stock_alerts.txt` con formato:
+  
   ```
   P001 - Producto Ejemplo - Stock Disponible: 15 - 29/09/2025 14:30:45
   ```
