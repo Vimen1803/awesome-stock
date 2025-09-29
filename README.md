@@ -268,6 +268,18 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
+## 🌟 Características Destacadas
+
+<div align="center">
+
+| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
+|:---:|:---:|:---:|:---:|
+| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
+
+</div>
+
+---
+
 ## 📊 Estadísticas del Proyecto
 
 <div align="center">
@@ -317,6 +329,52 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 | Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
 
 </div>
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+vimenstock/
+│
+├── 📂 data/                    # Datos y archivos generados
+│   ├── 📄 data.json            # Base de datos JSON
+│   ├── 📂 logs/                # Sistema de logs
+│   │   ├── 📄 app.log          # Log general
+│   │   └── 📄 stock_alerts.txt # Alertas de stock ⭐
+│   └── 📂 tickets/             # Tickets PDF
+│       ├── 📂 compra/          # Tickets de compra
+│       └── 📂 venta/           # Tickets de venta
+│
+├── 📂 docs/                    # Documentación
+│   ├── 📂 bar_code/            # Códigos de barras ⭐
+│   └── 📂 screenshots/         # Capturas de pantalla
+│
+├── 📂 public/                  # Frontend
+│   ├── 🌐 index.html           # Página de productos
+│   ├── 🌐 historial.html       # Página de historial
+│   ├── 🌐 finanzas.html        # Página de finanzas
+│   ├── 🌐 estadisticas.html    # Dashboard estadísticas ⭐
+│   └── 🎨 style.css            # Estilos principales
+│
+├── 📂 src/                     # Backend
+│   ├── ⚙️ server.js            # Servidor Express + APIs ⭐
+│   ├── 🔧 generateData.js      # Generador de datos
+│   ├── 📱 app.js               # Lógica principal
+│   ├── 📜 historial.js         # Gestión de historial
+│   ├── 💰 finanzas.js          # Análisis financiero
+│   ├── 📈 estadisticas.js      # Estadísticas avanzadas ⭐
+│   └── 🌓 lightdark.js         # Control modo oscuro
+│
+├── 📄 .gitignore
+├── 📋 CHANGELOG.md             # Historial de cambios ⭐
+├── 📜 LICENSE
+├── 📖 README.md
+├── 📦 package.json
+└── 🔒 package-lock.json
+
+⭐ = Nuevos en v2.0.0
+```
 
 ---
 
@@ -439,52 +497,6 @@ npm run dev
 ### 🌐 Acceder a la Aplicación
 
 Abre tu navegador en: **http://localhost:3000**
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-vimenstock/
-│
-├── 📂 data/                    # Datos y archivos generados
-│   ├── 📄 data.json            # Base de datos JSON
-│   ├── 📂 logs/                # Sistema de logs
-│   │   ├── 📄 app.log          # Log general
-│   │   └── 📄 stock_alerts.txt # Alertas de stock ⭐
-│   └── 📂 tickets/             # Tickets PDF
-│       ├── 📂 compra/          # Tickets de compra
-│       └── 📂 venta/           # Tickets de venta
-│
-├── 📂 docs/                    # Documentación
-│   ├── 📂 bar_code/            # Códigos de barras ⭐
-│   └── 📂 screenshots/         # Capturas de pantalla
-│
-├── 📂 public/                  # Frontend
-│   ├── 🌐 index.html           # Página de productos
-│   ├── 🌐 historial.html       # Página de historial
-│   ├── 🌐 finanzas.html        # Página de finanzas
-│   ├── 🌐 estadisticas.html    # Dashboard estadísticas ⭐
-│   └── 🎨 style.css            # Estilos principales
-│
-├── 📂 src/                     # Backend
-│   ├── ⚙️ server.js            # Servidor Express + APIs ⭐
-│   ├── 🔧 generateData.js      # Generador de datos
-│   ├── 📱 app.js               # Lógica principal
-│   ├── 📜 historial.js         # Gestión de historial
-│   ├── 💰 finanzas.js          # Análisis financiero
-│   ├── 📈 estadisticas.js      # Estadísticas avanzadas ⭐
-│   └── 🌓 lightdark.js         # Control modo oscuro
-│
-├── 📄 .gitignore
-├── 📋 CHANGELOG.md             # Historial de cambios ⭐
-├── 📜 LICENSE
-├── 📖 README.md
-├── 📦 package.json
-└── 🔒 package-lock.json
-
-⭐ = Nuevos en v2.0.0
-```
 
 ---
 
@@ -1018,6 +1030,8 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 
 ---
 
+---
+
 ## 📜 Licencia
 
 Este proyecto está bajo la licencia **MIT**.
@@ -1038,14 +1052,39 @@ Ver archivo LICENSE para el texto completo.
 
 ---
 
-## 👨‍💻 Autor
-
 <div align="center">
+  
+## 👨‍💻 Autor
 
 **Victor Menjon**
 
 [![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
-[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/vimen1803)
-[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-@Vimen1803-181717?style=flat&logo=github)](https://github.com/vimen1803)
+[![Email](https://img.shields.io/badge/Email-victormnjfan@gmail.com-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
 
+</div>
+
+---
+
+<div align="center">
+
+## ⭐ ¿Te gusta VimenStock?
+
+Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
+
+![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
+![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
+![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
+
+---
+
+<div align="center">
+  
+[⬆ Volver arriba](#-vimenstock-v100)
+  
+--- 
+Desarrollado con ❤️ para facilitar la gestión de inventarios
+
+*v1.0.0 | Agosto 2025*
+</div>
 </div>
