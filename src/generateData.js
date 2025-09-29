@@ -46,7 +46,7 @@ function getRandomDate(start, end) {
 }
 
 // Generar 500 productos con datos realistas
-for (let i = 1; i <= 500; i++) {
+for (let i = 1; i <= 245; i++) {
   const id = "P" + i.toString().padStart(3, "0");
   const nombreBase = nombres[Math.floor(Math.random() * nombres.length)];
   const nombre = nombreBase + (i > nombres.length ? " " + Math.ceil(i / nombres.length) : "");

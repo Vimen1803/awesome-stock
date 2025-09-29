@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const PDFDocument = require('pdfkit');
 const winston = require('winston');
+const { createCanvas } = require('canvas');
+const ExcelJS = require('exceljs');
 
 const app = express();
 
@@ -12,6 +14,7 @@ const logsDir = path.join(__dirname, '../data', 'logs');
 const ticketsDir = path.join(__dirname, '../data', 'tickets');
 const compraDir = path.join(ticketsDir, 'compra');
 const ventaDir = path.join(ticketsDir, 'venta');
+const barcodeDir = path.join(__dirname, '../docs', 'bar_code');
 
 // Verificar y crear las carpetas
 const createDirectoryIfNotExists = (dir) => {
@@ -26,6 +29,7 @@ createDirectoryIfNotExists(logsDir);
 createDirectoryIfNotExists(ticketsDir);
 createDirectoryIfNotExists(compraDir);
 createDirectoryIfNotExists(ventaDir);
+createDirectoryIfNotExists(barcodeDir);
 
 // Configurar logger con winston
 const logger = winston.createLogger({
@@ -47,6 +51,9 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(express.static(__dirname));
+
+// Servir archivos de códigos de barras
+app.use('/bar_code', express.static(barcodeDir));
 
 const DATA_FILE = path.join(__dirname, "../data/data.json");
 
@@ -88,6 +95,331 @@ function inicializarDataJSON() {
 
 // Llamar a la inicialización antes de iniciar el servidor
 inicializarDataJSON();
+
+// ==================== GENERACIÓN DE CÓDIGO DE BARRAS ====================
+function generateBarcode128(text) {
+  const patterns = {
+    '0': '11011001100',
+    '1': '11001101100',
+    '2': '11001100110',
+    '3': '10010011000',
+    '4': '10010001100',
+    '5': '10001001100',
+    '6': '10011001000',
+    '7': '10011000100',
+    '8': '10001100100',
+    '9': '11001001000'
+  };
+  
+  let barcode = '11010010000'; // Start pattern
+  
+  for (let char of text) {
+    if (patterns[char]) {
+      barcode += patterns[char];
+    }
+  }
+  
+  barcode += '1100011101011'; // Stop pattern
+  
+  return barcode;
+}
+
+app.post("/api/generar-codigo-barras", (req, res) => {
+  try {
+    const { id } = req.body;
+    
+    if (!id) {
+      return res.status(400).json({ error: "ID de producto requerido" });
+    }
+
+    const canvas = createCanvas(200, 80);
+    const ctx = canvas.getContext('2d');
+    
+    // Fondo blanco
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Convertir ID a código de barras
+    const code = id.replace('P', '');
+    const barcodeData = generateBarcode128(code);
+    
+    // Dibujar barras
+    ctx.fillStyle = '#000000';
+    let x = 10;
+    const barHeight = 50;
+    const barWidth = 2;
+    
+    for (let i = 0; i < barcodeData.length; i++) {
+      if (barcodeData[i] === '1') {
+        ctx.fillRect(x, 10, barWidth, barHeight);
+      }
+      x += barWidth;
+    }
+    
+    // Añadir texto del ID debajo
+    ctx.fillStyle = '#000000';
+    ctx.font = '12px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(id, canvas.width / 2, canvas.height - 10);
+    
+    // Guardar imagen en disco
+    const fileName = `${id}.png`;
+    const filePath = path.join(barcodeDir, fileName);
+    
+    const buffer = canvas.toBuffer('image/png');
+    fs.writeFileSync(filePath, buffer);
+    
+    // Convertir a base64 para enviar al cliente
+    const base64Image = canvas.toDataURL('image/png');
+    
+    logger.info(`Código de barras generado: ${fileName}`);
+    
+    res.json({
+      success: true,
+      id: id,
+      fileName: fileName,
+      filePath: path.relative(__dirname, filePath),
+      imageData: base64Image
+    });
+    
+  } catch (error) {
+    logger.error(`Error generando código de barras: ${error}`);
+    res.status(500).json({ error: 'Error generando código de barras' });
+  }
+});
+
+// ==================== EXPORTAR A EXCEL ====================
+app.get("/api/exportar-excel", async (req, res) => {
+  try {
+    // Leer datos
+    const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    
+    // Crear workbook
+    const workbook = new ExcelJS.Workbook();
+    
+    // === HOJA 1: PRODUCTOS ===
+    const wsProductos = workbook.addWorksheet('Productos');
+    
+    // Definir columnas
+    wsProductos.columns = [
+      { header: 'ID', key: 'id', width: 10 },
+      { header: 'Nombre', key: 'nombre', width: 25 },
+      { header: 'Categoría', key: 'categoria', width: 15 },
+      { header: 'Proveedor', key: 'proveedor', width: 20 },
+      { header: 'Precio Compra (€)', key: 'precioCompra', width: 15 },
+      { header: 'Precio Venta (€)', key: 'precioVenta', width: 15 },
+      { header: 'Stock', key: 'stock', width: 10 },
+      { header: 'Ventas Totales', key: 'ventasTotales', width: 15 },
+      { header: 'Balance (€)', key: 'balance', width: 15 },
+      { header: 'Fecha Añadido', key: 'fechaAñadido', width: 20 }
+    ];
+    
+    // Estilo de encabezados
+    wsProductos.getRow(1).font = { bold: true };
+    wsProductos.getRow(1).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FF4472C4' }
+    };
+    wsProductos.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    
+    // Agregar datos
+    Object.entries(data.productos || {}).forEach(([id, prod]) => {
+      wsProductos.addRow({
+        id: id,
+        nombre: prod.nombre,
+        categoria: prod.categoria || 'Otro',
+        proveedor: prod.proveedor,
+        precioCompra: prod.precioCompra,
+        precioVenta: prod.precioVenta,
+        stock: prod.stock,
+        ventasTotales: prod.ventasTotales,
+        balance: prod.balance || 0,
+        fechaAñadido: prod.fechaAñadido ? new Date(prod.fechaAñadido).toLocaleString('es-ES') : ''
+      });
+    });
+    
+    // Formato de números con decimales
+    wsProductos.getColumn('precioCompra').numFmt = '0.00';
+    wsProductos.getColumn('precioVenta').numFmt = '0.00';
+    wsProductos.getColumn('balance').numFmt = '0.00';
+    
+    // === HOJA 2: HISTORIAL ===
+    const wsHistorial = workbook.addWorksheet('Historial');
+    
+    wsHistorial.columns = [
+      { header: 'Fecha', key: 'fecha', width: 20 },
+      { header: 'Acción', key: 'accion', width: 15 },
+      { header: 'Producto ID', key: 'productoID', width: 12 },
+      { header: 'Producto Nombre', key: 'productoNombre', width: 25 },
+      { header: 'Categoría', key: 'categoria', width: 15 },
+      { header: 'Cantidad', key: 'cantidad', width: 10 },
+      { header: 'Precio Total (€)', key: 'precioTotal', width: 15 },
+      { header: 'Ticket ID', key: 'ticketID', width: 30 }
+    ];
+    
+    wsHistorial.getRow(1).font = { bold: true };
+    wsHistorial.getRow(1).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FF70AD47' }
+    };
+    wsHistorial.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    
+    // Agregar historial
+    (data.historial || []).forEach(h => {
+      if (h.productos && Array.isArray(h.productos)) {
+        // Historial con múltiples productos
+        h.productos.forEach(prod => {
+          wsHistorial.addRow({
+            fecha: new Date(h.fecha).toLocaleString('es-ES'),
+            accion: h.accion,
+            productoID: prod.productoID,
+            productoNombre: prod.productoNombre,
+            categoria: prod.categoria,
+            cantidad: prod.cantidad,
+            precioTotal: prod.precioTotal || 0,
+            ticketID: h.ticketID || ''
+          });
+        });
+      } else {
+        // Historial antiguo
+        wsHistorial.addRow({
+          fecha: new Date(h.fecha).toLocaleString('es-ES'),
+          accion: h.accion,
+          productoID: h.productoID,
+          productoNombre: h.productoNombre,
+          categoria: h.categoria,
+          cantidad: h.cantidad || 0,
+          precioTotal: 0,
+          ticketID: ''
+        });
+      }
+    });
+    
+    wsHistorial.getColumn('precioTotal').numFmt = '0.00';
+    
+    // === HOJA 3: FINANZAS ===
+    const wsFinanzas = workbook.addWorksheet('Finanzas');
+    
+    wsFinanzas.columns = [
+      { header: 'Fecha', key: 'fecha', width: 20 },
+      { header: 'Tipo', key: 'tipo', width: 12 },
+      { header: 'Monto (€)', key: 'monto', width: 15 },
+      { header: 'Categoría', key: 'categoria', width: 15 },
+      { header: 'Producto ID', key: 'productoID', width: 12 }
+    ];
+    
+    wsFinanzas.getRow(1).font = { bold: true };
+    wsFinanzas.getRow(1).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FFFFC000' }
+    };
+    wsFinanzas.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    
+    (data.finanzas || []).forEach(f => {
+      wsFinanzas.addRow({
+        fecha: new Date(f.fecha).toLocaleString('es-ES'),
+        tipo: f.tipo,
+        monto: f.monto,
+        categoria: f.categoria,
+        productoID: f.productoID
+      });
+    });
+    
+    wsFinanzas.getColumn('monto').numFmt = '0.00';
+    
+    // === HOJA 4: RESUMEN ===
+    const wsResumen = workbook.addWorksheet('Resumen');
+    
+    wsResumen.columns = [
+      { header: 'Métrica', key: 'metrica', width: 30 },
+      { header: 'Valor', key: 'valor', width: 20 }
+    ];
+    
+    wsResumen.getRow(1).font = { bold: true };
+    wsResumen.getRow(1).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FF5B9BD5' }
+    };
+    wsResumen.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    
+    const totalProductos = Object.keys(data.productos || {}).length;
+    const totalStock = Object.values(data.productos || {}).reduce((sum, p) => sum + p.stock, 0);
+    const totalVentas = Object.values(data.productos || {}).reduce((sum, p) => sum + p.ventasTotales, 0);
+    const balanceTotal = Object.values(data.productos || {}).reduce((sum, p) => sum + (p.balance || 0), 0);
+    
+    wsResumen.addRow({ metrica: 'Total de Productos', valor: totalProductos });
+    wsResumen.addRow({ metrica: 'Total Stock', valor: totalStock });
+    wsResumen.addRow({ metrica: 'Total Ventas Realizadas', valor: totalVentas });
+    wsResumen.addRow({ metrica: 'Balance Total (€)', valor: balanceTotal.toFixed(2) });
+    wsResumen.addRow({ metrica: 'Fecha de Exportación', valor: new Date().toLocaleString('es-ES') });
+    
+    // Guardar archivo
+    const excelPath = path.join(dataDir, 'data.xlsx');
+    await workbook.xlsx.writeFile(excelPath);
+    
+    logger.info(`Excel exportado: ${excelPath}`);
+    
+    res.json({
+      success: true,
+      message: 'Excel generado correctamente',
+      filePath: path.relative(__dirname, excelPath),
+      fileName: 'data.xlsx'
+    });
+    
+  } catch (error) {
+    logger.error(`Error exportando a Excel: ${error}`);
+    res.status(500).json({ error: 'Error exportando a Excel' });
+  }
+});
+
+// ==================== ALERTAS DE STOCK BAJO ====================
+app.post("/api/registrar-alerta-stock", (req, res) => {
+  try {
+    const { productos } = req.body;
+    
+    if (!productos || !Array.isArray(productos) || productos.length === 0) {
+      return res.status(400).json({ error: "No hay productos para registrar" });
+    }
+
+    const stockAlertsFile = path.join(logsDir, 'stock_alerts.txt');
+    const ahora = new Date();
+    
+    // Formatear fecha: DD/MM/YYYY HH:MM:SS
+    const dia = String(ahora.getDate()).padStart(2, '0');
+    const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+    const anio = ahora.getFullYear();
+    const hora = String(ahora.getHours()).padStart(2, '0');
+    const min = String(ahora.getMinutes()).padStart(2, '0');
+    const seg = String(ahora.getSeconds()).padStart(2, '0');
+    const fechaFormateada = `${dia}/${mes}/${anio} ${hora}:${min}:${seg}`;
+    
+    // Crear las líneas de alerta
+    const lineas = productos.map(p => 
+      `${p.id} - ${p.nombre} - Stock Disponible: ${p.stock} - ${fechaFormateada}`
+    );
+    
+    // Agregar las líneas al archivo (append)
+    const contenido = lineas.join('\n') + '\n';
+    
+    fs.appendFileSync(stockAlertsFile, contenido, 'utf-8');
+    
+    logger.info(`Alertas de stock bajo registradas: ${productos.length} productos`);
+    
+    res.json({
+      success: true,
+      alertasRegistradas: productos.length,
+      productos: productos.map(p => p.id)
+    });
+    
+  } catch (error) {
+    logger.error(`Error registrando alertas de stock: ${error}`);
+    res.status(500).json({ error: 'Error registrando alertas de stock' });
+  }
+});
 
 // Generar ID único para operaciones
 function generarIDOperacion(tipo) {

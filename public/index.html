@@ -16,6 +16,7 @@
     <a href="index.html">Productos</a>
     <a href="historial.html">Historial</a>
     <a href="finanzas.html">Finanzas</a>
+    <a href="estadisticas.html">Estadísticas</a>
   </div>
   <div class="right">
     <button id="toggle-dark" class="toggle-btn">
@@ -44,7 +45,6 @@
     <label>Proveedor<input type="text" id="proveedor" required></label>
     <label>Precio Compra (€)<input type="number" id="precioCompra" step="0.01" required></label>
     <label>Precio Venta (€)<input type="number" id="precioVenta" step="0.01" required></label>
-    <label>Imagen URL<input type="text" id="imagen"></label>
     <button type="submit">+ Añadir Producto</button>
   </form>
 
@@ -70,6 +70,7 @@
       <!-- Se poblarán dinámicamente desde data.json -->
     </select>
     <button type="button" id="btn-reset-filtros">Quitar filtros</button>
+    <button type="button" id="btn-exportar-excel" style="background-color:#28a745; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">📊 Exportar a Excel</button>
   </div>
 
   <!-- TABLA -->
@@ -85,7 +86,7 @@
         <th class="brillante">Stock</th>
         <th class="brillante">Ventas Totales</th>
         <th class="brillante">Balance (€)</th>
-        <th>Imagen</th>
+        <th>Bar Code</th>
         <th>Acciones</th>
       </tr>
     </thead>
