@@ -115,6 +115,23 @@ Consulta el archivo licencia y las guías necesarias
 
 </div>
 
+<details>
+<summary>📝 Sistema de Logs</summary>
+
+- **Log de aplicación**: `data/logs/app.log` - Todas las operaciones del sistema
+- **Alertas de stock**: `data/logs/stock_alerts.txt` - Productos con stock bajo
+- **Formato estructurado**: Timestamp, nivel y mensaje detallado
+</details>
+
+<details>
+<summary>🎨 Interfaz y UX</summary>
+
+- 🌙 **Modo Oscuro** persistente para reducir fatiga visual
+- 🔔 **Notificaciones** visuales inmediatas
+- 🧭 **Navegación intuitiva** con menú superior
+- ⚡ **Feedback visual** en todas las operaciones
+</details>
+
 ---
 
 ## 📁 Estructura del Proyecto
