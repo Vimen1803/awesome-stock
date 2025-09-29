@@ -58,8 +58,7 @@ Nueva sección completa de estadísticas (`estadisticas.html`) con:
 **📉 Gráficos interactivos con Chart.js:**
 - 📈 Evolución de ventas (gráfico de línea temporal)
 - 📊 Categorías más rentables (gráfico de barras)
-- 🍩 Distribución de stock (gráfico de dona)
-- ↔️ Rotación de inventario (barras horizontales)
+- 🍩 Distribución de stock (gráfico circular)
 
 **📋 Tablas de análisis:**
 - 🏆 Top 10 productos más vendidos
@@ -324,3 +323,4 @@ MAJOR.MINOR.PATCH
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
+
