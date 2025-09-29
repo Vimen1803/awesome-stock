@@ -54,21 +54,6 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-## 🙏 Agradecimientos
-
-Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
-
-**Tecnologías y librerías open source utilizadas:**
-- [Node.js](https://nodejs.org/) - Entorno de ejecución
-- [Express](https://expressjs.com/) - Framework web
-- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
-- [PDFKit](https://pdfkit.org/) - Generación de PDFs
-- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
-- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
-- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
-
----
-
 ## 📊 Estadísticas del Proyecto
 
 <div align="center">
@@ -90,6 +75,20 @@ Gracias a todos los que han probado, dado feedback y contribuido durante el desa
 | Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
 
 </div>
+
+---
+## 🙏 Agradecimientos
+
+Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
+
+**Tecnologías y librerías open source utilizadas:**
+- [Node.js](https://nodejs.org/) - Entorno de ejecución
+- [Express](https://expressjs.com/) - Framework web
+- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
+- [PDFKit](https://pdfkit.org/) - Generación de PDFs
+- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
+- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
+- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
 
 ---
 
