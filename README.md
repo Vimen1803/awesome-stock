@@ -818,14 +818,12 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
 
 ---
-
-[⬆ Volver arriba](#-vimenstock)
-
-</div>
-
----
 <div align="center">
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
 **v2.0.0** | Septiembre 2025
+</div>
+--- 
+[⬆ Volver arriba](#-vimenstock)
+
 </div>
