@@ -639,7 +639,8 @@ npm start
 
 ## 🛠️ Tecnologías Utilizadas
 
-### 🔧 Backend
+<details>
+<summary>### 🔧 Backend</summary>summary>
 
 | Tecnología | Versión | Propósito |
 |------------|---------|-----------|
@@ -647,8 +648,10 @@ npm start
 | **Express.js** | ^4.18.0 | Framework web minimalista |
 | **PDFKit** | ^0.13.0 | Generación de documentos PDF |
 | **Winston** | ^3.8.0 | Sistema de logging profesional |
+</details>
 
-### 🎨 Frontend
+<details>
+<summary>### 🎨 Frontend</summary>summary>
 
 | Tecnología | Fuente | Propósito |
 |------------|--------|-----------|
@@ -657,7 +660,7 @@ npm start
 | **JavaScript ES6+** | Nativo | Lógica del cliente |
 | **Chart.js** | CDN (v3.9.1) | Gráficos interactivos |
 | **Flatpickr** | CDN (v4.6.13) | Selector de fechas avanzado |
-
+<details>
 ---
 
 ## 🔧 Solución de Problemas
