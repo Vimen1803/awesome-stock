@@ -40,14 +40,6 @@ Encuentra respuestas a preguntas comunes
 [Ver FAQ](#-preguntas-frecuentes)
 
 </td>
-<td width="33%" align="center">
-
-### 🐛 Issues
-Reporta bugs o solicita features
-
-[GitHub Issues](https://github.com/tu-usuario/vimenstock/issues)
-
-</td>
 </tr>
 </table>
 
@@ -72,10 +64,10 @@ Gracias a todos los que han probado, dado feedback y contribuido durante el desa
 
 <div align="center">
 
-![GitHub repo size](https://img.shields.io/github/repo-size/tu-usuario/vimenstock)
-![GitHub code size](https://img.shields.io/github/languages/code-size/tu-usuario/vimenstock)
-![Lines of code](https://img.shields.io/tokei/lines/github/tu-usuario/vimenstock)
-![GitHub last commit](https://img.shields.io/github/last-commit/tu-usuario/vimenstock)
+![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
+![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
+![Lines of code](https://img.shields.io/tokei/lines/github/vimen1803/awesome-stock)
+![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
 
 </div>
 
