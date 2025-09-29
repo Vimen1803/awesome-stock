@@ -1,519 +1,1359 @@
-# VimenStock 📦 v2.0.0
+<div align="center">
+
+# 📦 VimenStock v2.0.0
+
+### Sistema Profesional de Gestión de Inventario
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
-[![Status](https://img.shields.io/badge/status-active-sucess.svg)]()
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
 
-Sistema de gestión de inventario profesional con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.
+**Sistema de gestión de inventario con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.**
 
-## 🎉 Novedades en v2.0.0
+[Características](#-características-principales) •
+[Instalación](#-instalación) •
+[Documentación](#-uso) •
+[Roadmap](#️-roadmap)
 
-- **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
-- **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
-- **⚠️ Alertas de Stock Bajo**: Sistema automático de alertas cuando el stock es inferior a 25 unidades
-- **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado
-- **🎱 Dashboard**: con métricas en tiempo real
-- **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
-- **🔧 Optimizaciones**: Mejor rendimiento y gestión de memoria
+</div>
 
-## 📸 Capturas de Pantalla
+---
 
-### Gestión de Productos
-![Pantalla de productos](docs/screenshots/productos2.png)
-*Vista principal con tabla de productos, códigos de barras, filtros y controles de compra/venta. Incluye indicadores visuales de stock bajo y botón de exportación a Excel.*
+## 📞 Soporte
 
-### Códigos de Barras
-![Códigos de barras](docs/screenshots/codigos_barras.png)
+<table>
+<tr>
+<td width="33%" align="center">
 
-*Generación automática de códigos de barras Code 128 para cada producto con opción de ampliación.*
+### 📖 Documentación
+Consulta la documentación completa y guías de uso
 
-### Historial de Operaciones
-![Pantalla de historial](docs/screenshots/historial2.png)
-*Seguimiento completo de operaciones con filtros avanzados, descarga de tickets PDF y visualización de operaciones múltiples.*
+[Ver Docs](#-uso)
 
-### Análisis Financiero
-![Pantalla de finanzas](docs/screenshots/finanzas.png)
-*Gráficos de ingresos vs gastos con calendario interactivo y filtros por período, categoría y producto.*
+</td>
+<td width="33%" align="center">
 
-### Estadísticas Avanzadas
-![Pantalla de estadísticas](docs/screenshots/estadisticas.png)
-*Dashboard completo con KPIs en tiempo real, gráficos interactivos y tablas de análisis de productos más vendidos y stock bajo.*
+### ❓ FAQ
+Encuentra respuestas a preguntas comunes
 
-### Exportación a Excel
-![Excel exportado](docs/screenshots/excel_export.png)
-*Archivo Excel generado con 4 hojas: Productos, Historial, Finanzas y Resumen con formato profesional.*
+[Ver FAQ](#-preguntas-frecuentes)
 
-### Sistema de Tickets PDF
-![Ticket PDF](docs/screenshots/ticket_pdf.png)
-*Tickets profesionales con información detallada de operaciones, productos y totales.*
+</td>
+<td width="33%" align="center">
 
-## 📋 Características Principales
+### 🐛 Issues
+Reporta bugs o solicita features
 
-### Gestión de Inventario
-* **Gestión de Productos**: Añadir, editar y eliminar productos con información detallada
-* **Control de Stock**: Registro de compras y ventas con actualización automática
-* **Códigos de Barras**: Generación automática en formato Code 128 para cada producto
-* **Categorización**: Organización de productos por categorías personalizables
-* **Filtros Avanzados**: Búsqueda y filtrado por múltiples criterios
+[GitHub Issues](https://github.com/tu-usuario/vimenstock/issues)
 
-### Operaciones y Tickets
-* **Tickets PDF**: Generación automática de tickets profesionales para cada operación
-* **Operaciones Múltiples**: Compra/venta de varios productos en una sola operación
-* **Historial Completo**: Seguimiento detallado de todas las operaciones realizadas
-* **Descarga de Tickets**: Acceso directo a los tickets PDF desde el historial
+</td>
+</tr>
+</table>
 
-### Análisis y Reportes
-* **Estadísticas Avanzadas**: KPIs en tiempo real (ingresos, gastos, beneficio, margen)
-* **Análisis Financiero**: Visualización de ingresos vs gastos con gráficos interactivos
-* **Exportación a Excel**: Genera archivos Excel con 4 hojas: Productos, Historial, Finanzas y Resumen
-* **Top Productos**: Ranking de productos más vendidos y análisis de rotación
-* **Alertas de Stock**: Identificación automática de productos con stock bajo
-
-### Sistema de Logs
-* **Logs de Aplicación**: Registro completo en `data/logs/app.log`
-* **Alertas de Stock**: Registro específico en `data/logs/stock_alerts.txt`
-* **Formato Estructurado**: Logs con timestamp, nivel y mensaje detallado
-
-### Interfaz y UX
-* **Modo Oscuro**: Interfaz adaptable para mayor comodidad visual
-* **Diseño Responsivo**: Adaptable a diferentes tamaños de pantalla
-* **Notificaciones**: Feedback visual inmediato de todas las operaciones
-* **Navegación Intuitiva**: Menú superior con acceso rápido a todas las secciones
-
-## 🚀 Instalación
-
-### Requisitos previos
-
-* Node.js (v14 o superior)
-* npm (v6 o superior)
-
-### Pasos de instalación
-
-1. **Clonar el repositorio**
-
-```bash
-git clone https://github.com/tu-usuario/vimenstock.git
-cd vimenstock
-```
-
-2. **Instalar dependencias**
-
-```bash
-npm install
-```
-
-3. **Generar datos de prueba (opcional)**
-
-```bash
-npm run data
-```
-
-4. **Iniciar el servidor**
-
-```bash
-npm start
-```
-
-Para desarrollo con recarga automática:
-
-```bash
-npm run dev
-```
-
-5. **Acceder a la aplicación**
-
-Abrir el navegador en `http://localhost:3000`
-
-## 📁 Estructura del proyecto
-
-```
-vimenstock/
-├── data/
-│   ├── data.json           # Base de datos JSON
-│   ├── logs/              # Archivos de registro
-│   │   ├── app.log        # Log general de la aplicación
-│   │   └── stock_alerts.txt # Alertas de stock bajo (NUEVO)
-│   └── tickets/           # Tickets PDF generados
-│       ├── compra/        # Tickets de compra
-│       └── venta/         # Tickets de venta
-│
-├── docs/
-│   ├── bar_code/          # Códigos de barras generados (NUEVO)
-│   └── screenshots/       # Capturas de pantalla
-│
-├── public/
-│   ├── index.html         # Página de productos
-│   ├── historial.html     # Página de historial
-│   ├── finanzas.html      # Página de finanzas
-│   ├── estadisticas.html  # Página de estadísticas (NUEVO)
-│   └── style.css          # Estilos principales
-│
-├── src/
-│   ├── server.js          # Servidor Express con nuevas APIs
-│   ├── generateData.js    # Generador de datos de prueba
-│   ├── app.js            # Lógica principal del cliente
-│   ├── historial.js      # Gestión del historial
-│   ├── finanzas.js       # Análisis financiero
-│   ├── estadisticas.js   # Estadísticas avanzadas (NUEVO)
-│   └── lightdark.js      # Control modo oscuro
-│
-├── .gitignore
-├── CHANGELOG.md          # Historial de cambios (NUEVO)
-├── LICENSE
-├── README.md
-├── package-lock.json
-└── package.json
-```
-
-## 🎯 Uso
-
-### Gestión de Productos
-
-1. **Añadir producto**: Clic en "▼ AÑADIR PRODUCTO ▼" y completar el formulario
-2. **Editar producto**: Botón "Editar" en la tabla de productos
-3. **Eliminar producto**: Botón "Eliminar" en la tabla de productos
-4. **Ver historial**: Botón "Historial" para ver movimientos del producto
-5. **Código de barras**: Se genera automáticamente al crear el producto
-
-### Operaciones de Compra/Venta
-
-1. **Comprar**:
-   * Clic en "▼ COMPRAR ▼"
-   * Añadir filas con código de producto y cantidad
-   * El sistema calcula automáticamente precios y totales
-   * Confirmar compra (genera ticket PDF)
-
-2. **Vender**:
-   * Clic en "▼ VENDER ▼"
-   * Añadir filas con código de producto y cantidad
-   * Verificación automática de stock disponible
-   * Confirmar venta (genera ticket PDF y alerta si queda stock bajo)
-
-### Historial
-
-* **Filtros disponibles**:
-  * Por tipo de operación (Comprado, Vendido, Editado, etc.)
-  * Por categoría
-  * Por fecha (exacta o rango)
-  * Por ID de producto o ticket
-* **Descargar tickets**: Clic en el texto azul "Ticket: [ID]"
-* **Visualización**: Operaciones múltiples expandidas con detalle
-
-### Análisis Financiero
-
-* **Períodos**: Diario, semanal, mensual, anual o siempre
-* **Filtros**: Por categoría o ID de producto
-* **Calendario**: Selección visual de fechas
-* **Gráfico**: Visualización tipo pie de ingresos vs gastos
-
-### Estadísticas Avanzadas (NUEVO)
-
-* **KPIs en tiempo real**:
-  - Ingresos totales
-  - Gastos totales
-  - Beneficio neto
-  - Margen bruto
-  - Ventas totales
-  - Ticket medio
-
-* **Gráficos interactivos**:
-  - Evolución de ventas (línea temporal)
-  - Categorías más rentables (barras)
-  - Distribución de stock (dona)
-
-* **Tablas de análisis**:
-  - Top 10 productos más vendidos
-  - Productos con stock bajo (crítico/bajo/agotado)
-
-### Exportación a Excel (NUEVO)
-
-1. Clic en el botón "📊 Exportar a Excel" en la página de productos
-2. Se genera automáticamente un archivo `data.xlsx` con 4 hojas:
-   - **Productos**: Listado completo del inventario
-   - **Historial**: Todas las operaciones realizadas
-   - **Finanzas**: Registros de ingresos y gastos
-   - **Resumen**: Métricas generales y estadísticas
-
-### Alertas de Stock Bajo (NUEVO)
-
-* Se activan automáticamente cuando el stock es inferior a 25 unidades
-* Registro en `data/logs/stock_alerts.txt` con formato:
-  
-  ```
-  P001 - Producto Ejemplo - Stock Disponible: 15 - 29/09/2025 14:30:45
-  ```
-* Visualización en la tabla de productos (número en rojo y negrita)
-
-## 🛠️ Tecnologías utilizadas
-
-### Backend
-
-* **Express.js**: Framework web
-* **PDFKit**: Generación de tickets PDF
-* **Winston**: Sistema de logs profesional
-* **Canvas**: Generación de códigos de barras
-* **ExcelJS**: Exportación a Excel
-* **Node.js**: Entorno de ejecución
-
-### Frontend
-
-* **HTML5/CSS3**: Estructura y estilos
-* **JavaScript (ES6+)**: Lógica del cliente
-* **Chart.js**: Gráficos financieros y estadísticos
-* **Flatpickr**: Selector de fechas
-
-## 📊 Categorías
-
-### Categorías predefinidas
-
-El sistema incluye 10 categorías por defecto:
-
-* Alimentación
-* Bebidas
-* Limpieza
-* Tecnología
-* Hogar
-* Juguetes
-* Cosmética
-* Ropa
-* Deportes
-* Otro
-
-### Personalización de categorías
-
-#### Opción 1: Antes del primer inicio (Recomendado)
-
-1. Abrir `src/server.js`
-2. Buscar `inicializarDataJSON()`
-3. Modificar el array de `categorias`
-
-#### Opción 2: Después del primer inicio
-
-1. Detener el servidor (Ctrl + C)
-2. Editar `data/data.json`
-3. Modificar el array de `categorias`
-4. Reiniciar el servidor
-
-## 📝 Sistema de Logs
-
-### Logs de aplicación (`app.log`)
-
-Registra todas las operaciones del sistema:
-
-```
-2025-09-29 14:30:45 info: Servidor corriendo en http://localhost:3000
-2025-09-29 14:31:12 info: Ticket generado: ticket_venta_VENTA-1727621472123-456.pdf
-2025-09-29 14:31:15 info: Excel exportado: data.xlsx
-```
-
-### Alertas de stock (`stock_alerts.txt`)
-
-Registra productos con stock bajo después de cada venta:
-
-```
-P001 - Leche Entera - Stock Disponible: 18 - 29/09/2025 14:31:12
-P045 - Café Molido - Stock Disponible: 12 - 29/09/2025 14:31:12
-```
-
-## 🔧 Configuración
-
-### Puerto del servidor
-
-Por defecto: `3000`
-
-Para cambiar el puerto, editar en `src/server.js`:
-
-```javascript
-const PORT = 3000; // Cambiar aquí
-```
-
-### Umbral de stock bajo
-
-Por defecto: `25 unidades`
-
-Para cambiar, editar en `app.js`:
-
-```javascript
-const STOCKBAJO = 25; // Cambiar aquí
-```
-
-### Datos iniciales
-
-Modificar `src/generateData.js` para cambiar la cantidad de productos de prueba:
-
-```javascript
-for (let i = 1; i <= 200; i++) { // Cambiar el número aquí
-  // ...
-}
-```
-
-## 💾 Backup y Recuperación
-
-### Hacer backup manual
-
-```bash
-# Copiar el archivo de datos
-cp data/data.json data/backup_$(date +%Y%m%d).json
-
-# Copiar toda la carpeta data (incluye tickets y logs)
-cp -r data/ backup_data/
-
-# Copiar códigos de barras
-cp -r docs/bar_code/ backup_bar_code/
-```
-
-### Restaurar desde backup
-
-```bash
-# 1. Detener el servidor (Ctrl + C)
-
-# 2. Restaurar el archivo
-cp data/backup_20250929.json data/data.json
-
-# 3. Reiniciar el servidor
-npm start
-```
-
-## 📡 API Endpoints
-
-### Datos
-* `GET /api/data` - Obtener todos los datos
-* `POST /api/data` - Guardar datos
-
-### Tickets y Documentos
-* `POST /api/generar-ticket` - Generar ticket PDF
-* `GET /api/descargar-ticket/:tipo/:fileName` - Descargar ticket
-* `GET /api/exportar-excel` - Exportar datos a Excel
-
-### Códigos de Barras
-* `POST /api/generar-codigo-barras` - Generar código de barras Code 128
-
-### Alertas
-* `POST /api/registrar-alerta-stock` - Registrar alertas de stock bajo
-
-## 🎨 Características adicionales
-
-* **Modo oscuro persistente**: Se guarda en localStorage
-* **Ordenación de tablas**: Clic en cabeceras (ID, Stock, Ventas, Balance, Proveedor)
-* **Formato de moneda**: Automático en formato español (€)
-* **Validaciones**: Control de stock, productos duplicados, campos requeridos
-* **Notificaciones**: Feedback visual de todas las operaciones
-* **Códigos de barras**: Generación automática en formato Code 128
-* **Responsive**: Interfaz adaptable a diferentes pantallas
-
-## 🔒 Seguridad
-
-⚠️ **Importante**: Este sistema NO incluye autenticación y está diseñado para uso local o en redes privadas.
-
-### Para uso en producción, considerar:
-
-* ✅ HTTPS con certificados SSL/TLS
-* ✅ Sistema de autenticación (JWT, OAuth)
-* ✅ Validación y sanitización de entradas
-* ✅ Rate limiting para prevenir abusos
-* ✅ Configuración adecuada de CORS
-* ✅ Hash de contraseñas (bcrypt)
-* ✅ Logs de auditoría (ya implementado)
-* ✅ Protección contra inyección SQL (si migras a BD relacional)
-* ✅ Backups automáticos programados
-
-## 🛠️ Solución de problemas
-
-### El servidor no inicia
-
-* Verificar que el puerto 3000 esté disponible
-* Comprobar instalación de dependencias: `npm install`
-* Revisar logs en `data/logs/app.log`
-
-### Los tickets no se generan
-
-* Verificar permisos de escritura en carpeta `data/tickets`
-* Revisar logs en `data/logs/app.log`
-* Comprobar que PDFKit esté instalado correctamente
-
-### Los códigos de barras no se muestran
-
-* Verificar permisos de escritura en `docs/bar_code`
-* Comprobar que Canvas esté instalado correctamente
-* Revisar logs en `data/logs/app.log`
-
-### La exportación a Excel falla
-
-* Verificar permisos de escritura en `data/`
-* Comprobar que ExcelJS esté instalado
-* Revisar logs en `data/logs/app.log`
-
-### Error "EADDRINUSE"
-
-El puerto 3000 está ocupado:
-
-```bash
-# Opción 1: Encontrar y cerrar el proceso
-lsof -i :3000  # Linux/Mac
-netstat -ano | findstr :3000  # Windows
-
-# Opción 2: Cambiar el puerto en src/server.js
-```
-
-## ❓ Preguntas Frecuentes
-
-- **¿Los datos se guardan automáticamente?**
-  Sí, cada operación se guarda automáticamente en `data/data.json`.
-
-- **¿Puedo usar esto en múltiples tiendas?**
-  No directamente. Cada instancia gestiona una sola base de datos local. Para múltiples tiendas necesitarías múltiples instancias o migrar a una base de datos centralizada.
-
-- **¿Hay límite de productos?**
-  No hay límite establecido, pero por rendimiento se recomienda no superar 10,000 productos con el almacenamiento JSON actual.
-
-- **¿Los códigos de barras son únicos?**
-  Sí, cada producto tiene su código de barras único basado en su ID (P001, P002, etc.) en formato Code 128.
-
-- **¿Puedo exportar los datos?**
-  Sí, puedes usar la función de exportación a Excel o copiar directamente `data/data.json`.
-
-- **¿Funciona sin conexión a internet?**
-  Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js, Flatpickr) en el frontend.
-
-- **¿Puedo acceder desde otro dispositivo en mi red?**
-  Sí, usa la IP local del servidor: `http://192.168.1.X:3000`
-
-- **¿Qué formato tienen los códigos de barras?**
-  Code 128, uno de los formatos más utilizados en retail y logística.
-
-## 🗺️ Roadmap
-
-### Versión 2.1.0 (próximamente)
-- [ ] Base de datos (MongoDB)
-- [ ] Notificaciones por email para alertas de stock
-- [ ] Backup automático programado
-
-### Versión 3.0.0 (futuro)
-- [ ] Lector de códigos de barras con webcam
-- [ ] Autenticación y autorización multiusuario
-- [ ] API REST completa para integraciones
-
-## 📄 Licencia
-
-MIT License - Ver archivo [LICENSE](LICENSE) para más detalles
-
-## 👨‍💻 Autor
-
-[Victor Menjon](https://victormenjon.es)
-
-## 📮 Soporte
-
-* Consultar la sección de [Preguntas Frecuentes](#-preguntas-frecuentes)
-* Revisar los [logs del sistema](#-sistema-de-logs)
-* Consultar el [historial de cambios](CHANGELOG.md)
+---
 
 ## 🙏 Agradecimientos
 
-Gracias a todos los que han probado y dado feedback durante el desarrollo de VimenStock.
+Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
+
+**Tecnologías y librerías open source utilizadas:**
+- [Node.js](https://nodejs.org/) - Entorno de ejecución
+- [Express](https://expressjs.com/) - Framework web
+- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
+- [PDFKit](https://pdfkit.org/) - Generación de PDFs
+- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
+- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
+- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
+
+---
+
+## 📊 Estadísticas del Proyecto
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/tu-usuario/vimenstock)
+![GitHub code size](https://img.shields.io/github/languages/code-size/tu-usuario/vimenstock)
+![Lines of code](https://img.shields.io/tokei/lines/github/tu-usuario/vimenstock)
+![GitHub last commit](https://img.shields.io/github/last-commit/tu-usuario/vimenstock)
+
+</div>
+
+---
+
+## 🌟 Características Destacadas
+
+<div align="center">
+
+| 🏷️ Códigos de Barras | 📊 Exportación Excel | 📈 Estadísticas | ⚠️ Alertas Stock |
+|:---:|:---:|:---:|:---:|
+| Automáticos Code 128 | 4 hojas profesionales | Dashboard completo | Detección automática |
+
+</div>
+
+---
+
+<div align="center">
+
+## ⭐ ¿Te gusta VimenStock?
+
+Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ---
 
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
-*Versión 2.0.0 - Septiembre 2025*
+**v2.0.0** | Septiembre 2025
+
+---
+
+[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+
+---
+
+[⬆ Volver arriba](#-vimenstock)
+
+</div>
+
+## 🎉 Novedades en v2.0.0
+
+<table>
+<tr>
+<td width="50%">
+
+### ✨ Nuevas Funcionalidades
+- 🏷️ **Códigos de Barras Code 128**
+- 📊 **Exportación a Excel** (4 hojas)
+- ⚠️ **Alertas de Stock Bajo** automáticas
+- 📈 **Dashboard de Estadísticas** avanzadas
+- 🎨 **Interfaz Renovada** con mejor UX
+
+</td>
+<td width="50%">
+
+### 🚀 Mejoras
+- ⚡ **Optimización de Rendimiento**
+- 🎫 **Tickets PDF Mejorados**
+- 📁 **Mejor Organización** de archivos
+- 🔒 **Seguridad Mejorada**
+- 📚 **Documentación Completa**
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📸 Capturas de Pantalla
+
+<details>
+<summary>📦 <b>Gestión de Productos</b> (Click para expandir)</summary>
+
+![Pantalla de productos](docs/screenshots/productos2.png)
+
+**Características visibles:**
+- ✅ Tabla de productos con códigos de barras
+- ✅ Indicadores visuales de stock bajo
+- ✅ Filtros avanzados y búsqueda
+- ✅ Controles de compra/venta
+- ✅ Botón de exportación a Excel
+
+</details>
+
+<details>
+<summary>🏷️ <b>Códigos de Barras</b> (Click para expandir)</summary>
+
+![Códigos de barras](docs/screenshots/codigos_barras.png)
+
+**Características:**
+- ✅ Generación automática Code 128
+- ✅ Almacenamiento en `docs/bar_code/`
+- ✅ Opción de ampliación con clic
+- ✅ Generación bajo demanda
+
+</details>
+
+<details>
+<summary>📜 <b>Historial de Operaciones</b> (Click para expandir)</summary>
+
+![Pantalla de historial](docs/screenshots/historial2.png)
+
+**Características:**
+- ✅ Seguimiento completo de operaciones
+- ✅ Filtros avanzados (tipo, fecha, categoría)
+- ✅ Descarga directa de tickets PDF
+- ✅ Visualización de operaciones múltiples
+
+</details>
+
+<details>
+<summary>💰 <b>Análisis Financiero</b> (Click para expandir)</summary>
+
+![Pantalla de finanzas](docs/screenshots/finanzas.png)
+
+**Características:**
+- ✅ Gráficos de ingresos vs gastos
+- ✅ Calendario interactivo
+- ✅ Filtros por período y categoría
+- ✅ Cálculo de beneficio total
+
+</details>
+
+<details>
+<summary>📈 <b>Estadísticas Avanzadas</b> (Click para expandir)</summary>
+
+![Pantalla de estadísticas](docs/screenshots/estadisticas.png)
+
+**Características:**
+- ✅ KPIs en tiempo real
+- ✅ 4 gráficos interactivos
+- ✅ Top 10 productos más vendidos
+- ✅ Análisis de stock bajo
+- ✅ Filtros por período
+
+</details>
+
+<details>
+<summary>📊 <b>Exportación a Excel</b> (Click para expandir)</summary>
+
+![Excel exportado](docs/screenshots/excel_export.png)
+
+**Hojas incluidas:**
+- 📦 Productos (inventario completo)
+- 📜 Historial (todas las operaciones)
+- 💰 Finanzas (ingresos y gastos)
+- 📈 Resumen (métricas generales)
+
+</details>
+
+<details>
+<summary>🎫 <b>Tickets PDF</b> (Click para expandir)</summary>
+
+![Ticket PDF](docs/screenshots/ticket_pdf.png)
+
+**Características:**
+- ✅ Diseño profesional mejorado
+- ✅ Información detallada
+- ✅ Formato alineado y legible
+- ✅ Soporte para múltiples productos
+
+</details>
+
+---
+
+## 📋 Características Principales
+
+### 📦 Gestión de Inventario
+
+<table>
+<tr>
+<td>
+
+**Productos**
+- ➕ Añadir, editar y eliminar
+- 🏷️ Códigos de barras automáticos
+- 📊 Organización por categorías
+- 🔍 Búsqueda y filtros avanzados
+- ⚠️ Alertas de stock bajo
+
+</td>
+<td>
+
+**Control de Stock**
+- 🛒 Registro de compras
+- 💰 Registro de ventas
+- 🔄 Actualización automática
+- 📈 Cálculo de balance
+- 📊 Análisis de rotación
+
+</td>
+</tr>
+</table>
+
+### 🎫 Operaciones y Tickets
+
+- ✅ **Tickets PDF profesionales** para cada operación
+- ✅ **Operaciones múltiples** (varios productos en una transacción)
+- ✅ **Historial completo** con filtros avanzados
+- ✅ **Descarga directa** de tickets desde el historial
+- ✅ **Registro detallado** de precios y cantidades
+
+### 📊 Análisis y Reportes
+
+<table>
+<tr>
+<td width="33%">
+
+**KPIs en Tiempo Real**
+- 💵 Ingresos totales
+- 💸 Gastos totales
+- 💰 Beneficio neto
+- 📊 Margen bruto
+- 🛒 Ventas totales
+- 🎯 Ticket medio
+
+</td>
+<td width="33%">
+
+**Gráficos Interactivos**
+- 📈 Evolución de ventas
+- 📊 Categorías rentables
+- 🍩 Distribución de stock
+- ↔️ Rotación de inventario
+
+</td>
+<td width="33%">
+
+**Exportación**
+- 📊 Excel (4 hojas)
+- 🎫 Tickets PDF
+- 📜 Historial completo
+- 💾 Backup de datos
+
+</td>
+</tr>
+</table>
+
+### 📝 Sistema de Logs
+
+- **Log de aplicación**: `data/logs/app.log` - Todas las operaciones del sistema
+- **Alertas de stock**: `data/logs/stock_alerts.txt` - Productos con stock bajo
+- **Formato estructurado**: Timestamp, nivel y mensaje detallado
+
+### 🎨 Interfaz y UX
+
+- 🌙 **Modo Oscuro** persistente para reducir fatiga visual
+- 📱 **Diseño Responsivo** adaptable a diferentes pantallas
+- 🔔 **Notificaciones** visuales inmediatas
+- 🧭 **Navegación intuitiva** con menú superior
+- ⚡ **Feedback visual** en todas las operaciones
+
+---
+
+## 🚀 Instalación
+
+### 📋 Requisitos Previos
+
+```bash
+Node.js v14 o superior
+npm v6 o superior
+```
+
+### 📥 Instalación Rápida
+
+```bash
+# 1️⃣ Clonar el repositorio
+git clone https://github.com/tu-usuario/vimenstock.git
+cd vimenstock
+
+# 2️⃣ Instalar dependencias
+npm install
+
+# 3️⃣ (Opcional) Generar datos de prueba
+npm run data
+
+# 4️⃣ Iniciar el servidor
+npm start
+
+# Para desarrollo con recarga automática
+npm run dev
+```
+
+### 🌐 Acceder a la Aplicación
+
+Abre tu navegador en: **http://localhost:3000**
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+vimenstock/
+│
+├── 📂 data/                    # Datos y archivos generados
+│   ├── 📄 data.json            # Base de datos JSON
+│   ├── 📂 logs/                # Sistema de logs
+│   │   ├── 📄 app.log          # Log general
+│   │   └── 📄 stock_alerts.txt # Alertas de stock
+│   └── 📂 tickets/             # Tickets PDF
+│       ├── 📂 compra/          # Tickets de compra
+│       └── 📂 venta/           # Tickets de venta
+│
+├── 📂 docs/                    # Documentación
+│   ├── 📂 bar_code/            # Códigos de barras ⭐
+│   └── 📂 screenshots/         # Capturas de pantalla
+│
+├── 📂 public/                  # Frontend
+│   ├── 🌐 index.html           # Página de productos
+│   ├── 🌐 historial.html       # Página de historial
+│   ├── 🌐 finanzas.html        # Página de finanzas
+│   ├── 🌐 estadisticas.html    # Dashboard estadísticas ⭐
+│   └── 🎨 style.css            # Estilos principales
+│
+├── 📂 src/                     # Backend
+│   ├── ⚙️ server.js            # Servidor Express + APIs ⭐
+│   ├── 🔧 generateData.js      # Generador de datos
+│   ├── 📱 app.js               # Lógica principal
+│   ├── 📜 historial.js         # Gestión de historial
+│   ├── 💰 finanzas.js          # Análisis financiero
+│   ├── 📈 estadisticas.js      # Estadísticas avanzadas ⭐
+│   └── 🌓 lightdark.js         # Control modo oscuro
+│
+├── 📄 .gitignore
+├── 📋 CHANGELOG.md             # Historial de cambios ⭐
+├── 📜 LICENSE
+├── 📖 README.md
+├── 📦 package.json
+└── 🔒 package-lock.json
+
+⭐ = Nuevos en v2.0.0
+```
+
+---
+
+## 🎯 Uso
+
+### 📦 Gestión de Productos
+
+```
+1️⃣ AÑADIR PRODUCTO
+   └─ Clic en "▼ AÑADIR PRODUCTO ▼"
+   └─ Completar formulario
+   └─ El código de barras se genera automáticamente
+
+2️⃣ EDITAR PRODUCTO
+   └─ Botón "Editar" en la tabla
+   └─ Modificar campos necesarios
+   └─ Guardar cambios
+
+3️⃣ ELIMINAR PRODUCTO
+   └─ Botón "Eliminar" en la tabla
+   └─ Confirmar eliminación
+   └─ Se registra en el historial
+
+4️⃣ VER HISTORIAL
+   └─ Botón "Historial" del producto
+   └─ Visualiza todos sus movimientos
+
+5️⃣ CÓDIGO DE BARRAS
+   └─ Clic en la imagen para ampliar
+   └─ Generación automática Code 128
+```
+
+### 🛒 Operaciones de Compra/Venta
+
+#### 📥 Comprar
+
+```
+1. Clic en "▼ COMPRAR ▼"
+2. Añadir filas con:
+   ├─ Código de producto (P001, P002, etc.)
+   └─ Cantidad
+3. El sistema calcula automáticamente:
+   ├─ Precio unitario
+   ├─ Precio total por producto
+   └─ Total de la operación
+4. Confirmar compra
+   └─ ✅ Actualiza stock
+   └─ ✅ Genera ticket PDF
+   └─ ✅ Registra en historial
+```
+
+#### 💰 Vender
+
+```
+1. Clic en "▼ VENDER ▼"
+2. Añadir filas con:
+   ├─ Código de producto
+   └─ Cantidad (verificación automática de stock)
+3. El sistema:
+   ├─ Valida disponibilidad
+   ├─ Calcula precios
+   └─ Muestra total
+4. Confirmar venta
+   └─ ✅ Actualiza stock
+   └─ ✅ Genera ticket PDF
+   └─ ✅ Registra en historial
+   └─ ⚠️ Alerta si queda stock bajo
+```
+
+### 📜 Historial
+
+**Filtros Disponibles:**
+
+| Filtro | Opciones |
+|--------|----------|
+| 🔄 Tipo de Operación | Comprado, Vendido, Editado, Eliminado, Añadido |
+| 📂 Categoría | Todas las categorías del sistema |
+| 📅 Fecha | Fecha exacta o rango de fechas |
+| 🔍 ID | Producto o Ticket específico |
+
+**Funcionalidades:**
+- 📥 **Descargar tickets**: Clic en el texto azul "Ticket: [ID]"
+- 📊 **Operaciones múltiples**: Se expanden mostrando cada producto
+- 🔗 **Enlaces directos**: A tickets PDF con efecto hover
+- ⏰ **Ordenación**: Por fecha más reciente primero
+
+### 💰 Análisis Financiero
+
+```
+📊 PERÍODOS DISPONIBLES
+├─ 📅 Diario    → Ventas/compras del día
+├─ 📅 Semanal   → Últimos 7 días
+├─ 📅 Mensual   → Últimos 30 días
+├─ 📅 Anual     → Últimos 365 días
+└─ 📅 Siempre   → Histórico completo
+
+🔍 FILTROS
+├─ Por categoría
+├─ Por ID de producto
+└─ Rango de fechas personalizado
+
+📈 GRÁFICO
+├─ 💵 Ingresos (verde)
+├─ 💸 Gastos (rojo)
+└─ 💰 Beneficio total
+```
+
+### 📈 Estadísticas Avanzadas
+
+**KPIs en Tiempo Real:**
+
+| Métrica | Descripción | Cálculo |
+|---------|-------------|---------|
+| 💵 Ingresos | Total vendido | Suma de todas las ventas |
+| 💸 Gastos | Total comprado | Suma de todas las compras |
+| 💰 Beneficio | Ganancia neta | Ingresos - Gastos |
+| 📊 Margen | Rentabilidad | (Beneficio / Ingresos) × 100 |
+| 🛒 Ventas | Nº operaciones | Conteo de ventas |
+| 🎯 Ticket Medio | Promedio venta | Ingresos / Nº ventas |
+
+**Gráficos Interactivos:**
+
+```
+📈 Evolución de Ventas (Línea)
+   └─ Ventas diarias en el período seleccionado
+   └─ Hover para ver detalles exactos
+
+📊 Categorías Rentables (Barras)
+   └─ Beneficio por categoría
+   └─ Ordenadas de mayor a menor
+
+🍩 Distribución de Stock (Dona)
+   └─ Stock por categoría
+   └─ Porcentajes visuales
+
+↔️ Rotación de Inventario (Barras Horizontales)
+   └─ Ventas vs Stock disponible
+   └─ Identifica productos estancados
+```
+
+**Tablas de Análisis:**
+
+| Tabla | Información |
+|-------|-------------|
+| 🏆 Top 10 Vendidos | Productos + vendidos con cantidades |
+| ⚠️ Stock Bajo | Crítico (<10), Bajo (<25), Agotados (0) |
+
+**Filtros por Período:**
+- 📅 Últimos 7 días
+- 📅 Últimos 30 días
+- 📅 Últimos 90 días
+- 📅 Último año
+- 📅 Todo el tiempo
+
+### 📊 Exportación a Excel
+
+```
+🖱️ CÓMO USAR
+1. Ir a la página de Productos
+2. Clic en "📊 Exportar a Excel" (botón verde)
+3. Se genera automáticamente "data.xlsx"
+
+📄 HOJAS INCLUIDAS
+
+📦 HOJA 1: Productos
+├─ ID del producto
+├─ Nombre
+├─ Categoría
+├─ Proveedor
+├─ Precio de compra
+├─ Precio de venta
+├─ Stock actual
+├─ Ventas totales
+└─ Balance
+
+📜 HOJA 2: Historial
+├─ Fecha y hora
+├─ Tipo de operación
+├─ ID del producto
+├─ Nombre del producto
+├─ Cantidad
+├─ Precio
+└─ Ticket ID
+
+💰 HOJA 3: Finanzas
+├─ Fecha
+├─ Tipo (Ingreso/Gasto)
+├─ Categoría
+├─ Producto
+├─ Cantidad
+└─ Monto
+
+📈 HOJA 4: Resumen
+├─ Total de productos
+├─ Stock total
+├─ Ingresos totales
+├─ Gastos totales
+├─ Beneficio neto
+├─ Margen bruto
+└─ Otras métricas
+```
+
+### ⚠️ Alertas de Stock Bajo
+
+**Sistema Automático:**
+
+```
+🔔 SE ACTIVA CUANDO:
+└─ Stock < 25 unidades (configurable)
+
+📝 REGISTRO EN LOG:
+└─ Archivo: data/logs/stock_alerts.txt
+└─ Formato: [ID] - [Nombre] - Stock: [X] - [Fecha]
+└─ Ejemplo: P001 - Leche Entera - Stock Disponible: 15 - 29/09/2025 14:30
+
+🎨 VISUALIZACIÓN:
+└─ Número de stock en ROJO y NEGRITA en la tabla
+└─ Fácil identificación visual
+└─ Se actualiza en cada venta
+```
+
+**Configurar Umbral:**
+
+Editar en `src/app.js`:
+```javascript
+const STOCKBAJO = 25; // Cambiar a tu preferencia
+```
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### 🔧 Backend
+
+| Tecnología | Versión | Uso |
+|------------|---------|-----|
+| **Node.js** | ≥14.0.0 | Entorno de ejecución |
+| **Express.js** | ^4.18.0 | Framework web |
+| **PDFKit** | ^0.13.0 | Generación de tickets PDF |
+| **Winston** | ^3.8.0 | Sistema de logs profesional |
+| **Canvas** | ^2.11.0 | Generación códigos de barras |
+| **ExcelJS** | ^4.3.0 | Exportación a Excel |
+
+### 🎨 Frontend
+
+| Tecnología | Fuente | Uso |
+|------------|--------|-----|
+| **HTML5/CSS3** | Nativo | Estructura y estilos |
+| **JavaScript ES6+** | Nativo | Lógica del cliente |
+| **Chart.js** | CDN | Gráficos interactivos |
+| **Flatpickr** | CDN | Selector de fechas |
+
+---
+
+## 🏷️ Categorías
+
+### 📂 Categorías Predefinidas
+
+El sistema incluye **10 categorías** por defecto:
+
+| # | Categoría | Icono | Descripción |
+|---|-----------|-------|-------------|
+| 1 | Alimentación | 🍞 | Productos alimenticios |
+| 2 | Bebidas | 🥤 | Bebidas y líquidos |
+| 3 | Limpieza | 🧹 | Productos de limpieza |
+| 4 | Tecnología | 💻 | Dispositivos electrónicos |
+| 5 | Hogar | 🏠 | Artículos del hogar |
+| 6 | Juguetes | 🧸 | Juguetes y juegos |
+| 7 | Cosmética | 💄 | Productos de belleza |
+| 8 | Ropa | 👕 | Prendas de vestir |
+| 9 | Deportes | ⚽ | Artículos deportivos |
+| 10 | Otro | 📦 | Otros productos |
+
+### ✏️ Personalizar Categorías
+
+<details>
+<summary><b>Opción 1: Antes del Primer Inicio</b> (Recomendado)</summary>
+
+```javascript
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
+
+const dataInicial = {
+  categorias: [
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
+  ],
+  productos: {},
+  historial: [],
+  finanzas: [],
+  ultimaIDUsada: 0
+};
+```
+
+</details>
+
+<details>
+<summary><b>Opción 2: Después del Primer Inicio</b></summary>
+
+```bash
+# 1. Detener el servidor
+Ctrl + C
+
+# 2. Editar data/data.json
+```
+
+```json
+{
+  "categorias": [
+    "Electrónica",
+    "Muebles",
+    "Decoración",
+    "Accesorios"
+  ],
+  "productos": { ... },
+  "historial": [ ... ]
+}
+```
+
+```bash
+# 3. Reiniciar
+npm start
+```
+
+</details>
+
+**⚠️ Consideraciones:**
+- ✅ Productos existentes mantienen su categoría
+- ✅ Historial conserva categorías originales
+- ✅ Filtros se actualizan automáticamente
+
+---
+
+## 📝 Sistema de Logs
+
+### 📄 Log de Aplicación
+
+**Ubicación:** `data/logs/app.log`
+
+**Formato:**
+```
+2025-09-29 14:30:45 info: Servidor corriendo en http://localhost:3000
+2025-09-29 14:31:12 info: Ticket generado: ticket_venta_VENTA-1727621472123-456.pdf
+2025-09-29 14:31:15 info: Excel exportado: data.xlsx
+2025-09-29 14:32:00 info: Código de barras generado: P123.png
+2025-09-29 14:32:30 warn: Intento de venta con stock insuficiente: P045
+2025-09-29 14:33:00 error: Error al generar PDF: [detalles del error]
+```
+
+### ⚠️ Log de Alertas de Stock
+
+**Ubicación:** `data/logs/stock_alerts.txt`
+
+**Formato:**
+```
+P001 - Leche Entera - Stock Disponible: 18 - 29/09/2025 14:31:12
+P045 - Café Molido - Stock Disponible: 12 - 29/09/2025 14:31:12
+P089 - Azúcar Blanco - Stock Disponible: 8 - 29/09/2025 14:35:45
+P123 - Pan Integral - Stock Disponible: 3 - 29/09/2025 14:40:20
+```
+
+**Niveles de Alerta:**
+- 🔴 **Crítico** (0-10): Requiere atención inmediata
+- 🟡 **Bajo** (11-24): Planificar reabastecimiento
+- ⚪ **Normal** (≥25): Sin alertas
+
+---
+
+## ⚙️ Configuración
+
+### 🔌 Puerto del Servidor
+
+**Por defecto:** `3000`
+
+```javascript
+// Editar: src/server.js
+const PORT = 3000; // Cambiar al puerto deseado
+```
+
+### ⚠️ Umbral de Stock Bajo
+
+**Por defecto:** `25 unidades`
+
+```javascript
+// Editar: src/app.js
+const STOCKBAJO = 25; // Ajustar según necesidades
+```
+
+### 🎲 Datos de Prueba
+
+```javascript
+// Editar: src/generateData.js
+for (let i = 1; i <= 200; i++) { // Cambiar cantidad
+  // Generación de productos
+}
+```
+
+### 🌐 Acceso en Red Local
+
+```bash
+# Encontrar tu IP local
+# Windows
+ipconfig
+
+# Linux/Mac
+ifconfig
+
+# Acceder desde otro dispositivo
+http://[TU_IP_LOCAL]:3000
+# Ejemplo: http://192.168.1.100:3000
+```
+
+---
+
+## 💾 Backup y Recuperación
+
+### 📦 Hacer Backup Manual
+
+```bash
+# Backup del archivo de datos
+cp data/data.json data/backup_$(date +%Y%m%d).json
+
+# Backup completo de la carpeta data
+cp -r data/ backup_data_$(date +%Y%m%d)/
+
+# Backup de códigos de barras
+cp -r docs/bar_code/ backup_bar_code_$(date +%Y%m%d)/
+
+# Backup todo en uno (Linux/Mac)
+tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/ docs/bar_code/
+```
+
+### ♻️ Restaurar desde Backup
+
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo
+cp data/backup_20250929.json data/data.json
+
+# 3️⃣ Restaurar carpetas completas (si es necesario)
+cp -r backup_data_20250929/* data/
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+
+### 🤖 Backup Automático (Script Ejemplo)
+
+```bash
+#!/bin/bash
+# backup.sh - Ejecutar con cron
+
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_DIR="backups"
+
+mkdir -p $BACKUP_DIR
+
+# Backup de datos
+cp data/data.json "$BACKUP_DIR/data_$DATE.json"
+
+# Comprimir
+tar -czf "$BACKUP_DIR/full_backup_$DATE.tar.gz" data/ docs/bar_code/
+
+# Limpiar backups antiguos (mantener últimos 30 días)
+find $BACKUP_DIR -name "*.tar.gz" -mtime +30 -delete
+
+echo "✅ Backup completado: $DATE"
+```
+
+**Programar con cron (Linux/Mac):**
+```bash
+# Editar crontab
+crontab -e
+
+# Añadir línea (backup diario a las 2 AM)
+0 2 * * * /ruta/a/vimenstock/backup.sh
+```
+
+---
+
+## 🔌 API Endpoints
+
+### 📊 Datos
+
+| Método | Endpoint | Descripción | Body/Params |
+|--------|----------|-------------|-------------|
+| `GET` | `/api/data` | Obtener todos los datos | - |
+| `POST` | `/api/data` | Guardar/actualizar datos | JSON completo |
+
+### 🎫 Tickets y Documentos
+
+| Método | Endpoint | Descripción | Params |
+|--------|----------|-------------|--------|
+| `POST` | `/api/generar-ticket` | Generar ticket PDF | `{ tipo, operacion, productos, total }` |
+| `GET` | `/api/descargar-ticket/:tipo/:fileName` | Descargar ticket | `tipo: compra\|venta` |
+| `GET` | `/api/exportar-excel` | Exportar a Excel | - |
+
+### 🏷️ Códigos de Barras
+
+| Método | Endpoint | Descripción | Body |
+|--------|----------|-------------|------|
+| `POST` | `/api/generar-codigo-barras` | Generar código de barras | `{ productoID, nombre }` |
+
+### ⚠️ Alertas
+
+| Método | Endpoint | Descripción | Body |
+|--------|----------|-------------|------|
+| `POST` | `/api/registrar-alerta-stock` | Registrar alerta | `{ productoID, nombre, stock }` |
+
+**Ejemplo de uso (JavaScript):**
+
+```javascript
+// Obtener datos
+const response = await fetch('/api/data');
+const data = await response.json();
+
+// Generar código de barras
+await fetch('/api/generar-codigo-barras', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    productoID: 'P001',
+    nombre: 'Producto Ejemplo'
+  })
+});
+
+// Exportar a Excel
+window.location.href = '/api/exportar-excel';
+```
+
+---
+
+## 🎨 Características Adicionales
+
+### ✨ Funcionalidades Extra
+
+| Característica | Descripción |
+|----------------|-------------|
+| 🌙 **Modo Oscuro** | Persistente en localStorage |
+| 🔄 **Ordenación** | Clic en cabeceras de tabla |
+| 💶 **Formato Moneda** | Automático formato español (€) |
+| ✅ **Validaciones** | Stock, duplicados, campos requeridos |
+| 🔔 **Notificaciones** | Feedback visual de operaciones |
+| 🏷️ **Códigos Barras** | Code 128 automático |
+| 📱 **Responsive** | Adaptable a móviles y tablets |
+| ⚡ **Performance** | Carga bajo demanda |
+
+### 🎯 Atajos de Teclado
+
+| Atajo | Acción |
+|-------|--------|
+| `Ctrl + K` | Buscar producto |
+| `Ctrl + N` | Nuevo producto |
+| `Ctrl + E` | Exportar Excel |
+| `Esc` | Cerrar modales |
+
+---
+
+## 🔒 Seguridad
+
+### ⚠️ Aviso Importante
+
+Este sistema **NO incluye autenticación** y está diseñado para:
+- ✅ Uso local (localhost)
+- ✅ Redes privadas confiables
+- ❌ NO para uso en internet público
+
+### 🛡️ Para Uso en Producción
+
+Si planeas usar VimenStock en un entorno de producción, considera implementar:
+
+| Medida | Prioridad | Descripción |
+|--------|-----------|-------------|
+| 🔐 **HTTPS/SSL** | 🔴 Alta | Certificados SSL/TLS |
+| 👤 **Autenticación** | 🔴 Alta | JWT, OAuth, Passport.js |
+| 🛡️ **Validación** | 🔴 Alta | Sanitización de inputs |
+| 🚦 **Rate Limiting** | 🟡 Media | Prevenir abusos |
+| 🌐 **CORS** | 🟡 Media | Configuración adecuada |
+| 🔑 **Hash Contraseñas** | 🔴 Alta | bcrypt, argon2 |
+| 📝 **Auditoría** | 🟢 Baja | Ya implementado ✅ |
+| 💉 **SQL Injection** | 🟡 Media | Si migras a SQL |
+| 💾 **Backups Auto** | 🟡 Media | Programados |
+
+**Recursos recomendados:**
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+
+---
+
+## 🔧 Solución de Problemas
+
+<details>
+<summary>❌ <b>El servidor no inicia</b></summary>
+
+**Posibles causas y soluciones:**
+
+```bash
+# Verificar puerto disponible
+lsof -i :3000  # Linux/Mac
+netstat -ano | findstr :3000  # Windows
+
+# Reinstalar dependencias
+rm -rf node_modules package-lock.json
+npm install
+
+# Verificar versión de Node
+node --version  # Debe ser ≥14.0.0
+
+# Revisar logs
+cat data/logs/app.log
+```
+
+</details>
+
+<details>
+<summary>📄 <b>Los tickets no se generan</b></summary>
+
+**Soluciones:**
+
+```bash
+# Verificar permisos
+chmod -R 755 data/tickets
+
+# Crear carpetas manualmente
+mkdir -p data/tickets/compra data/tickets/venta
+
+# Reinstalar PDFKit
+npm uninstall pdfkit
+npm install pdfkit
+
+# Revisar logs
+tail -f data/logs/app.log
+```
+
+</details>
+
+<details>
+<summary>🏷️ <b>Códigos de barras no se muestran</b></summary>
+
+**Soluciones:**
+
+```bash
+# Verificar permisos
+chmod -R 755 docs/bar_code
+
+# Crear carpeta
+mkdir -p docs/bar_code
+
+# Reinstalar Canvas
+npm uninstall canvas
+npm install canvas
+
+# En Windows, puede requerir herramientas adicionales
+npm install --global windows-build-tools
+```
+
+</details>
+
+<details>
+<summary>📊 <b>Exportación a Excel falla</b></summary>
+
+**Soluciones:**
+
+```bash
+# Verificar permisos en carpeta data
+chmod 755 data/
+
+# Reinstalar ExcelJS
+npm uninstall exceljs
+npm install exceljs
+
+# Verificar espacio en disco
+df -h  # Linux/Mac
+```
+
+</details>
+
+<details>
+<summary>🔌 <b>Error "EADDRINUSE"</b></summary>
+
+**El puerto está ocupado:**
+
+```bash
+# Encontrar proceso
+lsof -i :3000  # Linux/Mac
+netstat -ano | findstr :3000  # Windows
+
+# Matar proceso
+kill -9 [PID]  # Linux/Mac
+taskkill /PID [PID] /F  # Windows
+
+# O cambiar puerto en src/server.js
+const PORT = 3001;  // Usar otro puerto
+```
+
+</details>
+
+<details>
+<summary>💾 <b>Datos no se guardan</b></summary>
+
+**Verificaciones:**
+
+```bash
+# Permisos del archivo
+chmod 644 data/data.json
+
+# Verificar que el archivo no esté corrupto
+cat data/data.json | python -m json.tool
+
+# Restaurar desde backup si está corrupto
+cp data/backup_YYYYMMDD.json data/data.json
+```
+
+</details>
+
+---
+
+## ❓ Preguntas Frecuentes
+
+<details>
+<summary><b>¿Los datos se guardan automáticamente?</b></summary>
+
+Sí, cada operación se guarda automáticamente en `data/data.json`. No es necesario hacer clic en guardar.
+
+</details>
+
+<details>
+<summary><b>¿Puedo usar esto en múltiples tiendas?</b></summary>
+
+No directamente. Cada instancia gestiona una sola base de datos local. Para múltiples tiendas:
+- Opción 1: Ejecutar múltiples instancias en diferentes puertos
+- Opción 2: Migrar a base de datos centralizada (futuro v3.0)
+
+</details>
+
+<details>
+<summary><b>¿Hay límite de productos?</b></summary>
+
+No hay límite establecido, pero por rendimiento con JSON se recomienda no superar **10,000 productos**. Para más, considera migrar a MongoDB (planificado v2.1).
+
+</details>
+
+<details>
+<summary><b>¿Los códigos de barras son únicos?</b></summary>
+
+Sí, cada producto tiene su código de barras único basado en su ID (P001, P002, etc.) en formato **Code 128**, uno de los más utilizados en retail.
+
+</details>
+
+<details>
+<summary><b>¿Puedo exportar los datos?</b></summary>
+
+Sí, tienes 2 opciones:
+1. **Excel**: Botón "📊 Exportar a Excel" (4 hojas profesionales)
+2. **JSON**: Copiar directamente `data/data.json`
+
+</details>
+
+<details>
+<summary><b>¿Funciona sin conexión a internet?</b></summary>
+
+Casi completamente. Solo necesita internet para las CDN de:
+- Chart.js (gráficos)
+- Flatpickr (selector de fechas)
+
+Para uso 100% offline, descarga estas librerías localmente.
+
+</details>
+
+<details>
+<summary><b>¿Puedo acceder desde otro dispositivo en mi red?</b></summary>
+
+Sí:
+```bash
+# Encontrar tu IP
+ipconfig  # Windows
+ifconfig  # Linux/Mac
+
+# Acceder desde otro dispositivo
+http://TU_IP:3000
+# Ejemplo: http://192.168.1.100:3000
+```
+
+</details>
+
+<details>
+<summary><b>¿Qué formato tienen los códigos de barras?</b></summary>
+
+**Code 128**, uno de los formatos más utilizados en:
+- Retail y supermercados
+- LogÃ­stica y almacenes
+- Bibliotecas
+- Gestión de inventarios
+
+Compatible con la mayoría de lectores de códigos de barras.
+
+</details>
+
+<details>
+<summary><b>¿Puedo cambiar el umbral de stock bajo?</b></summary>
+
+Sí, edita en `src/app.js`:
+```javascript
+const STOCKBAJO = 25; // Cambiar a tu preferencia
+```
+
+</details>
+
+<details>
+<summary><b>¿Cómo hago backup de mis datos?</b></summary>
+
+Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instrucciones detalladas y scripts automáticos.
+
+</details>
+
+---
+
+## 🗺️ Roadmap
+
+### 📅 Versión 2.1.0 - Q4 2025
+
+| Característica | Estado | Prioridad |
+|----------------|--------|-----------|
+| 🖨️ Impresión directa de códigos de barras | 🟡 Planificado | Alta |
+| 📷 Lector de códigos con webcam | 🟡 Planificado | Alta |
+| 📧 Notificaciones por email | 🟡 Planificado | Media |
+| ☁️ Backup automático programado | 🟡 Planificado | Alta |
+| 📱 PWA (Progressive Web App) | 🟡 Planificado | Media |
+| 🔍 Búsqueda con autocompletado | 🟡 Planificado | Baja |
+
+### 📅 Versión 3.0.0 - 2026
+
+| Característica | Estado | Descripción |
+|----------------|--------|-------------|
+| 🗄️ Base de datos | 🔵 En consideración | MongoDB/PostgreSQL |
+| 👥 Multiusuario | 🔵 En consideración | Autenticación y roles |
+| 📡 API REST completa | 🔵 En consideración | Documentación Swagger |
+| 📊 Dashboard en tiempo real | 🔵 En consideración | WebSockets |
+| 🏢 Múltiples almacenes | 🔵 En consideración | Gestión distribuida |
+| 🌍 Internacionalización | 🔵 En consideración | Múltiples idiomas |
+| 📊 Informes personalizados | 🔵 En consideración | Reportes en PDF |
+
+**Leyenda:**
+- 🟢 Completado
+- 🟡 Planificado
+- 🔵 En consideración
+- 🔴 En desarrollo
+
+---
+
+## 🤝 Contribuir
+
+¿Te gustaría contribuir a VimenStock? ¡Genial! Aquí te explicamos cómo:
+
+### 📝 Reportar Bugs
+
+1. Verifica que el bug no esté ya reportado en [Issues](https://github.com/tu-usuario/vimenstock/issues)
+2. Crea un nuevo issue con:
+   - ✅ Descripción clara del problema
+   - ✅ Pasos para reproducirlo
+   - ✅ Comportamiento esperado vs actual
+   - ✅ Capturas de pantalla (si aplica)
+   - ✅ Información del sistema (OS, Node version)
+
+### 💡 Sugerir Features
+
+1. Abre un issue con la etiqueta "enhancement"
+2. Describe claramente:
+   - ✅ Qué problema resolvería
+   - ✅ Cómo te gustaría que funcionara
+   - ✅ Posibles alternativas consideradas
+
+### 🔧 Contribuir con Código
+
+```bash
+# 1️⃣ Fork el repositorio
+# Clic en "Fork" en GitHub
+
+# 2️⃣ Clonar tu fork
+git clone https://github.com/TU-USUARIO/vimenstock.git
+cd vimenstock
+
+# 3️⃣ Crear rama para tu feature
+git checkout -b feature/AmazingFeature
+
+# 4️⃣ Hacer cambios y commit
+git add .
+git commit -m '✨ Add: Amazing Feature'
+
+# 5️⃣ Push a tu fork
+git push origin feature/AmazingFeature
+
+# 6️⃣ Abrir Pull Request en GitHub
+```
+
+### 📜 Convención de Commits
+
+Usamos [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+✨ feat: Nueva característica
+🐛 fix: Corrección de bug
+📚 docs: Cambios en documentación
+🎨 style: Formato, no afecta código
+♻️ refactor: Refactorización de código
+⚡ perf: Mejora de rendimiento
+✅ test: Añadir/modificar tests
+🔧 chore: Mantenimiento
+```
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia **MIT**.
+
+```
+MIT License
+
+Copyright (c) 2025 Victor Menjon
+
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
+de este software y archivos de documentación asociados (el "Software"), para usar
+el Software sin restricciones, incluyendo sin limitación los derechos de usar,
+copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias
+del Software...
+
+Ver archivo LICENSE para el texto completo.
+```
+
+---
+
+## 👨‍💻 Autor
+
+<div align="center">
+
+**Victor Menjon**
+
+[![Website](https://img.shields.io/badge/Website-victormenjon.es-blue?style=flat&logo=google-chrome)](https://victormenjon.es)
+[![GitHub](https://img.shields.io/badge/GitHub-@victormenjon-181717?style=flat&logo=github)](https://github.com/victormenjon)
+[![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:contact@victormenjon.es)
+
+</div>
