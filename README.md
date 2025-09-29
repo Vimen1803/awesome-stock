@@ -24,6 +24,7 @@ Sistema de gestión de inventario profesional con generación automática de tic
 
 ### Códigos de Barras
 ![Códigos de barras](docs/screenshots/codigos_barras.png)
+
 *Generación automática de códigos de barras Code 128 para cada producto con opción de ampliación.*
 
 ### Historial de Operaciones
