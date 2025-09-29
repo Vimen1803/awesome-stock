@@ -32,13 +32,6 @@ Esta es una actualización importante que introduce múltiples funcionalidades p
 - API endpoint: `GET /api/exportar-excel`
 - Botón de exportación en la interfaz principal
 
-#### Sistema de Logs
-- Implementación de Winston como sistema de logging profesional
-- Log general de aplicación en `data/logs/app.log`
-- Log específico de alertas de stock en `data/logs/stock_alerts.txt`
-- Registro con timestamp, nivel y mensaje detallado
-- Logs de todas las operaciones críticas del servidor
-
 #### Alertas de Stock Bajo
 - Sistema automático de detección de stock bajo (< 25 unidades)
 - Registro automático después de cada venta
@@ -133,7 +126,7 @@ Esta es una actualización importante que introduce múltiples funcionalidades p
 
 ---
 
-## [1.0.0] - 2025-09-15
+## [1.0.0] - 2025-08-28
 
 ### 🎉 Lanzamiento Inicial
 
@@ -236,3 +229,4 @@ Primera versión estable de VimenStock con funcionalidades básicas de gestión 
 
 
 *Última actualización: 29 de Septiembre de 2025*
+
