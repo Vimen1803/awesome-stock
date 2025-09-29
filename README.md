@@ -30,7 +30,7 @@
 ### 🛠 Tecnologías
 Consulta las tecnologías usadas tanto en el front como en el back
 
-[Ver Docs](#-uso)
+[Ver Tecnologias](#-tecnologías-utilizadas)
 
 </td>
 <td width="33%" align="center">
