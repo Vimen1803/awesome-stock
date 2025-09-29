@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VimenStock - Inventario</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="left">
+    <img src="https://victormenjon.es/favicon.ico" class="icon">
+    <span>VimenStock</span>
+  </div>
+  <div class="center">
+    <a href="index.html">Productos</a>
+    <a href="historial.html">Historial</a>
+    <a href="finanzas.html">Finanzas</a>
+    <a href="estadisticas.html">Estadísticas</a>
+  </div>
+  <div class="right">
+    <button id="toggle-dark" class="toggle-btn">
+      <span class="icon icon-moon"></span>
+      <span class="icon icon-sun"></span>
+    </button>
+  </div>
+</header>
+
+<div class="container">
+  <!-- BOTONES FORMULARIOS EN LA MISMA FILA -->
+  <div id="botones-formularios" style="display:flex; gap:10px; margin-bottom:15px;">
+    <button id="btn-toggle-add" class="form-toggle-btn">▼ AÑADIR PRODUCTO ▼</button>
+    <button id="btn-toggle-comprar" class="form-toggle-btn">▼ COMPRAR▼ </button>
+    <button id="btn-toggle-vender" class="form-toggle-btn">▼ VENDER ▼</button>
+  </div>
+
+  <!-- FORMULARIOS -->
+  <form id="form-add" class="collapsible-form">
+    <label>Nombre<input type="text" id="nombre" required></label>
+    <label>Categoría
+      <select id="categoria" required>
+        <!-- Se poblarán dinámicamente desde data.json -->
+      </select>
+    </label>
+    <label>Proveedor<input type="text" id="proveedor" required></label>
+    <label>Precio Compra (€)<input type="number" id="precioCompra" step="0.01" required></label>
+    <label>Precio Venta (€)<input type="number" id="precioVenta" step="0.01" required></label>
+    <button type="submit">+ Añadir Producto</button>
+  </form>
+
+  <form id="form-comprar" class="collapsible-form">
+    <div id="comprar-container"></div>
+    <button type="button" id="btn-add-row-comprar">+ Añadir fila</button>
+    <input type="text" id="total-compra" readonly value="0.00 €">
+    <button type="button" id="btn-confirm-comprar">Confirmar Compra</button>
+  </form>
+
+  <form id="form-vender" class="collapsible-form">
+    <div id="vender-container"></div>
+    <button type="button" id="btn-add-row-vender">+ Añadir fila</button>
+    <input type="text" id="total-venta" readonly value="0.00 €">
+    <button type="button" id="btn-confirm-vender">Confirmar Venta</button>
+  </form>
+
+  <!-- FILTROS EN UNA LINEA -->
+  <div id="filtros-container" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
+    <input type="text" id="busqueda-producto" placeholder="Buscar por ID o nombre" style="flex:1;">
+    <select id="filtro-categoria" style="flex:0.5;">
+      <option value="todos">Todos</option>
+      <!-- Se poblarán dinámicamente desde data.json -->
+    </select>
+    <button type="button" id="btn-reset-filtros">Quitar filtros</button>
+    <button type="button" id="btn-exportar-excel" style="background-color:#28a745; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">📊 Exportar a Excel</button>
+  </div>
+
+  <!-- TABLA -->
+  <table id="tabla-productos">
+    <thead>
+      <tr>
+        <th class="brillante">ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th class="brillante">Proveedor</th>
+        <th>Precio Compra</th>
+        <th>Precio Venta</th>
+        <th class="brillante">Stock</th>
+        <th class="brillante">Ventas Totales</th>
+        <th class="brillante">Balance (€)</th>
+        <th>Bar Code</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="app.js"></script>
+<script>
+  // ABRIR/CERRAR FORMULARIOS - SOLO UNO ABIERTO
+  const botones = [
+    {btn: document.getElementById("btn-toggle-add"), form: document.getElementById("form-add")},
+    {btn: document.getElementById("btn-toggle-comprar"), form: document.getElementById("form-comprar")},
+    {btn: document.getElementById("btn-toggle-vender"), form: document.getElementById("form-vender")}
+  ];
+
+  botones.forEach(b=>{
+    b.form.style.display="none";
+    b.btn.onclick = ()=>{
+      botones.forEach(other=>{
+        if(other.form!==b.form) other.form.style.display="none";
+      });
+      b.form.style.display = (b.form.style.display==="none" || b.form.style.display==="")?"block":"none";
+    }
+  });
+</script>
+</body>
+</html>
