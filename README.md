@@ -202,6 +202,72 @@ npm run dev
 Abre tu navegador en: **http://localhost:3000**
 
 ---
+## ⚙️ Configuración
+
+### 🔌 Cambiar Puerto del Servidor
+
+```javascript
+// Archivo: src/server.js
+// Línea: ~15
+
+const PORT = 3000; // Cambiar a 3001, 8080, etc.
+```
+
+**Puertos comunes:**
+- `3000` - Por defecto
+- `8080` - Alternativa popular
+- `3001` - Si 3000 está ocupado
+- `5000` - Otra alternativa común
+
+---
+
+### 🎲 Configurar Datos de Prueba
+
+```javascript
+// Archivo: src/generateData.js
+
+// Cambiar cantidad de productos generados
+for (let i = 1; i <= 200; i++) { // Cambiar 200 por el número deseado
+  // ... código de generación
+}
+
+// Personalizar rangos de precios
+const precioCompra = (Math.random() * (50 - 1) + 1).toFixed(2);
+//                                      ↑    ↑
+//                                    Máx  Mín
+
+// Personalizar stock inicial
+const stock = Math.floor(Math.random() * (200 - 10) + 10);
+//                                          ↑     ↑
+//                                        Máx   Mín
+```
+
+---
+
+### 🌐 Acceso desde Otros Dispositivos
+
+```bash
+# 1️⃣ Encontrar tu IP local
+
+# Windows:
+ipconfig
+# Buscar: "Dirección IPv4"
+
+# Linux/macOS:
+ifconfig
+# O
+ip addr show
+
+# 2️⃣ Acceder desde otro dispositivo
+# Formato: http://[TU_IP]:3000
+# Ejemplo:
+http://192.168.1.100:3000
+
+# 3️⃣ Asegurarse que el firewall permite conexiones
+# Windows: Permitir Node.js en el firewall
+# Linux: sudo ufw allow 3000/tcp
+```
+---
 
 ## 📁 Estructura del Proyecto
 
@@ -634,73 +700,6 @@ cp -r backup_data_20250828/ data/
 
 # 4️⃣ Reiniciar servidor
 npm start
-```
----
-
-## ⚙️ Configuración
-
-### 🔌 Cambiar Puerto del Servidor
-
-```javascript
-// Archivo: src/server.js
-// Línea: ~15
-
-const PORT = 3000; // Cambiar a 3001, 8080, etc.
-```
-
-**Puertos comunes:**
-- `3000` - Por defecto
-- `8080` - Alternativa popular
-- `3001` - Si 3000 está ocupado
-- `5000` - Otra alternativa común
-
----
-
-### 🎲 Configurar Datos de Prueba
-
-```javascript
-// Archivo: src/generateData.js
-
-// Cambiar cantidad de productos generados
-for (let i = 1; i <= 200; i++) { // Cambiar 200 por el número deseado
-  // ... código de generación
-}
-
-// Personalizar rangos de precios
-const precioCompra = (Math.random() * (50 - 1) + 1).toFixed(2);
-//                                      ↑    ↑
-//                                    Máx  Mín
-
-// Personalizar stock inicial
-const stock = Math.floor(Math.random() * (200 - 10) + 10);
-//                                          ↑     ↑
-//                                        Máx   Mín
-```
-
----
-
-### 🌐 Acceso desde Otros Dispositivos
-
-```bash
-# 1️⃣ Encontrar tu IP local
-
-# Windows:
-ipconfig
-# Buscar: "Dirección IPv4"
-
-# Linux/macOS:
-ifconfig
-# O
-ip addr show
-
-# 2️⃣ Acceder desde otro dispositivo
-# Formato: http://[TU_IP]:3000
-# Ejemplo:
-http://192.168.1.100:3000
-
-# 3️⃣ Asegurarse que el firewall permite conexiones
-# Windows: Permitir Node.js en el firewall
-# Linux: sudo ufw allow 3000/tcp
 ```
 
 ---
