@@ -44,6 +44,7 @@ Encuentra respuestas a preguntas comunes
 
 ### 📰 LICENCIA
 Consulta el archivo licencia y las guías necesarias
+
 [Ver LICENCIA](#-licencia-1)
 
 </td>
