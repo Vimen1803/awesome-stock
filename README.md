@@ -17,7 +17,7 @@
 
 **Sistema de gestión de inventario con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.**
 
-[Documentación](#-uso) •
+[Documentación](#-estructura-del-proyecto) •
 [Instalación](#-instalación) •
 [Tecnologías + APIs](#%EF%B8%8F-tecnologías-utilizadas)
 
