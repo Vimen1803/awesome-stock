@@ -838,6 +838,7 @@ df -h
    
 </details>
 
+<details>
 <summary> Versión 2.1.0 (futuro)</summary>
 - [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
 - [ ] **⚠️ Alertas de Stock Bajo**: Notificaciones por email para alertas de stock
