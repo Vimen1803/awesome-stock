@@ -839,29 +839,6 @@ cp -r backup_data_20250929/* data/
 npm start
 ```
 
-### 🤖 Backup Automático (Script Ejemplo)
-
-```bash
-#!/bin/bash
-# backup.sh - Ejecutar con cron
-
-DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_DIR="backups"
-
-mkdir -p $BACKUP_DIR
-
-# Backup de datos
-cp data/data.json "$BACKUP_DIR/data_$DATE.json"
-
-# Comprimir
-tar -czf "$BACKUP_DIR/full_backup_$DATE.tar.gz" data/ docs/bar_code/
-
-# Limpiar backups antiguos (mantener últimos 30 días)
-find $BACKUP_DIR -name "*.tar.gz" -mtime +30 -delete
-
-echo "✅ Backup completado: $DATE"
-```
-
 ---
 
 ## 🔌 API Endpoints
