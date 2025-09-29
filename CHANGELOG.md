@@ -228,21 +228,6 @@ Primera versión estable de VimenStock con funcionalidades básicas de gestión 
 
 ---
 
-## 📖 Guía de Tipos de Cambios
-
-| Emoji | Tipo | Descripción |
-|-------|------|-------------|
-| ✨ | **Añadido** | Nuevas funcionalidades |
-| 🔧 | **Cambiado** | Cambios en funcionalidades existentes |
-| ⚠️ | **Obsoleto** | Funcionalidades que serán eliminadas |
-| 🗑️ | **Eliminado** | Funcionalidades eliminadas |
-| 🐛 | **Corregido** | Corrección de errores |
-| 🔒 | **Seguridad** | Vulnerabilidades corregidas |
-| 📚 | **Documentación** | Cambios en documentación |
-| ⚡ | **Rendimiento** | Mejoras de rendimiento |
-
----
-
 ## 🗺️ Roadmap Futuro
 
 ### [2.1.0] - Planificado Q4 2025
@@ -264,32 +249,6 @@ Primera versión estable de VimenStock con funcionalidades básicas de gestión 
 
 ---
 
-## 📊 Estadísticas de Desarrollo
-
-### Versión 2.0.0
-- **Commits**: 127
-- **Archivos modificados**: 42
-- **Líneas añadidas**: ~3,500
-- **Líneas eliminadas**: ~800
-- **Tiempo de desarrollo**: 3 semanas
-- **Nuevas funcionalidades**: 8
-- **Bugs corregidos**: 15
-
----
-
-## 🤝 Cómo Contribuir
-
-Si encuentras un bug o tienes una sugerencia:
-
-1. 🐛 Abre un **issue** describiendo el problema
-2. 🔀 Haz un **fork** del repositorio
-3. 🌿 Crea una **rama** para tu feature (`git checkout -b feature/AmazingFeature`)
-4. 💾 **Commit** tus cambios (`git commit -m 'Add some AmazingFeature'`)
-5. 📤 **Push** a la rama (`git push origin feature/AmazingFeature`)
-6. 🔃 Abre un **Pull Request**
-
----
-
 ## 📝 Notas sobre Versionado
 
 Seguimos [Semantic Versioning](https://semver.org/):
@@ -304,15 +263,6 @@ MAJOR.MINOR.PATCH
 
 ---
 
-## 🔗 Enlaces Útiles
-
-- 📖 [Documentación completa](README.md)
-- 🐛 [Reportar bug](https://github.com/tu-usuario/vimenstock/issues)
-- 💡 [Solicitar feature](https://github.com/tu-usuario/vimenstock/issues)
-- 📧 [Contacto](mailto:contact@victormenjon.es)
-
----
-
 <div align="center">
 
 **Última actualización:** 29 de Septiembre de 2025
@@ -323,4 +273,5 @@ MAJOR.MINOR.PATCH
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
+
 
