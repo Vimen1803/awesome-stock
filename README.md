@@ -44,7 +44,7 @@ Encuentra respuestas a preguntas comunes
 
 ### 📰 LICENCIA
 
-[Ver LICENCIA](#-licencia)
+[Ver LICENCIA](#-licencia-1)
 
 </td>
 </tr>
