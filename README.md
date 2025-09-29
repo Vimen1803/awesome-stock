@@ -310,6 +310,9 @@ powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%dat
 
 ### ♻️ Restaurar desde Backup
 
+<details>
+<summary><b>Linux / macOS</b></summary>
+  
 ```bash
 # 1️⃣ Detener el servidor
 Ctrl + C
@@ -324,6 +327,28 @@ cp -r backup_data_20250828/ data/
 # 4️⃣ Reiniciar servidor
 npm start
 ```
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+```cmd
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo de datos
+copy data\backup_20250828.json data\data.json
+
+# 3️⃣ O restaurar carpeta completa
+rmdir /s /q data
+xcopy /e /i backup_data_20250828 data
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+
+</details>
+
 ---
 
 ## 🎯 Uso
