@@ -50,18 +50,6 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-## 🌟 Características Destacadas
-
-<div align="center">
-
-| 🌚 Modo Oscuro | 📇 Filtro | 📈 Estadísticas | ⚠️ Guardado Automático |
-|:---:|:---:|:---:|:---:|
-| Elección Oscuro/Claro | Filtros Variados | Grafico Beneficios | API conectada a JSON |
-
-</div>
-
----
-
 ## 📸 Capturas de Pantalla
 
 <details>
@@ -108,6 +96,18 @@ Consulta el archivo licencia y las guías necesarias
 - Cálculo automático de beneficios
 
 </details>
+
+---
+
+## 🌟 Características Destacadas
+
+<div align="center">
+
+| 🌚 Modo Oscuro | 📇 Filtro | 📈 Estadísticas | ⚠️ Guardado Automático |
+|:---:|:---:|:---:|:---:|
+| Elección Oscuro/Claro | Filtros Variados | Grafico Beneficios | API conectada a JSON |
+
+</div>
 
 ---
 
