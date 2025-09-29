@@ -330,7 +330,8 @@ npm start
 
 ### 📦 Gestión de Productos
 
-#### ➕ Añadir Producto
+<details>
+<summary> ➕ Añadir Producto</summary>
 
 ```
 1. Clic en "▼ AÑADIR PRODUCTO ▼"
@@ -344,6 +345,7 @@ npm start
 3. Clic en "Añadir Producto"
 4. ✅ El producto aparece en la tabla
 ```
+</details>
 
 #### ✏️ Editar Producto
 
