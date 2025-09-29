@@ -497,7 +497,8 @@ Abre tu navegador en: **http://localhost:3000**
 
 ## 🛠️ Tecnologías Utilizadas
 
-### 🔧 Backend
+<details>
+<summary>🔧 Backend</summary>
 
 | Tecnología | Versión | Uso |
 |------------|---------|-----|
@@ -507,8 +508,10 @@ Abre tu navegador en: **http://localhost:3000**
 | **Winston** | ^3.8.0 | Sistema de logs profesional |
 | **Canvas** | ^2.11.0 | Generación códigos de barras |
 | **ExcelJS** | ^4.3.0 | Exportación a Excel |
+</details>
 
-### 🎨 Frontend
+<details>
+<summary>🎨 Frontend</summary>
 
 | Tecnología | Fuente | Uso |
 |------------|--------|-----|
@@ -516,6 +519,7 @@ Abre tu navegador en: **http://localhost:3000**
 | **JavaScript ES6+** | Nativo | Lógica del cliente |
 | **Chart.js** | CDN | Gráficos interactivos |
 | **Flatpickr** | CDN | Selector de fechas |
+</details>
 
 ---
 
