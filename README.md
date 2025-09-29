@@ -73,7 +73,7 @@ Gracias a todos los que han probado, dado feedback y contribuido durante el desa
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
-![Lines of code](https://img.shields.io/tokei/lines/github/vimen1803/awesome-stock)
+![Lines of code](https://img.shields.io/github/lines/vimen1803/awesome-stock)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vimen1803/awesome-stock)
 
 </div>
