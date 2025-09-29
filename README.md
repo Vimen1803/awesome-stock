@@ -1082,36 +1082,47 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 
 ## 🗺️ Roadmap
 
-### 📅 Versión 2.1.0 - Q4 2025
+<details>
+<summary> Versión 2.0.0 (esta!)</summary>
+   
+- [X] **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
+   
+- [X] **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
+      
+- [X] **⚠️ Logs de Stock Bajo**: Sistema automático de logs cuando el stock es mínimo
+      
+- [X] **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado a tiempo real
+      
+- [X] **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
+      
+- [X] **🔧 Optimizaciones**: Mejor rendimiento y gestión de memoria
+   
+</details>
 
-| Característica | Estado | Prioridad |
-|----------------|--------|-----------|
-| 🖨️ Impresión directa de códigos de barras | 🟡 Planificado | Alta |
-| 📷 Lector de códigos con webcam | 🟡 Planificado | Alta |
-| 📧 Notificaciones por email | 🟡 Planificado | Media |
-| ☁️ Backup automático programado | 🟡 Planificado | Alta |
-| 📱 PWA (Progressive Web App) | 🟡 Planificado | Media |
-| 🔍 Búsqueda con autocompletado | 🟡 Planificado | Baja |
+<details>
+<summary> Versión 2.1.0 (en desarrollo)</summary>
+   
+- [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
 
-### 📅 Versión 3.0.0 - 2026
+- [ ] **📊 Informes personalizados**: Se permitirá generar informes formato PDF/xlsx sobre distintos datos almacenados, productos y estadísticas a tiempo real
 
-| Característica | Estado | Descripción |
-|----------------|--------|-------------|
-| 🗄️ Base de datos | 🔵 En consideración | MongoDB/PostgreSQL |
-| 👥 Multiusuario | 🔵 En consideración | Autenticación y roles |
-| 📡 API REST completa | 🔵 En consideración | Documentación Swagger |
-| 📊 Dashboard en tiempo real | 🔵 En consideración | WebSockets |
-| 🏢 Múltiples almacenes | 🔵 En consideración | Gestión distribuida |
-| 🌍 Internacionalización | 🔵 En consideración | Múltiples idiomas |
-| 📊 Informes personalizados | 🔵 En consideración | Reportes en PDF |
+- [ ] **📋 + Categorías**: Sistema que permite añadir nuevas categorías desde la aplicacion, sin necesidad de acceder al código
 
-**Leyenda:**
-- 🟢 Completado
-- 🟡 Planificado
-- 🔵 En consideración
-- 🔴 En desarrollo
+</details>
 
----
+<details>
+<summary> Versión 2.2.0 (futuro)</summary>
+
+- [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
+
+</details>
+
+<details>
+<summary> Versión 3.0.0 (futuro)</summary>
+   
+- [ ] **📡 API REST completa**: Finalizar la API REST, completamente documentada, para facilitar su implementación
+
+</details>
 
 ---
 
