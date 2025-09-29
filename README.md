@@ -115,7 +115,7 @@ vimenstock/
 
 ## 📸 Capturas de Pantalla
 
-<details open>
+<details>
 <summary>📦 <b>Gestión de Productos</b></summary>
 
 <br>
