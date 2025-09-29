@@ -6,14 +6,12 @@ const winston = require('winston');
 
 const app = express();
 
-// Crear carpetas necesarias si no existen
 const dataDir = path.join(__dirname, '../data');
 const logsDir = path.join(__dirname, '../data', 'logs');
 const ticketsDir = path.join(__dirname, '../data', 'tickets');
 const compraDir = path.join(ticketsDir, 'compra');
 const ventaDir = path.join(ticketsDir, 'venta');
 
-// Verificar y crear las carpetas
 const createDirectoryIfNotExists = (dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -27,7 +25,6 @@ createDirectoryIfNotExists(ticketsDir);
 createDirectoryIfNotExists(compraDir);
 createDirectoryIfNotExists(ventaDir);
 
-// Configurar logger con winston
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
@@ -50,7 +47,6 @@ app.use(express.static(__dirname));
 
 const DATA_FILE = path.join(__dirname, "../data/data.json");
 
-// Inicializar data.json si no existe
 function inicializarDataJSON() {
   if (!fs.existsSync(DATA_FILE)) {
     const dataInicial = {
@@ -86,10 +82,8 @@ function inicializarDataJSON() {
   }
 }
 
-// Llamar a la inicialización antes de iniciar el servidor
 inicializarDataJSON();
 
-// Generar ID único para operaciones
 function generarIDOperacion(tipo) {
   const timestamp = Date.now();
   const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
@@ -116,7 +110,6 @@ app.post("/api/data", (req, res) => {
   });
 });
 
-// Nueva ruta para generar tickets PDF
 app.post("/api/generar-ticket", (req, res) => {
   try {
     const { tipo, operaciones, total, fecha } = req.body;
@@ -130,19 +123,16 @@ app.post("/api/generar-ticket", (req, res) => {
     const dirPath = tipo === 'compra' ? compraDir : ventaDir;
     const filePath = path.join(dirPath, fileName);
 
-    // Crear documento PDF con configuración estática
     const doc = new PDFDocument({ 
       margin: 40,
       size: 'A4',
       bufferPages: true
     });
     
-    // Stream del PDF al archivo
     const stream = fs.createWriteStream(filePath);
     doc.pipe(stream);
 
-    // Posiciones fijas para mantener alineación
-    const pageWidth = 595; // A4 width
+    const pageWidth = 595;
     const margins = {
       left: 40,
       right: 40,
@@ -151,7 +141,6 @@ app.post("/api/generar-ticket", (req, res) => {
     };
     const contentWidth = pageWidth - margins.left - margins.right;
 
-    // Posiciones de columnas fijas
     const columns = {
       codigo: { x: margins.left, width: 80 },
       producto: { x: margins.left + 85, width: 180 },
@@ -162,7 +151,6 @@ app.post("/api/generar-ticket", (req, res) => {
 
     let currentY = margins.top;
 
-    // === ENCABEZADO ===
     doc.font('Helvetica-Bold')
        .fontSize(20)
        .text('VimenStock', margins.left, currentY, { 
@@ -180,7 +168,6 @@ app.post("/api/generar-ticket", (req, res) => {
     
     currentY += 40;
 
-    // === INFORMACIÓN DE LA OPERACIÓN ===
     const fechaFormateada = new Date(fecha).toLocaleString('es-ES', {
       day: '2-digit',
       month: '2-digit',
@@ -192,7 +179,6 @@ app.post("/api/generar-ticket", (req, res) => {
     doc.font('Helvetica')
        .fontSize(11);
 
-    // Información en dos columnas
     doc.text(`Fecha: ${fechaFormateada}`, margins.left, currentY);
     doc.text(`Tipo: ${tipo.toUpperCase()}`, margins.left + 250, currentY);
     
@@ -204,22 +190,18 @@ app.post("/api/generar-ticket", (req, res) => {
 
     currentY += 30;
 
-    // === LÍNEA SEPARADORA ===
     doc.moveTo(margins.left, currentY)
        .lineTo(pageWidth - margins.right, currentY)
        .stroke();
     
     currentY += 15;
 
-    // === CABECERA DE LA TABLA ===
     doc.font('Helvetica-Bold')
        .fontSize(10);
 
-    // Fondo gris para cabecera
     doc.rect(margins.left, currentY - 5, contentWidth, 20)
        .fill('#f0f0f0');
 
-    // Texto de cabecera con posiciones absolutas
     doc.fillColor('black')
        .text('CÓDIGO', columns.codigo.x, currentY, { width: columns.codigo.width, align: 'center' })
        .text('PRODUCTO', columns.producto.x, currentY, { width: columns.producto.width, align: 'left' })
@@ -229,14 +211,12 @@ app.post("/api/generar-ticket", (req, res) => {
 
     currentY += 20;
 
-    // === LÍNEA BAJO CABECERA ===
     doc.moveTo(margins.left, currentY)
        .lineTo(pageWidth - margins.right, currentY)
        .stroke();
     
     currentY += 10;
 
-    // === DETALLES DE OPERACIONES ===
     doc.font('Helvetica')
        .fontSize(9);
     
@@ -244,7 +224,6 @@ app.post("/api/generar-ticket", (req, res) => {
     let itemCount = 0;
 
     operaciones.forEach(op => {
-      // Verificar si necesitamos nueva página
       if (currentY > 700) {
         doc.addPage();
         currentY = margins.top;
@@ -254,18 +233,15 @@ app.post("/api/generar-ticket", (req, res) => {
       totalGeneral += totalLinea;
       itemCount++;
 
-      // Alternar color de fondo para filas
       if (itemCount % 2 === 0) {
         doc.rect(margins.left, currentY - 2, contentWidth, 16)
            .fill('#f9f9f9');
       }
 
-      // Truncar nombre del producto si es muy largo
       const nombreCorto = op.nombre.length > 28 ? 
         op.nombre.substring(0, 25) + '...' : 
         op.nombre;
 
-      // Texto con posiciones absolutas y alineación fija
       doc.fillColor('black')
          .text(op.codigo, columns.codigo.x, currentY, { 
            width: columns.codigo.width, 
@@ -293,18 +269,15 @@ app.post("/api/generar-ticket", (req, res) => {
 
     currentY += 10;
 
-    // === LÍNEA ANTES DEL TOTAL ===
     doc.moveTo(margins.left, currentY)
        .lineTo(pageWidth - margins.right, currentY)
        .stroke();
     
     currentY += 15;
 
-    // === TOTAL FINAL ===
     doc.font('Helvetica-Bold')
        .fontSize(14);
 
-    // Fondo para total
     doc.rect(margins.left + 250, currentY - 5, contentWidth - 250, 25)
        .fill('#e8f4f8');
 
@@ -317,12 +290,11 @@ app.post("/api/generar-ticket", (req, res) => {
 
     currentY += 40;
 
-    // === PIE DEL TICKET ===
     doc.font('Helvetica')
        .fontSize(8)
        .fillColor('gray');
 
-    currentY = 750; // Posición fija en la parte inferior
+    currentY = 750;
 
     doc.text('Generado automáticamente por VimenStock', margins.left, currentY, {
       width: contentWidth,
@@ -334,10 +306,8 @@ app.post("/api/generar-ticket", (req, res) => {
       align: 'center'
     });
 
-    // Finalizar el PDF
     doc.end();
 
-    // Esperar a que el archivo se escriba completamente
     stream.on('finish', () => {
       logger.info(`Ticket generado: ${fileName}`);
       res.json({ 
@@ -359,7 +329,6 @@ app.post("/api/generar-ticket", (req, res) => {
   }
 });
 
-// Ruta para descargar tickets
 app.get("/api/descargar-ticket/:tipo/:fileName", (req, res) => {
   try {
     const { tipo, fileName } = req.params;
@@ -389,4 +358,5 @@ app.listen(PORT, () => {
   console.log(`📁 Directorio de datos: ${dataDir}`);
   console.log(`📄 Archivo de datos: ${DATA_FILE}`);
   console.log(`\n✨ Sistema listo para usar\n`);
+
 });
