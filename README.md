@@ -443,6 +443,110 @@ vimenstock/
 
 ---
 
+## 🏷️ Categorías
+
+<details>
+<summary>📂 Categorías Predefinidas</summary>
+
+El sistema incluye **10 categorías** por defecto:
+
+```javascript
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
+
+const dataInicial = {
+  categorias: [
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
+  ],
+  productos: {},
+  historial: [],
+  finanzas: [],
+  ultimaIDUsada: 0
+};
+```
+</details>
+
+<details>
+<summary>✏️ Personalizar Categorías</summary>
+
+<details>
+<summary><b>Opción 1: Antes del Primer Inicio</b> (Recomendado)</summary>
+
+```javascript
+// Editar: src/server.js
+// Buscar: inicializarDataJSON()
+
+const dataInicial = {
+  categorias: [
+    "Tu Categoría 1",
+    "Tu Categoría 2",
+    "Tu Categoría 3",
+    // Añade las que necesites
+  ],
+  productos: {},
+  historial: [],
+  finanzas: [],
+  ultimaIDUsada: 0
+};
+```
+
+</details>
+
+<details>
+<summary><b>Opción 2: Después del Primer Inicio</b></summary>
+
+```bash
+# 1. Detener el servidor
+Ctrl + C
+
+# 2. Editar data/data.json
+```
+
+```json
+{
+  "categorias": [
+    "Electrónica",
+    "Muebles",
+    "Decoración",
+    "Accesorios"
+  ],
+  "productos": { ... },
+  "historial": [ ... ]
+}
+```
+
+```bash
+# 3. Reiniciar
+npm start
+```
+
+</details>
+</details>
+
+<details>
+<summary>⚠️ Consideraciones Importantes</summary>
+
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Productos Existentes** | Mantienen su categoría asignada incluso si eliminas esa categoría del array |
+| **Historial** | Las operaciones registradas conservan las categorías originales |
+| **Finanzas** | Los registros financieros mantienen las categorías históricas |
+| **Filtros** | Se actualizan automáticamente con las nuevas categorías |
+| **Compatibilidad** | Los productos con categorías eliminadas seguirán funcionando |
+
+**Recomendación:** Si vas a cambiar categorías con productos existentes, considera:
+1. Hacer backup de `data/data.json`
+2. Editar manualmente los productos para asignar nuevas categorías
+3. O mantener las categorías antiguas como "legacy"
+
+</details>
+
+---
+
 ## 🚀 Instalación
 
 <details>
@@ -685,110 +789,6 @@ npm start
 | **JavaScript ES6+** | Nativo | Lógica del cliente |
 | **Chart.js** | CDN | Gráficos interactivos |
 | **Flatpickr** | CDN | Selector de fechas |
-</details>
-
----
-
-## 🏷️ Categorías
-
-<details>
-<summary>📂 Categorías Predefinidas</summary>
-
-El sistema incluye **10 categorías** por defecto:
-
-```javascript
-// Editar: src/server.js
-// Buscar: inicializarDataJSON()
-
-const dataInicial = {
-  categorias: [
-    "Tu Categoría 1",
-    "Tu Categoría 2",
-    "Tu Categoría 3",
-    // Añade las que necesites
-  ],
-  productos: {},
-  historial: [],
-  finanzas: [],
-  ultimaIDUsada: 0
-};
-```
-</details>
-
-<details>
-<summary>✏️ Personalizar Categorías</summary>
-
-<details>
-<summary><b>Opción 1: Antes del Primer Inicio</b> (Recomendado)</summary>
-
-```javascript
-// Editar: src/server.js
-// Buscar: inicializarDataJSON()
-
-const dataInicial = {
-  categorias: [
-    "Tu Categoría 1",
-    "Tu Categoría 2",
-    "Tu Categoría 3",
-    // Añade las que necesites
-  ],
-  productos: {},
-  historial: [],
-  finanzas: [],
-  ultimaIDUsada: 0
-};
-```
-
-</details>
-
-<details>
-<summary><b>Opción 2: Después del Primer Inicio</b></summary>
-
-```bash
-# 1. Detener el servidor
-Ctrl + C
-
-# 2. Editar data/data.json
-```
-
-```json
-{
-  "categorias": [
-    "Electrónica",
-    "Muebles",
-    "Decoración",
-    "Accesorios"
-  ],
-  "productos": { ... },
-  "historial": [ ... ]
-}
-```
-
-```bash
-# 3. Reiniciar
-npm start
-```
-
-</details>
-</details>
-
-<details>
-<summary>⚠️ Consideraciones Importantes</summary>
-
-
-| Aspecto | Detalle |
-|---------|---------|
-| **Productos Existentes** | Mantienen su categoría asignada incluso si eliminas esa categoría del array |
-| **Historial** | Las operaciones registradas conservan las categorías originales |
-| **Finanzas** | Los registros financieros mantienen las categorías históricas |
-| **Filtros** | Se actualizan automáticamente con las nuevas categorías |
-| **Compatibilidad** | Los productos con categorías eliminadas seguirán funcionando |
-
-**Recomendación:** Si vas a cambiar categorías con productos existentes, considera:
-1. Hacer backup de `data/data.json`
-2. Editar manualmente los productos para asignar nuevas categorías
-3. O mantener las categorías antiguas como "legacy"
-
 </details>
 
 ---
