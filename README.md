@@ -254,11 +254,24 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ![Pantalla de finanzas](docs/screenshots/finanzas.png)
 
-**Características:**
-- ✅ Gráficos de ingresos vs gastos
-- ✅ Calendario interactivo
-- ✅ Filtros por período y categoría
-- ✅ Cálculo de beneficio total
+```
+📊 PERÍODOS DISPONIBLES
+├─ 📅 Diario    → Ventas/compras del día
+├─ 📅 Semanal   → Últimos 7 días
+├─ 📅 Mensual   → Últimos 30 días
+├─ 📅 Anual     → Últimos 365 días
+└─ 📅 Siempre   → Histórico completo
+
+🔍 FILTROS
+├─ Por categoría
+├─ Por ID de producto
+└─ Rango de fechas personalizado
+
+📈 GRÁFICO
+├─ 💵 Ingresos (verde)
+├─ 💸 Gastos (rojo)
+└─ 💰 Beneficio total
+```
 
 </details>
 
@@ -294,6 +307,15 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
    └─ Porcentajes visuales
 ```
 
+**Tablas de Análisis:**
+
+| Tabla | Información |
+|-------|-------------|
+| 🏆 Top 10 Vendidos | Productos + vendidos con cantidades |
+| ⚠️ Stock Bajo | Crítico (<10), Bajo (<25), Agotados (0) |
+
+**Filtros por Período:**
+
 </details>
 
 <details>
@@ -301,11 +323,22 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ![Excel exportado](docs/screenshots/excel_export.png)
 
-**Hojas incluidas:**
-- 📦 Productos (inventario completo)
-- 📜 Historial (todas las operaciones)
-- 💰 Finanzas (ingresos y gastos)
-- 📈 Resumen (métricas generales)
+```
+🖱️ CÓMO USAR
+1. Ir a la página de Productos
+2. Clic en "📊 Exportar a Excel" (botón verde)
+3. Se genera automáticamente "data.xlsx"
+```
+
+📄 HOJAS INCLUIDAS
+
+📦 HOJA 1: Productos
+
+📜 HOJA 2: Historial
+
+💰 HOJA 3: Finanzas
+
+📈 HOJA 4: Resumen
 
 </details>
 
@@ -455,7 +488,7 @@ vimenstock/
 │   ├── 📄 data.json            # Base de datos JSON
 │   ├── 📂 logs/                # Sistema de logs
 │   │   ├── 📄 app.log          # Log general
-│   │   └── 📄 stock_alerts.txt # Alertas de stock
+│   │   └── 📄 stock_alerts.txt # Alertas de stock ⭐
 │   └── 📂 tickets/             # Tickets PDF
 │       ├── 📂 compra/          # Tickets de compra
 │       └── 📂 venta/           # Tickets de venta
@@ -492,92 +525,6 @@ vimenstock/
 
 ---
 
-## 🎯 Uso
-
-
-### 💰 Análisis Financiero
-
-```
-📊 PERÍODOS DISPONIBLES
-├─ 📅 Diario    → Ventas/compras del día
-├─ 📅 Semanal   → Últimos 7 días
-├─ 📅 Mensual   → Últimos 30 días
-├─ 📅 Anual     → Últimos 365 días
-└─ 📅 Siempre   → Histórico completo
-
-🔍 FILTROS
-├─ Por categoría
-├─ Por ID de producto
-└─ Rango de fechas personalizado
-
-📈 GRÁFICO
-├─ 💵 Ingresos (verde)
-├─ 💸 Gastos (rojo)
-└─ 💰 Beneficio total
-```
-
-### 📈 Estadísticas Avanzadas
-
-**KPIs en Tiempo Real:**
-
-| Métrica | Descripción | Cálculo |
-|---------|-------------|---------|
-| 💵 Ingresos | Total vendido | Suma de todas las ventas |
-| 💸 Gastos | Total comprado | Suma de todas las compras |
-| 💰 Beneficio | Ganancia neta | Ingresos - Gastos |
-| 📊 Margen | Rentabilidad | (Beneficio / Ingresos) × 100 |
-| 🛒 Ventas | Nº operaciones | Conteo de ventas |
-| 🎯 Ticket Medio | Promedio venta | Ingresos / Nº ventas |
-
-**Gráficos Interactivos:**
-
-```
-📈 Evolución de Ventas (Línea)
-   └─ Ventas diarias en el período seleccionado
-   └─ Hover para ver detalles exactos
-
-📊 Categorías Rentables (Barras)
-   └─ Beneficio por categoría
-   └─ Ordenadas de mayor a menor
-
-🍩 Distribución de Stock (Pie)
-   └─ Stock por categoría
-   └─ Porcentajes visuales
-```
-
-**Tablas de Análisis:**
-
-| Tabla | Información |
-|-------|-------------|
-| 🏆 Top 10 Vendidos | Productos + vendidos con cantidades |
-| ⚠️ Stock Bajo | Crítico (<10), Bajo (<25), Agotados (0) |
-
-**Filtros por Período:**
-- 📅 Últimos 7 días
-- 📅 Últimos 30 días
-- 📅 Últimos 90 días
-- 📅 Último año
-- 📅 Todo el tiempo
-
-### 📊 Exportación a Excel
-
-```
-🖱️ CÓMO USAR
-1. Ir a la página de Productos
-2. Clic en "📊 Exportar a Excel" (botón verde)
-3. Se genera automáticamente "data.xlsx"
-
-📄 HOJAS INCLUIDAS
-
-📦 HOJA 1: Productos
-
-📜 HOJA 2: Historial
-
-💰 HOJA 3: Finanzas
-
-📈 HOJA 4: Resumen
-
-```
 
 ### ⚠️ Alertas de Stock Bajo
 
