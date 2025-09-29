@@ -118,8 +118,6 @@ vimenstock/
 │
 ├── 📂 data/                    # Datos de la aplicación
 │   ├── 📄 data.json            # Base de datos JSON principal
-│   ├── 📂 logs/                # Archivos de registro
-│   │   └── 📄 app.log          # Log de la aplicación
 │   └── 📂 tickets/             # Tickets PDF generados
 │       ├── 📂 compra/          # Tickets de compras
 │       └── 📂 venta/           # Tickets de ventas
