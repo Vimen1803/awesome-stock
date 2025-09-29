@@ -1179,6 +1179,6 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 --- 
 Desarrollado con ❤️ para facilitar la gestión de inventarios
 
-*v2.0.0 | Septiembre 2025*
+*v2.0.0 | 30, Septiembre 2025*
 </div>
 </div>
