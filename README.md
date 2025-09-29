@@ -40,6 +40,13 @@ Encuentra respuestas a preguntas comunes
 [Ver FAQ](#-preguntas-frecuentes)
 
 </td>
+<td width="33%" align="center">
+
+### 📰 LICENCIA
+
+[Ver LICENCIA](#-licencia)
+
+</td>
 </tr>
 </table>
 
