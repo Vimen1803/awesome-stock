@@ -38,7 +38,7 @@ Consulta la documentación completa y guías de uso
 ### ❓ FAQ
 Encuentra respuestas a preguntas y errores comunes
 
-[Ver FAQ](#-preguntas-frecuentes)
+[Ver FAQ](#-solución-de-problemas)
 
 </td>
 <td width="33%" align="center">
