@@ -347,7 +347,8 @@ npm start
 ```
 </details>
 
-#### ✏️ Editar Producto
+<details>
+<summary> ✏️ Editar Producto</summary>
 
 ```
 1. Localizar el producto en la tabla
@@ -356,8 +357,10 @@ npm start
 4. Clic en "Guardar Cambios"
 5. ✅ Los cambios se reflejan inmediatamente
 ```
+</details>
 
-#### 🗑️ Eliminar Producto
+<details>
+<summary> 🗑️ Eliminar Producto</summary>
 
 ```
 1. Localizar el producto en la tabla
@@ -365,8 +368,10 @@ npm start
 3. Confirmar la eliminación
 4. ✅ El producto se elimina y se registra en historial
 ```
+</details>
 
-#### 📜 Ver Historial de Producto
+<details>
+<summary> 📜 Ver Historial de Producto</summary>
 
 ```
 1. Clic en botón "Historial" del producto
@@ -375,11 +380,14 @@ npm start
 4. ✅ Visualiza todos los movimientos
 ```
 
+</details>
+
 ---
 
 ### 🛒 Operaciones de Compra/Venta
 
-#### 📥 Realizar Compra
+<details>
+<summary> 📥 Realizar Compra</summary>
 
 ```
 ┌─────────────────────────────────────────┐
@@ -405,8 +413,10 @@ npm start
    ├─ Operación registrada en historial
    └─ Balance actualizado
 ```
+</details>
 
-#### 💰 Realizar Venta
+<details>
+<summary> 💰 Realizar Venta</summary>
 
 ```
 ┌─────────────────────────────────────────┐
@@ -433,12 +443,14 @@ npm start
    ├─ Operación registrada en historial
    └─ Balance actualizado
 ```
+</details>
 
 ---
 
 ### 📜 Historial
 
-**Filtros Disponibles:**
+<details>
+<summary>Filtros Disponibles:</summary>
 
 | 🔍 Filtro | 📋 Opciones | 📝 Descripción |
 |-----------|-------------|----------------|
@@ -447,7 +459,10 @@ npm start
 | **Fecha** | Fecha exacta o rango | Usa calendario Flatpickr |
 | **ID** | Producto o Ticket | Busca por identificador |
 
-**Características:**
+</details>
+
+<details>
+<summary>Características:</summary>
 
 ```
 📊 Visualización
@@ -466,6 +481,8 @@ npm start
 ├─ Clic en texto azul "Ticket: [ID]"
 └─ Se abre el PDF automáticamente
 ```
+
+</details>
 
 ---
 
