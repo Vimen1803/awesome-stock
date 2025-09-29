@@ -43,7 +43,7 @@ Encuentra respuestas a preguntas comunes
 <td width="33%" align="center">
 
 ### 📰 LICENCIA
-
+Consulta el archivo licencia y las guías necesarias
 [Ver LICENCIA](#-licencia-1)
 
 </td>
