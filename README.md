@@ -640,7 +640,7 @@ npm start
 ## 🛠️ Tecnologías Utilizadas
 
 <details>
-<summary>### 🔧 Backend</summary>summary>
+<summary> 🔧 Backend</summary>summary>
 
 | Tecnología | Versión | Propósito |
 |------------|---------|-----------|
@@ -651,7 +651,7 @@ npm start
 </details>
 
 <details>
-<summary>### 🎨 Frontend</summary>summary>
+<summary> 🎨 Frontend</summary>summary>
 
 | Tecnología | Fuente | Propósito |
 |------------|--------|-----------|
