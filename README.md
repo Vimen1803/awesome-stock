@@ -832,19 +832,24 @@ df -h
 ---
 ## 🛠️ Solución de problemas
 
-### El servidor no inicia
+<details>
+<summary> El servidor no inicia</summary>
 
 * Verificar que el puerto 3000 esté disponible
 * Comprobar instalación de dependencias: `npm install`
 * Revisar logs en `data/logs/app.log`
+</details>
 
-### Los tickets no se generan
+<details>
+<summary>Los tickets no se generan</summary>
 
 * Verificar permisos de escritura en carpeta `data/tickets`
 * Revisar logs en `data/logs/app.log`
 * Comprobar que PDFKit esté instalado correctamente
+</details>
 
-### Error "EADDRINUSE"
+<details>
+<summary>Error "EADDRINUSE"</summary>
 
 El puerto 3000 está ocupado:
 
@@ -855,6 +860,7 @@ netstat -ano | findstr :3000  # Windows
 
 # Opción 2: Cambiar el puerto en src/server.js
 ```
+</details>
 
 ## ❓ Preguntas Frecuentes
 
