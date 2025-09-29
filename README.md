@@ -21,7 +21,7 @@
 
 [Documentación](#-uso) •
 [Instalación](#-instalación) •
-[Road Map](#%EF%B8%8F-roadmap)
+[Tecnologías](#-tecnologías-utilizadas)
 
 </div>
 
@@ -29,10 +29,10 @@
 <tr>
 <td width="33%" align="center">
 
-### 🛠 Tecnologías
-Consulta las tecnologías usadas tanto en el front como en el back
+### 🗺 Road Map
+Consulta el RoadMap para estar enterado de las futuras ideas
 
-[Ver Tecnologias](#-tecnologías-utilizadas)
+[Ver RoadMap](#%EF%B8%8F-roadmap)
 
 </td>
 <td width="33%" align="center">
