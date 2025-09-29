@@ -220,7 +220,6 @@ vimenstock/
   - Evolución de ventas (línea temporal)
   - Categorías más rentables (barras)
   - Distribución de stock (dona)
-  - Rotación de inventario (barras horizontales)
 
 * **Tablas de análisis**:
   - Top 10 productos más vendidos
