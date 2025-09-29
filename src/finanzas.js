@@ -17,7 +17,6 @@ let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 let selectedDate = new Date(today);
 
-// Botón "Hoy"
 const btnHoy = document.createElement("button");
 btnHoy.textContent = "Hoy";
 btnHoy.style.position = "absolute";
@@ -34,7 +33,6 @@ btnHoy.addEventListener("click", () => {
   currentMonth = today.getMonth();
   currentYear = today.getFullYear();
 
-  // Cambiar automáticamente a periodo diario
   if (selectPeriodo.value !== "diaria") {
     selectPeriodo.value = "diaria";
   }
@@ -54,7 +52,6 @@ async function cargarFinanzas() {
     finanzasGlobal = data.finanzas || [];
     categoriasGlobales = data.categorias || [];
     
-    // Poblar el select de categorías
     poblarSelectCategorias();
     
     renderCalendar(currentMonth, currentYear);
@@ -66,12 +63,10 @@ async function cargarFinanzas() {
   }
 }
 
-// ---------------- Poblar select de categorías ----------------
+// ---------------- select de categorías ----------------
 function poblarSelectCategorias() {
-  // Limpiar opciones existentes excepto "Todos"
   selectCategoria.innerHTML = '<option value="todos">Todos</option>';
   
-  // Añadir categorías desde los datos globales
   categoriasGlobales.forEach(categoria => {
     const option = document.createElement("option");
     option.value = categoria;
@@ -87,7 +82,6 @@ function renderGrafico() {
   const productoIDSeleccionado = inputProductoID.value.trim().toUpperCase();
   let filtrado = [];
 
-  // Filtrar por período
   if (periodo === "diaria") {
     filtrado = finanzasGlobal.filter(f => new Date(f.fecha).toDateString() === selectedDate.toDateString());
   } else if (periodo === "semanal") {
@@ -104,16 +98,13 @@ function renderGrafico() {
   } else if (periodo === "anual") {
     filtrado = finanzasGlobal.filter(f => new Date(f.fecha).getFullYear() === currentYear);
   } else if (periodo === "siempre") {
-    // Mostrar todos los datos sin filtrar por fecha
-    filtrado = finanzasGlobal; // Copiar los datos para asegurar que no se referencie directamente
+    filtrado = finanzasGlobal;
   }
 
-  // Filtrar por categoría si se seleccionó una categoría
   if (categoriaSeleccionada !== "todos") {
     filtrado = filtrado.filter(f => f.categoria === categoriaSeleccionada);
   }
 
-  // Filtrar por ID de producto si se ha introducido un producto ID
   if (productoIDSeleccionado !== "") {
     filtrado = filtrado.filter(f => f.productoID && f.productoID === productoIDSeleccionado);
   }
@@ -128,15 +119,12 @@ function renderGrafico() {
 
   if (chartInstance) chartInstance.destroy();
 
-  // Crear gráfico según los datos disponibles
   let chartData, chartLabels;
   
   if (ingresos > 0 || gastos > 0) {
-    // Si hay datos, mostrar gráfico de ingresos vs gastos
     chartData = [ingresos, gastos];
     chartLabels = ["Ingresos", "Gastos"];
   } else {
-    // Si no hay datos, mostrar mensaje informativo
     chartData = [1];
     chartLabels = ["Sin datos para el período/categoría/producto seleccionado"];
   }
@@ -253,4 +241,5 @@ selectCategoria.onchange = renderGrafico;
 inputProductoID.oninput = renderGrafico;
 
 // ---------------- Inicial ----------------
+
 cargarFinanzas();
