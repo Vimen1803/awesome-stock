@@ -144,19 +144,72 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ---
 
-## 📸 Capturas de Pantalla
-
 <details>
 <summary>📦 <b>Gestión de Productos</b> (Click para expandir)</summary>
 
 ![Pantalla de productos](docs/screenshots/productos2.png)
 
-**Características visibles:**
-- ✅ Tabla de productos con códigos de barras
-- ✅ Indicadores visuales de stock bajo
-- ✅ Filtros avanzados y búsqueda
-- ✅ Controles de compra/venta
-- ✅ Botón de exportación a Excel
+```
+1️⃣ AÑADIR PRODUCTO
+   └─ Clic en "▼ AÑADIR PRODUCTO ▼"
+   └─ Completar formulario
+   └─ El código de barras se genera automáticamente
+
+2️⃣ EDITAR PRODUCTO
+   └─ Botón "Editar" en la tabla
+   └─ Modificar campos necesarios
+   └─ Guardar cambios
+
+3️⃣ ELIMINAR PRODUCTO
+   └─ Botón "Eliminar" en la tabla
+   └─ Confirmar eliminación
+   └─ Se registra en el historial
+
+4️⃣ VER HISTORIAL
+   └─ Botón "Historial" del producto
+   └─ Visualiza todos sus movimientos
+
+5️⃣ CÓDIGO DE BARRAS
+   └─ Clic en la imagen para ampliar
+   └─ Generación automática Code 128
+```
+
+### 🛒 Operaciones de Compra/Venta
+
+#### 📥 Comprar
+
+```
+1. Clic en "▼ COMPRAR ▼"
+2. Añadir filas con:
+   ├─ Código de producto (P001, P002, etc.)
+   └─ Cantidad
+3. El sistema calcula automáticamente:
+   ├─ Precio unitario
+   ├─ Precio total por producto
+   └─ Total de la operación
+4. Confirmar compra
+   └─ ✅ Actualiza stock
+   └─ ✅ Genera ticket PDF
+   └─ ✅ Registra en historial
+```
+
+#### 💰 Vender
+
+```
+1. Clic en "▼ VENDER ▼"
+2. Añadir filas con:
+   ├─ Código de producto
+   └─ Cantidad (verificación automática de stock)
+3. El sistema:
+   ├─ Valida disponibilidad
+   ├─ Calcula precios
+   └─ Muestra total
+4. Confirmar venta
+   └─ ✅ Actualiza stock
+   └─ ✅ Genera ticket PDF
+   └─ ✅ Registra en historial
+   └─ ⚠️ Alerta si queda stock bajo
+```
 
 </details>
 
@@ -178,11 +231,20 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ![Pantalla de historial](docs/screenshots/historial2.png)
 
-**Características:**
-- ✅ Seguimiento completo de operaciones
-- ✅ Filtros avanzados (tipo, fecha, categoría)
-- ✅ Descarga directa de tickets PDF
-- ✅ Visualización de operaciones múltiples
+**Filtros Disponibles:**
+
+| Filtro | Opciones |
+|--------|----------|
+| 🔄 Tipo de Operación | Comprado, Vendido, Editado, Eliminado, Añadido |
+| 📂 Categoría | Todas las categorías del sistema |
+| 📅 Fecha | Fecha exacta o rango de fechas |
+| 🔍 ID | Producto o Ticket específico |
+
+**Funcionalidades:**
+- 📥 **Descargar tickets**: Clic en el texto azul "Ticket: [ID]"
+- 📊 **Operaciones múltiples**: Se expanden mostrando cada producto
+- 🔗 **Enlaces directos**: A tickets PDF con efecto hover
+- ⏰ **Ordenación**: Por fecha más reciente primero
 
 </details>
 
@@ -431,86 +493,6 @@ vimenstock/
 
 ## 🎯 Uso
 
-### 📦 Gestión de Productos
-
-```
-1️⃣ AÑADIR PRODUCTO
-   └─ Clic en "▼ AÑADIR PRODUCTO ▼"
-   └─ Completar formulario
-   └─ El código de barras se genera automáticamente
-
-2️⃣ EDITAR PRODUCTO
-   └─ Botón "Editar" en la tabla
-   └─ Modificar campos necesarios
-   └─ Guardar cambios
-
-3️⃣ ELIMINAR PRODUCTO
-   └─ Botón "Eliminar" en la tabla
-   └─ Confirmar eliminación
-   └─ Se registra en el historial
-
-4️⃣ VER HISTORIAL
-   └─ Botón "Historial" del producto
-   └─ Visualiza todos sus movimientos
-
-5️⃣ CÓDIGO DE BARRAS
-   └─ Clic en la imagen para ampliar
-   └─ Generación automática Code 128
-```
-
-### 🛒 Operaciones de Compra/Venta
-
-#### 📥 Comprar
-
-```
-1. Clic en "▼ COMPRAR ▼"
-2. Añadir filas con:
-   ├─ Código de producto (P001, P002, etc.)
-   └─ Cantidad
-3. El sistema calcula automáticamente:
-   ├─ Precio unitario
-   ├─ Precio total por producto
-   └─ Total de la operación
-4. Confirmar compra
-   └─ ✅ Actualiza stock
-   └─ ✅ Genera ticket PDF
-   └─ ✅ Registra en historial
-```
-
-#### 💰 Vender
-
-```
-1. Clic en "▼ VENDER ▼"
-2. Añadir filas con:
-   ├─ Código de producto
-   └─ Cantidad (verificación automática de stock)
-3. El sistema:
-   ├─ Valida disponibilidad
-   ├─ Calcula precios
-   └─ Muestra total
-4. Confirmar venta
-   └─ ✅ Actualiza stock
-   └─ ✅ Genera ticket PDF
-   └─ ✅ Registra en historial
-   └─ ⚠️ Alerta si queda stock bajo
-```
-
-### 📜 Historial
-
-**Filtros Disponibles:**
-
-| Filtro | Opciones |
-|--------|----------|
-| 🔄 Tipo de Operación | Comprado, Vendido, Editado, Eliminado, Añadido |
-| 📂 Categoría | Todas las categorías del sistema |
-| 📅 Fecha | Fecha exacta o rango de fechas |
-| 🔍 ID | Producto o Ticket específico |
-
-**Funcionalidades:**
-- 📥 **Descargar tickets**: Clic en el texto azul "Ticket: [ID]"
-- 📊 **Operaciones múltiples**: Se expanden mostrando cada producto
-- 🔗 **Enlaces directos**: A tickets PDF con efecto hover
-- ⏰ **Ordenación**: Por fecha más reciente primero
 
 ### 💰 Análisis Financiero
 
