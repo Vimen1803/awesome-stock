@@ -754,6 +754,7 @@ df -h
 # 4️⃣
 
 ```
+</details>
 ---
 ## 📜 Licencia
 
@@ -770,7 +771,6 @@ copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copia
 del Software...
 
 Ver archivo LICENSE para el texto completo.
-```
 
 ---
 
