@@ -579,56 +579,6 @@ cp -r backup_data_20250828/ data/
 # 4️⃣ Reiniciar servidor
 npm start
 ```
-
----
-
-### 🤖 Script de Backup Automático
-
-<details>
-<summary><b>Ver script de ejemplo</b></summary>
-
-```bash
-#!/bin/bash
-# backup_vimenstock.sh
-
-# Configuración
-BACKUP_DIR="backups"
-DATE=$(date +%Y%m%d_%H%M%S)
-RETENTION_DAYS=30
-
-# Crear directorio de backups
-mkdir -p $BACKUP_DIR
-
-# Backup de datos
-cp data/data.json "$BACKUP_DIR/data_$DATE.json"
-
-# Backup completo comprimido
-tar -czf "$BACKUP_DIR/full_backup_$DATE.tar.gz" data/
-
-# Limpiar backups antiguos
-find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
-find $BACKUP_DIR -name "*.json" -mtime +$RETENTION_DAYS -delete
-
-echo "✅ Backup completado: $DATE"
-echo "📁 Ubicación: $BACKUP_DIR"
-```
-
-**Hacer el script ejecutable:**
-```bash
-chmod +x backup_vimenstock.sh
-```
-
-**Programar con cron (Linux/Mac):**
-```bash
-# Editar crontab
-crontab -e
-
-# Añadir línea para backup diario a las 2 AM
-0 2 * * * /ruta/completa/backup_vimenstock.sh
-```
-
-</details>
-
 ---
 
 ## ⚙️ Configuración
