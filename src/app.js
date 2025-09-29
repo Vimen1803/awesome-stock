@@ -214,12 +214,9 @@ async function cargarDatos(){
       if(!productos[id].categoria) {
         productos[id].categoria = "Otro";
       }
-      // Solo generar código de barras si no existe en el producto
-      // Los códigos existentes se cargarán desde data/bar_code/
       if(!productos[id].imagen) {
         const imagenBarras = await generarCodigoBarras(id);
         productos[id].imagen = imagenBarras;
-        // Guardar para que la próxima vez no se regenere
         await guardarDatos();
       }
     }
@@ -349,10 +346,8 @@ async function renderTabla(){
     const tr = document.createElement("tr");
     const balance = prod.balance || 0.00;
     
-    // Usar la ruta del servidor para cargar la imagen del código de barras
     const imagenBarras = `/bar_code/${id}.png`;
     
-    // Determinar si el stock es bajo (menor a 25)
     const stockBajo = prod.stock < STOCKBAJO;
     const stockHTML = stockBajo 
       ? `<span style="color: #dc3545; font-weight: bold; font-size: 1.1em;">${prod.stock}</span>`
@@ -382,15 +377,13 @@ async function renderTabla(){
 
     const imgElement = tr.querySelector("img");
     
-    // Si la imagen no carga, generar el código de barras
     imgElement.onerror = async function() {
       console.log(`Código de barras no encontrado para ${id}, generando...`);
       try {
         const imagenGenerada = await generarCodigoBarras(id);
         this.src = imagenGenerada;
-        this.onerror = null; // Evitar bucle infinito
+        this.onerror = null;
         
-        // Actualizar en el objeto productos y guardar
         productos[id].imagen = imagenGenerada;
         await guardarDatos();
       } catch (error) {
@@ -575,7 +568,6 @@ async function operar(tipo){
         productos[cod].ventasTotales += cant;
         productos[cod].balance += montoTotal;
         
-        // Verificar si el stock quedó bajo después de la venta
         if(productos[cod].stock < STOCKBAJO) {
           productosStockBajo.push({
             id: cod,
@@ -604,7 +596,6 @@ async function operar(tipo){
       }
     }
     
-    // Registrar alertas de stock bajo si es una venta
     if(tipo === "venta" && productosStockBajo.length > 0) {
       await registrarAlertasStock(productosStockBajo);
     }
@@ -1040,4 +1031,5 @@ actualizarFlechas();
 // ------------------ INICIAL ------------------
 cargarDatos();
 crearFila("compra");
+
 crearFila("venta");
