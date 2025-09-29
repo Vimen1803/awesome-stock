@@ -298,22 +298,22 @@ netstat -ano | findstr :3000  # Windows
 
 ## ❓ Preguntas Frecuentes
 
-**¿Los datos se guardan automáticamente?**  
+- **¿Los datos se guardan automáticamente?**  
 Sí, cada operación se guarda automáticamente en `data/data.json`.
 
-**¿Puedo usar esto en múltiples tiendas?**  
+- **¿Puedo usar esto en múltiples tiendas?**  
 No directamente. Cada instancia gestiona una sola base de datos local.
 
-**¿Hay límite de productos?**  
+- **¿Hay límite de productos?**  
 No hay límite establecido, pero se recomienda no superar 10,000 productos.
 
-**¿Puedo exportar los datos?**  
+- **¿Puedo exportar los datos?**  
 Sí, copia el archivo `data/data.json` para backups o análisis externos.
 
-**¿Funciona sin conexión a internet?**  
+- **¿Funciona sin conexión a internet?**  
 Sí, completamente. Solo necesita internet para las CDN de librerías frontend.
 
-**¿Puedo acceder desde otro dispositivo en mi red?**  
+- **¿Puedo acceder desde otro dispositivo en mi red?**  
 Sí, usa la IP local del servidor: `http://192.168.1.X:3000`
 
 ## 🗺️ Roadmap
