@@ -355,9 +355,18 @@ MIT License - Ver archivo [LICENSE](LICENSE) para más detalles
 
 [Victor Menjon](https://victormenjon.es)
 
-## 🙏 Soporte
+## 📮 Soporte
 
-- Consultar la sección de [Preguntas Frecuentes](#-preguntas-frecuentes)
-- Revisar los [logs del sistema](#-solución-de-problemas)
+* Consultar la sección de [Preguntas Frecuentes](#-preguntas-frecuentes)
+* Revisar los [logs del sistema](#-sistema-de-logs)
+* Consultar el [historial de cambios](CHANGELOG.md)
 
-## **Desarrollado con ❤️ para facilitar la gestión de inventarios**
+## 🙏 Agradecimientos
+
+Gracias a todos los que han probado y dado feedback durante el desarrollo de VimenStock.
+
+---
+
+**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+
+*Versión 1.0.0 - Agosto 2025*
