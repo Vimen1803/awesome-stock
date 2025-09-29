@@ -774,12 +774,12 @@ Ver archivo LICENSE para el texto completo.
 ```
 
 ---
-
+<div align="center">
+  
 [![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
 
-<div align="center">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/vimen1803/awesome-stock)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/vimen1803/awesome-stock)
@@ -812,7 +812,7 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 <div align="center">
 **Desarrollado con ❤️ para facilitar la gestión de inventarios**
 
-**v1.0.0** | Septiembre 2025
+**v1.0.0** | Agosto 2025
 </div>
 
 --- 
