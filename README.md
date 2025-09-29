@@ -1,354 +1,805 @@
-# VimenStock 📦 v1.0.0
+<div align="center">
+
+# 📦 VimenStock v1.0.0
+
+### Sistema de Gestión de Inventario
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
 [![Status](https://img.shields.io/badge/status-inactive-red.svg)]()
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
 
-Sistema de gestión de inventario con generación automática de tickets PDF, análisis financiero y seguimiento completo de operaciones.
+**Sistema de gestión de inventario con generación automática de tickets PDF, análisis financiero y seguimiento completo de operaciones.**
 
-## 📋 Características principales
+> ⚠️ **Nota:** Esta es la versión 1.0.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.0.0](README%20(1).md)
 
-✨ **Gestión de Productos** - Añadir, editar y eliminar productos con información detallada  
-📦 **Control de Inventario** - Registro de compras y ventas con actualización automática de stock  
-🎟️ **Tickets PDF** - Generación automática de tickets para cada operación  
-📊 **Historial Completo** - Seguimiento detallado de todas las operaciones  
-💰 **Análisis Financiero** - Visualización de ingresos, gastos y beneficios con gráficos  
-🏷️ **Categorización** - Organización de productos por categorías personalizables  
-🔍 **Filtros Avanzados** - Búsqueda y filtrado por múltiples criterios  
-🌙 **Modo Oscuro** - Interfaz adaptable para mayor comodidad visual  
-📝 **Sistema de Logs** - Registro de operaciones con Winston
+[Características](#-características-principales) •
+[Instalación](#-instalación) •
+[Documentación](#-uso) •
+[Migrar a v2.0](#-migrar-a-v20)
 
-## 📸 Capturas de pantalla
+</div>
 
-### Gestión de Productos
+---
+
+## 📋 Características Principales
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 Funcionalidades Core
+- ✅ **Gestión de Productos** - CRUD completo
+- ✅ **Control de Inventario** - Compras y ventas
+- ✅ **Tickets PDF** - Generación automática
+- ✅ **Historial Completo** - Todas las operaciones
+- ✅ **Análisis Financiero** - Gráficos y reportes
+
+</td>
+<td width="50%">
+
+### 🛠️ Herramientas
+- ✅ **Categorización** - 10 categorías predefinidas
+- ✅ **Filtros Avanzados** - Búsqueda múltiple
+- ✅ **Modo Oscuro** - Confort visual
+- ✅ **Sistema de Logs** - Registro con Winston
+- ✅ **Responsive** - Adaptable a pantallas
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📸 Capturas de Pantalla
+
+<details open>
+<summary>📦 <b>Gestión de Productos</b></summary>
+
+<br>
+
 ![Pantalla de productos](docs/screenshots/productos.png)
-*Vista principal con tabla de productos, filtros y controles de compra/venta*
 
-### Historial de Operaciones
+**Vista principal con:**
+- Tabla de productos con información completa
+- Filtros por categoría, proveedor y búsqueda
+- Controles rápidos de compra y venta
+- Botones de edición y eliminación
+
+</details>
+
+<details>
+<summary>📜 <b>Historial de Operaciones</b></summary>
+
+<br>
+
 ![Pantalla de historial](docs/screenshots/historial.png)
-*Seguimiento completo de operaciones con filtros avanzados y descarga de tickets*
 
-### Análisis Financiero
+**Seguimiento detallado:**
+- Registro cronológico de todas las operaciones
+- Filtros por tipo, categoría y fecha
+- Enlaces directos a tickets PDF
+- Información completa de cada transacción
+
+</details>
+
+<details>
+<summary>💰 <b>Análisis Financiero</b></summary>
+
+<br>
+
 ![Pantalla de finanzas](docs/screenshots/finanzas.png)
-*Gráficos de ingresos vs gastos con calendario y filtros por período*
+
+**Visualización financiera:**
+- Gráfico interactivo de ingresos vs gastos
+- Calendario para selección de fechas
+- Filtros por período (día, semana, mes, año)
+- Cálculo automático de beneficios
+
+</details>
+
+---
 
 ## 🚀 Instalación
 
-### Requisitos previos
-
-- **Node.js** (v14 o superior)
-- **npm** (v6 o superior)
-
-### Pasos de instalación
-
-**1. Clonar el repositorio**
+### 📋 Requisitos Previos
 
 ```bash
+Node.js v14 o superior
+npm v6 o superior
+```
+
+### 📥 Guía de Instalación
+
+```bash
+# 1️⃣ Clonar el repositorio
 git clone https://github.com/tu-usuario/vimenstock.git
 cd vimenstock
-```
 
-**2. Instalar dependencias**
-
-```bash
+# 2️⃣ Instalar dependencias
 npm install
-```
 
-**3. Generar datos de prueba** *(opcional)*
-
-```bash
+# 3️⃣ (Opcional) Generar datos de prueba
 npm run data
-```
 
-**4. Iniciar el servidor**
-
-```bash
+# 4️⃣ Iniciar servidor
 npm start
-```
 
-Para desarrollo con recarga automática:
-
-```bash
+# Para desarrollo con auto-reload
 npm run dev
 ```
 
-**5. Acceder a la aplicación**
+### 🌐 Acceder a la Aplicación
 
-Abrir el navegador en `http://localhost:3000`
+Abre tu navegador en: **http://localhost:3000**
 
-## 📁 Estructura del proyecto
+---
+
+## 📁 Estructura del Proyecto
 
 ```
 vimenstock/
-├── 📂 data/
-│   ├── data.json           # Base de datos JSON
-│   ├── 📂 logs/            # Archivos de registro
-│   └── 📂 tickets/         # Tickets PDF generados
-│       ├── 📂 compra/      # Tickets de compra
-│       └── 📂 venta/       # Tickets de venta
 │
-├── 📂 public/
-│   ├── index.html          # Página de productos
-│   ├── historial.html      # Página de historial
-│   ├── finanzas.html       # Página de finanzas
-│   └── style.css           # Estilos principales
+├── 📂 data/                    # Datos de la aplicación
+│   ├── 📄 data.json            # Base de datos JSON principal
+│   ├── 📂 logs/                # Archivos de registro
+│   │   └── 📄 app.log          # Log de la aplicación
+│   └── 📂 tickets/             # Tickets PDF generados
+│       ├── 📂 compra/          # Tickets de compras
+│       └── 📂 venta/           # Tickets de ventas
 │
-├── 📂 src/
-│   ├── server.js           # Servidor Express
-│   ├── generateData.js     # Generador de datos de prueba
-│   └── *.js                # Módulos del servidor
+├── 📂 docs/                    # Documentación
+│   └── 📂 screenshots/         # Capturas de pantalla
 │
-├── 📂 docs/
-│   └── 📂 screenshots/     # Capturas de pantalla
+├── 📂 public/                  # Archivos del frontend
+│   ├── 🌐 index.html           # Página principal (productos)
+│   ├── 🌐 historial.html       # Página de historial
+│   ├── 🌐 finanzas.html        # Página de finanzas
+│   └── 🎨 style.css            # Estilos CSS principales
 │
-├── .gitignore
-├── LICENSE
-├── README.md
-├── package-lock.json
-└── package.json
+├── 📂 src/                     # Código del servidor
+│   ├── ⚙️ server.js            # Servidor Express principal
+│   ├── 🔧 generateData.js      # Generador de datos de prueba
+│   └── 📱 *.js                 # Módulos del servidor
+│
+├── 📄 .gitignore               # Archivos ignorados por Git
+├── 📜 LICENSE                  # Licencia MIT
+├── 📖 README.md                # Este archivo
+├── 📦 package.json             # Dependencias y scripts
+└── 🔒 package-lock.json        # Versiones exactas de dependencias
 ```
+
+---
 
 ## 🎯 Uso
 
 ### 📦 Gestión de Productos
 
-1. **Añadir producto**: Clic en "▼ AÑADIR PRODUCTO ▼" y completar el formulario
-2. **Editar producto**: Botón "Editar" en la tabla de productos
-3. **Eliminar producto**: Botón "Eliminar" en la tabla de productos
-4. **Ver historial**: Botón "Historial" para ver movimientos del producto
+#### ➕ Añadir Producto
+
+```
+1. Clic en "▼ AÑADIR PRODUCTO ▼"
+2. Completar el formulario:
+   ├─ Nombre del producto
+   ├─ Categoría (seleccionar del menú)
+   ├─ Proveedor
+   ├─ Precio de compra
+   ├─ Precio de venta
+   └─ Stock inicial
+3. Clic en "Añadir Producto"
+4. ✅ El producto aparece en la tabla
+```
+
+#### ✏️ Editar Producto
+
+```
+1. Localizar el producto en la tabla
+2. Clic en botón "Editar"
+3. Modificar los campos necesarios
+4. Clic en "Guardar Cambios"
+5. ✅ Los cambios se reflejan inmediatamente
+```
+
+#### 🗑️ Eliminar Producto
+
+```
+1. Localizar el producto en la tabla
+2. Clic en botón "Eliminar"
+3. Confirmar la eliminación
+4. ✅ El producto se elimina y se registra en historial
+```
+
+#### 📜 Ver Historial de Producto
+
+```
+1. Clic en botón "Historial" del producto
+2. Se abre la página de historial
+3. Filtrado automático por ese producto
+4. ✅ Visualiza todos los movimientos
+```
+
+---
 
 ### 🛒 Operaciones de Compra/Venta
 
-**Comprar:**
-- Clic en "▼ COMPRAR ▼"
-- Añadir filas con código de producto y cantidad
-- Confirmar compra
+#### 📥 Realizar Compra
 
-**Vender:**
-- Clic en "▼ VENDER ▼"
-- Añadir filas con código de producto y cantidad
-- Confirmar venta
+```
+┌─────────────────────────────────────────┐
+│ 1. Clic en "▼ COMPRAR ▼"               │
+├─────────────────────────────────────────┤
+│ 2. Añadir productos:                    │
+│    ├─ Código de producto (P001, etc.)   │
+│    └─ Cantidad a comprar                │
+├─────────────────────────────────────────┤
+│ 3. Añadir más filas si es necesario     │
+│    (botón "➕ Añadir otra fila")        │
+├─────────────────────────────────────────┤
+│ 4. Revisar:                             │
+│    ├─ Precios por producto              │
+│    └─ Total de la compra                │
+├─────────────────────────────────────────┤
+│ 5. Clic en "Confirmar Compra"           │
+└─────────────────────────────────────────┘
+
+✅ Resultado:
+   ├─ Stock actualizado automáticamente
+   ├─ Ticket PDF generado
+   ├─ Operación registrada en historial
+   └─ Balance actualizado
+```
+
+#### 💰 Realizar Venta
+
+```
+┌─────────────────────────────────────────┐
+│ 1. Clic en "▼ VENDER ▼"                │
+├─────────────────────────────────────────┤
+│ 2. Añadir productos:                    │
+│    ├─ Código de producto                │
+│    └─ Cantidad a vender                 │
+│    ⚠️ Se valida stock disponible        │
+├─────────────────────────────────────────┤
+│ 3. Añadir más filas si es necesario     │
+├─────────────────────────────────────────┤
+│ 4. Revisar:                             │
+│    ├─ Precios por producto              │
+│    ├─ Stock disponible                  │
+│    └─ Total de la venta                 │
+├─────────────────────────────────────────┤
+│ 5. Clic en "Confirmar Venta"            │
+└─────────────────────────────────────────┘
+
+✅ Resultado:
+   ├─ Stock reducido automáticamente
+   ├─ Ticket PDF generado
+   ├─ Operación registrada en historial
+   └─ Balance actualizado
+```
+
+---
 
 ### 📜 Historial
 
-**Filtros disponibles:**
-- Por tipo de operación (Comprado, Vendido, Editado, etc.)
-- Por categoría
-- Por fecha (exacta o rango)
-- Por ID de producto o ticket
+**Filtros Disponibles:**
 
-**Descargar tickets:** Clic en el ID del ticket (texto azul subrayado)
+| 🔍 Filtro | 📋 Opciones | 📝 Descripción |
+|-----------|-------------|----------------|
+| **Tipo de Operación** | Comprado, Vendido, Editado, Eliminado, Añadido | Filtra por tipo de acción |
+| **Categoría** | Todas las categorías del sistema | Filtra productos por categoría |
+| **Fecha** | Fecha exacta o rango | Usa calendario Flatpickr |
+| **ID** | Producto o Ticket | Busca por identificador |
 
-### 📈 Análisis Financiero
+**Características:**
 
-- **Períodos**: Diario, semanal, mensual, anual o siempre
-- **Filtros**: Por categoría o ID de producto
-- **Calendario**: Selección visual de fechas
-- **Gráfico**: Visualización de ingresos vs gastos
+```
+📊 Visualización
+├─ Orden cronológico (más reciente primero)
+├─ Información completa de cada operación
+├─ Enlaces a tickets PDF (clic en ID azul)
+└─ Colores según tipo de operación
+
+🔍 Búsqueda
+├─ Por múltiples criterios simultáneos
+├─ Filtros combinables
+└─ Resultados en tiempo real
+
+📄 Tickets
+├─ Descarga directa desde historial
+├─ Clic en texto azul "Ticket: [ID]"
+└─ Se abre el PDF automáticamente
+```
+
+---
+
+### 💰 Análisis Financiero
+
+**Períodos Disponibles:**
+
+| Período | Descripción | Uso |
+|---------|-------------|-----|
+| 📅 **Diario** | Hoy | Ventas/compras del día |
+| 📅 **Semanal** | 7 días | Últimos 7 días |
+| 📅 **Mensual** | 30 días | Último mes |
+| 📅 **Anual** | 365 días | Último año |
+| 📅 **Siempre** | Todo | Histórico completo |
+
+**Filtros Adicionales:**
+
+```
+🔍 Filtrar por:
+├─ 📂 Categoría específica
+├─ 📦 ID de producto
+└─ 📅 Rango de fechas personalizado (calendario)
+
+📊 Gráfico Interactivo:
+├─ 💵 Ingresos (área verde)
+├─ 💸 Gastos (área roja)
+├─ 💰 Beneficio total destacado
+└─ Hover para ver detalles exactos
+```
+
+**Cómo usar:**
+
+```
+1️⃣ Seleccionar período predefinido
+   └─ O usar calendario para rango personalizado
+
+2️⃣ (Opcional) Aplicar filtros
+   └─ Categoría o producto específico
+
+3️⃣ Visualizar resultados
+   ├─ Gráfico se actualiza automáticamente
+   ├─ Total de ingresos
+   ├─ Total de gastos
+   └─ Beneficio calculado
+
+4️⃣ Analizar tendencias
+   └─ Identificar períodos más rentables
+```
+
+---
 
 ## 🏷️ Categorías
 
-### Categorías predefinidas
+### 📂 Categorías Predefinidas
 
-El sistema incluye 10 categorías por defecto:
+El sistema incluye **10 categorías** por defecto:
 
-- Alimentación
-- Bebidas
-- Limpieza
-- Tecnología
-- Hogar
-- Juguetes
-- Cosmética
-- Ropa
-- Deportes
-- Otro
+| # | Categoría | Icono | Ejemplos de Productos |
+|---|-----------|-------|----------------------|
+| 1 | **Alimentación** | 🍞 | Pan, leche, cereales, frutas |
+| 2 | **Bebidas** | 🥤 | Agua, refrescos, jugos, alcohol |
+| 3 | **Limpieza** | 🧹 | Detergentes, desinfectantes, toallas |
+| 4 | **Tecnología** | 💻 | Cables, accesorios, gadgets |
+| 5 | **Hogar** | 🏠 | Decoración, utensilios, textiles |
+| 6 | **Juguetes** | 🧸 | Juegos, muñecos, puzzles |
+| 7 | **Cosmética** | 💄 | Maquillaje, perfumes, cremas |
+| 8 | **Ropa** | 👕 | Camisetas, pantalones, zapatos |
+| 9 | **Deportes** | ⚽ | Equipamiento, ropa deportiva |
+| 10 | **Otro** | 📦 | Productos no categorizados |
 
-### ✏️ Cómo editar las categorías
+---
 
-#### **Opción 1: Antes del primer inicio** *(Recomendado)*
+### ✏️ Cómo Editar las Categorías
 
-1. Abrir `src/server.js`
-2. Buscar la función `inicializarDataJSON()`
-3. Modificar el array de `categorias`:
+<details>
+<summary><b>Método 1: Antes del Primer Inicio</b> ⭐ Recomendado</summary>
+
+<br>
+
+**Paso a paso:**
 
 ```javascript
+// 1️⃣ Abrir archivo: src/server.js
+
+// 2️⃣ Buscar la función: inicializarDataJSON()
+
+// 3️⃣ Modificar el array de categorías:
+
 const dataInicial = {
   categorias: [
-    "Tu Categoría 1",
-    "Tu Categoría 2",
-    "Tu Categoría 3",
-    // ... añade las que necesites
+    "Electrónica",        // Tu categoría 1
+    "Muebles",            // Tu categoría 2
+    "Decoración",         // Tu categoría 3
+    "Accesorios",         // Tu categoría 4
+    "Ferretería",         // Tu categoría 5
+    "Papelería",          // Tu categoría 6
+    "Mascotas",           // Tu categoría 7
+    "Libros",             // Tu categoría 8
+    "Música",             // Tu categoría 9
+    "Otros"               // Tu categoría 10
   ],
   productos: {},
   historial: [],
   finanzas: [],
   ultimaIDUsada: 0
 };
+
+// 4️⃣ Guardar archivo
+
+// 5️⃣ Ejecutar:
 ```
 
-4. Guardar y ejecutar `npm start`
+```bash
+npm start
+```
 
-#### **Opción 2: Después del primer inicio**
+✅ **Ventajas:**
+- Las categorías están desde el inicio
+- No hay productos con categorías antiguas
+- Configuración limpia
 
-1. **Detener el servidor** (Ctrl + C)
-2. Abrir `data/data.json`
-3. Modificar el array de `categorias`:
+</details>
+
+<details>
+<summary><b>Método 2: Después del Primer Inicio</b></summary>
+
+<br>
+
+**Paso a paso:**
+
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Abrir archivo de datos
+# Ubicación: data/data.json
+```
 
 ```json
 {
   "categorias": [
-    "Electrónica",
-    "Muebles",
-    "Decoración",
-    "Accesorios"
+    "Tu Nueva Categoría 1",
+    "Tu Nueva Categoría 2",
+    "Tu Nueva Categoría 3",
+    "..."
   ],
-  "productos": { ... },
-  "historial": [ ... ],
-  "finanzas": [ ... ]
+  "productos": { 
+    // No modificar esta sección
+  },
+  "historial": [
+    // No modificar esta sección
+  ],
+  "finanzas": [
+    // No modificar esta sección
+  ]
 }
 ```
 
-4. Guardar y reiniciar con `npm start`
-
-### ⚠️ Consideraciones importantes
-
-- **Productos existentes**: Mantendrán su categoría asignada incluso si eliminas esa categoría
-- **Historial y finanzas**: Los registros conservarán las categorías originales
-- **Filtros**: Se actualizarán automáticamente con las nuevas categorías
-
-## 🛠️ Tecnologías utilizadas
-
-### Backend
-- **Express.js** - Framework web
-- **PDFKit** - Generación de tickets PDF
-- **Winston** - Sistema de logs
-- **Node.js** - Entorno de ejecución
-
-### Frontend
-- **HTML5/CSS3** - Estructura y estilos
-- **JavaScript (ES6+)** - Lógica del cliente
-- **Chart.js** - Gráficos financieros
-- **Flatpickr** - Selector de fechas
-
-## 💾 Backup y Recuperación
-
-### Hacer backup manual
-
 ```bash
-# Copiar el archivo de datos
-cp data/data.json data/backup_$(date +%Y%m%d).json
+# 3️⃣ Guardar cambios
 
-# O copiar toda la carpeta data
-cp -r data/ backup_data/
-```
-
-### Restaurar desde backup
-
-```bash
-# 1. Detener el servidor (Ctrl + C)
-# 2. Restaurar el archivo
-cp data/backup_YYYYmmdd.json data/data.json
-# 3. Reiniciar el servidor
+# 4️⃣ Reiniciar servidor
 npm start
 ```
 
-## 🔧 Configuración
+⚠️ **Consideraciones:**
+- Los productos existentes mantienen su categoría anterior
+- Asegúrate de que el JSON sea válido (usa un validador online)
+- Haz backup antes de modificar
 
-### Puerto del servidor
-
-Por defecto: `3000`
-
-Para cambiar el puerto, editar en `src/server.js`:
-
-```javascript
-const PORT = 3000; // Cambiar aquí
-```
-
-## 🐛 Solución de problemas
-
-### ❌ El servidor no inicia
-
-- Verificar que el puerto 3000 esté disponible
-- Comprobar instalación de dependencias: `npm install`
-- Revisar logs en `data/logs/app.log`
-
-### ❌ Los tickets no se generan
-
-- Verificar permisos de escritura en carpeta `data/tickets`
-- Revisar logs en `data/logs/app.log`
-- Comprobar que PDFKit esté instalado correctamente
-
-### ❌ Datos no se guardan
-
-- Verificar permisos de escritura en `data/data.json`
-- Comprobar espacio en disco
-- Revisar logs del servidor
-
-### ❌ Error "EADDRINUSE"
-
-El puerto 3000 está ocupado:
-
-```bash
-# Opción 1: Encontrar y cerrar el proceso
-lsof -i :3000  # Linux/Mac
-netstat -ano | findstr :3000  # Windows
-
-# Opción 2: Cambiar el puerto en src/server.js
-```
-
-## ❓ Preguntas Frecuentes
-
-- **¿Los datos se guardan automáticamente?**  
-Sí, cada operación se guarda automáticamente en `data/data.json`.
-
-- **¿Puedo usar esto en múltiples tiendas?**  
-No directamente. Cada instancia gestiona una sola base de datos local.
-
-- **¿Hay límite de productos?**  
-No hay límite establecido, pero se recomienda no superar 10,000 productos.
-
-- **¿Puedo exportar los datos?**  
-Sí, copia el archivo `data/data.json` para backups o análisis externos.
-
-- **¿Funciona sin conexión a internet?**  
-Sí, completamente. Solo necesita internet para las CDN de librerías frontend.
-
-- **¿Puedo acceder desde otro dispositivo en mi red?**  
-Sí, usa la IP local del servidor: `http://192.168.1.X:3000`
-
-## 🗺️ Roadmap
-
-### Versión 2.0.0 *(en proceso)*
-- [ ] Exportar datos a Excel/CSV
-- [ ] Códigos de barras QR para productos
-- [ ] Alertas de stock mínimo
-- [ ] Estadísticas avanzadas
-
-### Versión 2.1.0 *(futuro)*
-- [ ] Avisos de stock mínimo por email
-- [ ] Base de datos SQL (MongoDB)
-- [ ] Back-up automático programado
-
-## 📄 Licencia
-
-MIT License - Ver archivo [LICENSE](LICENSE) para más detalles
-
-## 👨‍💻 Autor
-
-[Victor Menjon](https://victormenjon.es)
-
-## 📮 Soporte
-
-* Consultar la sección de [Preguntas Frecuentes](#-preguntas-frecuentes)
-* Revisar los [logs del sistema](#-sistema-de-logs)
-
-## 🙏 Agradecimientos
-
-Gracias a todos los que han probado y dado feedback durante el desarrollo de VimenStock.
+</details>
 
 ---
 
-**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+### ⚠️ Consideraciones Importantes
 
-*Versión 1.0.0 - Agosto 2025*
+| Aspecto | Detalle |
+|---------|---------|
+| **Productos Existentes** | Mantienen su categoría asignada incluso si eliminas esa categoría del array |
+| **Historial** | Las operaciones registradas conservan las categorías originales |
+| **Finanzas** | Los registros financieros mantienen las categorías históricas |
+| **Filtros** | Se actualizan automáticamente con las nuevas categorías |
+| **Compatibilidad** | Los productos con categorías eliminadas seguirán funcionando |
+
+**Recomendación:** Si vas a cambiar categorías con productos existentes, considera:
+1. Hacer backup de `data/data.json`
+2. Editar manualmente los productos para asignar nuevas categorías
+3. O mantener las categorías antiguas como "legacy"
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### 🔧 Backend
+
+| Tecnología | Versión | Propósito |
+|------------|---------|-----------|
+| **Node.js** | ≥14.0.0 | Entorno de ejecución JavaScript |
+| **Express.js** | ^4.18.0 | Framework web minimalista |
+| **PDFKit** | ^0.13.0 | Generación de documentos PDF |
+| **Winston** | ^3.8.0 | Sistema de logging profesional |
+
+### 🎨 Frontend
+
+| Tecnología | Fuente | Propósito |
+|------------|--------|-----------|
+| **HTML5** | Nativo | Estructura de páginas |
+| **CSS3** | Nativo | Estilos y diseño responsive |
+| **JavaScript ES6+** | Nativo | Lógica del cliente |
+| **Chart.js** | CDN (v3.9.1) | Gráficos interactivos |
+| **Flatpickr** | CDN (v4.6.13) | Selector de fechas avanzado |
+
+---
+
+## 💾 Backup y Recuperación
+
+### 📦 Hacer Backup Manual
+
+<details>
+<summary><b>Linux / macOS</b></summary>
+
+```bash
+# Backup rápido del archivo principal
+cp data/data.json data/backup_$(date +%Y%m%d).json
+
+# Backup completo de la carpeta data
+cp -r data/ backup_data_$(date +%Y%m%d)/
+
+# Backup comprimido (recomendado)
+tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/
+
+# Listar backups
+ls -lh backup_*.tar.gz
+```
+
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+```cmd
+REM Backup del archivo principal
+copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
+
+REM Backup completo de la carpeta
+xcopy data backup_data_%date:~-4,4%%date:~-7,2%%date:~-10,2%\ /E /I
+
+REM Comprimir con PowerShell
+powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.zip
+```
+
+</details>
+
+---
+
+### ♻️ Restaurar desde Backup
+
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo de datos
+cp data/backup_20250828.json data/data.json
+
+# 3️⃣ O restaurar carpeta completa
+rm -rf data/
+cp -r backup_data_20250828/ data/
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+
+---
+
+### 🤖 Script de Backup Automático
+
+<details>
+<summary><b>Ver script de ejemplo</b></summary>
+
+```bash
+#!/bin/bash
+# backup_vimenstock.sh
+
+# Configuración
+BACKUP_DIR="backups"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=30
+
+# Crear directorio de backups
+mkdir -p $BACKUP_DIR
+
+# Backup de datos
+cp data/data.json "$BACKUP_DIR/data_$DATE.json"
+
+# Backup completo comprimido
+tar -czf "$BACKUP_DIR/full_backup_$DATE.tar.gz" data/
+
+# Limpiar backups antiguos
+find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
+find $BACKUP_DIR -name "*.json" -mtime +$RETENTION_DAYS -delete
+
+echo "✅ Backup completado: $DATE"
+echo "📁 Ubicación: $BACKUP_DIR"
+```
+
+**Hacer el script ejecutable:**
+```bash
+chmod +x backup_vimenstock.sh
+```
+
+**Programar con cron (Linux/Mac):**
+```bash
+# Editar crontab
+crontab -e
+
+# Añadir línea para backup diario a las 2 AM
+0 2 * * * /ruta/completa/backup_vimenstock.sh
+```
+
+</details>
+
+---
+
+## ⚙️ Configuración
+
+### 🔌 Cambiar Puerto del Servidor
+
+```javascript
+// Archivo: src/server.js
+// Línea: ~15
+
+const PORT = 3000; // Cambiar a 3001, 8080, etc.
+```
+
+**Puertos comunes:**
+- `3000` - Por defecto
+- `8080` - Alternativa popular
+- `3001` - Si 3000 está ocupado
+- `5000` - Otra alternativa común
+
+---
+
+### 🎲 Configurar Datos de Prueba
+
+```javascript
+// Archivo: src/generateData.js
+
+// Cambiar cantidad de productos generados
+for (let i = 1; i <= 200; i++) { // Cambiar 200 por el número deseado
+  // ... código de generación
+}
+
+// Personalizar rangos de precios
+const precioCompra = (Math.random() * (50 - 1) + 1).toFixed(2);
+//                                      ↑    ↑
+//                                    Máx  Mín
+
+// Personalizar stock inicial
+const stock = Math.floor(Math.random() * (200 - 10) + 10);
+//                                          ↑     ↑
+//                                        Máx   Mín
+```
+
+---
+
+### 🌐 Acceso desde Otros Dispositivos
+
+```bash
+# 1️⃣ Encontrar tu IP local
+
+# Windows:
+ipconfig
+# Buscar: "Dirección IPv4"
+
+# Linux/macOS:
+ifconfig
+# O
+ip addr show
+
+# 2️⃣ Acceder desde otro dispositivo
+# Formato: http://[TU_IP]:3000
+# Ejemplo:
+http://192.168.1.100:3000
+
+# 3️⃣ Asegurarse que el firewall permite conexiones
+# Windows: Permitir Node.js en el firewall
+# Linux: sudo ufw allow 3000/tcp
+```
+
+---
+
+## 🔧 Solución de Problemas
+
+<details>
+<summary>❌ <b>Error: El servidor no inicia</b></summary>
+
+<br>
+
+**Síntomas:**
+- Error "EADDRINUSE"
+- Puerto ya en uso
+- Servidor no responde
+
+**Soluciones:**
+
+```bash
+# 1️⃣ Verificar si el puerto está ocupado
+
+# Linux/macOS:
+lsof -i :3000
+
+# Windows:
+netstat -ano | findstr :3000
+
+# 2️⃣ Matar el proceso
+
+# Linux/macOS:
+kill -9 [PID]
+
+# Windows:
+taskkill /PID [PID] /F
+
+# 3️⃣ O cambiar el puerto en src/server.js
+
+# 4️⃣ Reinstalar dependencias
+rm -rf node_modules package-lock.json
+npm install
+
+# 5️⃣ Verificar versión de Node
+node --version  # Debe ser ≥14.0.0
+```
+
+</details>
+
+<details>
+<summary>📄 <b>Error: Los tickets no se generan</b></summary>
+
+<br>
+
+**Síntomas:**
+- No se crea el PDF
+- Error en consola al hacer compra/venta
+- Carpeta tickets vacía
+
+**Soluciones:**
+
+```bash
+# 1️⃣ Verificar permisos de carpetas
+chmod -R 755 data/tickets/
+
+# 2️⃣ Crear carpetas manualmente si no existen
+mkdir -p data/tickets/compra
+mkdir -p data/tickets/venta
+
+# 3️⃣ Verificar instalación de PDFKit
+npm list pdfkit
+
+# 4️⃣ Reinstalar PDFKit
+npm uninstall pdfkit
+npm install pdfkit
+
+# 5️⃣ Revisar logs
+tail -f data/logs/app.log
+
+# 6️⃣ Verificar espacio en disco
+df -h  # Linux/macOS
+```
+
+</details>
+
+<details>
+<summary>💾 <b>Error: Los datos no se guardan</b></summary>
+
+<br>
+
+**Síntomas:**
+- Cambios se pierden al reiniciar
+- Error al añadir/editar productos
+- data.json no se actualiza
+
+**Soluciones:**
+
+```bash
+# 1️⃣ Verificar permisos del archivo
+chmod 644 data/data.json
+
+# 2️⃣ Verificar que el archivo no esté corrupto
+cat data/data.json | python -m json.tool
+# O usar validador online: jsonlint.com
+
+# 3️⃣ Verificar espacio en disco
+df -h
+
+# 4️⃣
