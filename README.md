@@ -830,10 +830,15 @@ df -h
 <details>
 <summary> Versión 2.0.0 (próximamente)</summary>
 - [ ] **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
+   
 - [ ] **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
+      
 - [ ] **⚠️ Alertas de Stock Bajo**: Sistema automático de alertas cuando el stock es mínimo
+      
 - [ ] **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado a tiempo real
+      
 - [ ] **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
+      
 - [ ] **🔧 Optimizaciones**: Mejor rendimiento y gestión de memoria
    
 </details>
@@ -841,7 +846,9 @@ df -h
 <details>
 <summary> Versión 2.1.0 (futuro)</summary>
 - [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
+   
 - [ ] **⚠️ Alertas de Stock Bajo**: Notificaciones por email para alertas de stock
+      
 - [ ] **📋 Backup automático**: Se programa un back-up que hace copias de los datos
 
 </details>
