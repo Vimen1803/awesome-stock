@@ -77,46 +77,6 @@ Consulta el archivo licencia y las guías necesarias
 </div>
 
 ---
-## 🙏 Agradecimientos
-
-Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
-
-**Tecnologías y librerías open source utilizadas:**
-- [Node.js](https://nodejs.org/) - Entorno de ejecución
-- [Express](https://expressjs.com/) - Framework web
-- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
-- [PDFKit](https://pdfkit.org/) - Generación de PDFs
-- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
-- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
-- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
-
----
-
-<div align="center">
-
-## ⭐ ¿Te gusta VimenStock?
-
-Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
-
----
-
-**Desarrollado con ❤️ para facilitar la gestión de inventarios**
-
-**v2.0.0** | Septiembre 2025
-
----
-
-[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
-
----
-
-[⬆ Volver arriba](#-vimenstock)
-
-</div>
-
----
 
 ## 📸 Capturas de Pantalla
 
@@ -841,3 +801,45 @@ Ver archivo LICENSE para el texto completo.
 [![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
 
 </div>
+---
+---
+## 🙏 Agradecimientos
+
+Gracias a todos los que han probado, dado feedback y contribuido durante el desarrollo de VimenStock.
+
+**Tecnologías y librerías open source utilizadas:**
+- [Node.js](https://nodejs.org/) - Entorno de ejecución
+- [Express](https://expressjs.com/) - Framework web
+- [Chart.js](https://www.chartjs.org/) - Gráficos interactivos
+- [PDFKit](https://pdfkit.org/) - Generación de PDFs
+- [ExcelJS](https://github.com/exceljs/exceljs) - Exportación Excel
+- [Flatpickr](https://flatpickr.js.org/) - Selector de fechas
+- [Winston](https://github.com/winstonjs/winston) - Sistema de logs
+
+---
+
+<div align="center">
+
+## ⭐ ¿Te gusta VimenStock?
+
+Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
+
+---
+
+**Desarrollado con ❤️ para facilitar la gestión de inventarios**
+
+**v2.0.0** | Septiembre 2025
+
+---
+
+[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+
+---
+
+[⬆ Volver arriba](#-vimenstock)
+
+</div>
+
+---
