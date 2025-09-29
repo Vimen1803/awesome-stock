@@ -540,10 +540,6 @@ vimenstock/
 🍩 Distribución de Stock (Dona)
    └─ Stock por categoría
    └─ Porcentajes visuales
-
-↔️ Rotación de Inventario (Barras Horizontales)
-   └─ Ventas vs Stock disponible
-   └─ Identifica productos estancados
 ```
 
 **Tablas de Análisis:**
@@ -665,19 +661,6 @@ const STOCKBAJO = 25; // Cambiar a tu preferencia
 ### 📂 Categorías Predefinidas
 
 El sistema incluye **10 categorías** por defecto:
-
-| # | Categoría | Icono | Descripción |
-|---|-----------|-------|-------------|
-| 1 | Alimentación | 🍞 | Productos alimenticios |
-| 2 | Bebidas | 🥤 | Bebidas y líquidos |
-| 3 | Limpieza | 🧹 | Productos de limpieza |
-| 4 | Tecnología | 💻 | Dispositivos electrónicos |
-| 5 | Hogar | 🏠 | Artículos del hogar |
-| 6 | Juguetes | 🧸 | Juguetes y juegos |
-| 7 | Cosmética | 💄 | Productos de belleza |
-| 8 | Ropa | 👕 | Prendas de vestir |
-| 9 | Deportes | ⚽ | Artículos deportivos |
-| 10 | Otro | 📦 | Otros productos |
 
 ### ✏️ Personalizar Categorías
 
@@ -879,15 +862,6 @@ find $BACKUP_DIR -name "*.tar.gz" -mtime +30 -delete
 echo "✅ Backup completado: $DATE"
 ```
 
-**Programar con cron (Linux/Mac):**
-```bash
-# Editar crontab
-crontab -e
-
-# Añadir línea (backup diario a las 2 AM)
-0 2 * * * /ruta/a/vimenstock/backup.sh
-```
-
 ---
 
 ## 🔌 API Endpoints
@@ -957,15 +931,6 @@ window.location.href = '/api/exportar-excel';
 | 📱 **Responsive** | Adaptable a móviles y tablets |
 | ⚡ **Performance** | Carga bajo demanda |
 
-### 🎯 Atajos de Teclado
-
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl + K` | Buscar producto |
-| `Ctrl + N` | Nuevo producto |
-| `Ctrl + E` | Exportar Excel |
-| `Esc` | Cerrar modales |
-
 ---
 
 ## 🔒 Seguridad
@@ -976,22 +941,6 @@ Este sistema **NO incluye autenticación** y está diseñado para:
 - ✅ Uso local (localhost)
 - ✅ Redes privadas confiables
 - ❌ NO para uso en internet público
-
-### 🛡️ Para Uso en Producción
-
-Si planeas usar VimenStock en un entorno de producción, considera implementar:
-
-| Medida | Prioridad | Descripción |
-|--------|-----------|-------------|
-| 🔐 **HTTPS/SSL** | 🔴 Alta | Certificados SSL/TLS |
-| 👤 **Autenticación** | 🔴 Alta | JWT, OAuth, Passport.js |
-| 🛡️ **Validación** | 🔴 Alta | Sanitización de inputs |
-| 🚦 **Rate Limiting** | 🟡 Media | Prevenir abusos |
-| 🌐 **CORS** | 🟡 Media | Configuración adecuada |
-| 🔑 **Hash Contraseñas** | 🔴 Alta | bcrypt, argon2 |
-| 📝 **Auditoría** | 🟢 Baja | Ya implementado ✅ |
-| 💉 **SQL Injection** | 🟡 Media | Si migras a SQL |
-| 💾 **Backups Auto** | 🟡 Media | Programados |
 
 **Recursos recomendados:**
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
