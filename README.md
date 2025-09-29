@@ -878,6 +878,7 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 ---
 
 <div align="center">
+  
 [⬆ Volver arriba](#-vimenstock)
   
 --- 
