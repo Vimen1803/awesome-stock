@@ -789,13 +789,6 @@ Ver archivo LICENSE para el texto completo.
 
 ---
 
-<div align="center">
-
-## ⭐ ¿Te gusta VimenStock?
-
-Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
-
----
 ## 👨‍💻 Autor
 
 <div align="center">
@@ -807,6 +800,14 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 [![Email](https://img.shields.io/badge/Email-contact@victormenjon.es-red?style=flat&logo=gmail)](mailto:victormnjfan@gmail.com)
 
 </div>
+
+---
+
+<div align="center">
+
+## ⭐ ¿Te gusta VimenStock?
+
+Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 ---
 
