@@ -13,7 +13,7 @@ Sistema de gestión de inventario profesional con generación automática de tic
 - **📊 Exportación a Excel**: Exporta inventario completo con múltiples hojas y formato profesional
 - **⚠️ Alertas de Stock Bajo**: Sistema automático de alertas cuando el stock es inferior a 25 unidades
 - **📈 Página de Estadísticas**: Nueva sección con KPIs, gráficos interactivos y análisis detallado
-- **🎱 Dashboard con métricas en tiempo real
+- ** 🎱 Dashboard con métricas en tiempo real
 - **🎨 Mejoras Visuales**: Interfaz renovada con mejor UX y feedback visual
 - **🔧 Optimizaciones**: Mejor rendimiento y gestión de memoria
 
