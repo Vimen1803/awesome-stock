@@ -823,7 +823,9 @@ Si este proyecto te ha sido útil, considera darle una estrella en GitHub ⭐
 
 **v2.0.0** | Septiembre 2025
 </div>
+
 --- 
+
 [⬆ Volver arriba](#-vimenstock)
 
 </div>
