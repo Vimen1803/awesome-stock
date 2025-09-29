@@ -2,32 +2,37 @@
 
 # 📦 VimenStock v2.0.0
 
-### Sistema Profesional de Gestión de Inventario
+### Sistema de Gestión de Inventario
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)]()
+
+[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
+
+---
 
 **Sistema de gestión de inventario con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.**
 
-[Características](#-características-principales) •
-[Instalación](#-instalación) •
+>  ⚠️ **Nota:** Esta es la versión 1.0.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.0.0](https://github.com/Vimen1803/awesome-stock/blob/2.0.0/README.md)
+
 [Documentación](#-uso) •
-[Roadmap](#️-roadmap)
+[Instalación](#-instalación) •
+[Tecnologías](#-tecnologías-utilizadas)
 
 </div>
-
----
 
 <table>
 <tr>
 <td width="33%" align="center">
 
-### 📖 Documentación
-Consulta la documentación completa y guías de uso
+### 🗺 Road Map
+Consulta el RoadMap para estar enterado de las futuras ideas
 
-[Ver Docs](#-uso)
+[Ver RoadMap](#%EF%B8%8F-roadmap)
 
 </td>
 <td width="33%" align="center">
@@ -35,7 +40,7 @@ Consulta la documentación completa y guías de uso
 ### ❓ FAQ
 Encuentra respuestas a preguntas y errores comunes
 
-[Ver FAQ](#-preguntas-frecuentes)
+[Ver FAQ](#-solución-de-problemas)
 
 </td>
 <td width="33%" align="center">
