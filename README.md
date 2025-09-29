@@ -661,7 +661,6 @@ npm start
 | **Chart.js** | CDN (v3.9.1) | Gráficos interactivos |
 | **Flatpickr** | CDN (v4.6.13) | Selector de fechas avanzado |
 </details>
----
 
 ## 🔧 Solución de Problemas
 
