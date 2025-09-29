@@ -19,7 +19,7 @@
 
 [Documentación](#-uso) •
 [Instalación](#-instalación) •
-[Tecnologías](#-tecnologías-utilizadas)
+[Tecnologías + APIs](#%EF%B8%8F-tecnologías-utilizadas)
 
 </div>
 
