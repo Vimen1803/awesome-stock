@@ -230,22 +230,30 @@ Primera versión estable de VimenStock con funcionalidades básicas de gestión 
 
 ## 🗺️ Roadmap Futuro
 
-### [2.1.0] - Planificado Q4 2025
-- [ ] 🖨️ Impresión directa de códigos de barras
-- [ ] 📷 Lector de códigos de barras con webcam
-- [ ] 📧 Notificaciones por email para alertas de stock
-- [ ] ☁️ Backup automático programado
-- [ ] 📱 Aplicación móvil (PWA)
-- [ ] 🔍 Búsqueda avanzada con autocompletado
+<details>
+<summary> Versión 2.1.0 (en desarrollo)</summary>
+   
+- [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
 
-### [3.0.0] - En Consideración 2026
-- [ ] 🗄️ Migración a base de datos (MongoDB/PostgreSQL)
-- [ ] 👥 Sistema de autenticación y autorización multiusuario
-- [ ] 📡 API REST completa documentada con Swagger
-- [ ] 📊 Dashboard en tiempo real con WebSockets
-- [ ] 🏢 Soporte para múltiples almacenes
-- [ ] 🌍 Internacionalización (i18n)
-- [ ] 📊 Informes personalizados en PDF
+- [ ] **📊 Informes personalizados**: Se permitirá generar informes formato PDF/xlsx sobre distintos datos almacenados, productos y estadísticas a tiempo real
+
+- [ ] **📋 + Categorías**: Sistema que permite añadir nuevas categorías desde la aplicacion, sin necesidad de acceder al código
+
+</details>
+
+<details>
+<summary> Versión 2.2.0 (futuro)</summary>
+
+- [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
+
+</details>
+
+<details>
+<summary> Versión 3.0.0 (futuro)</summary>
+   
+- [ ] **📡 API REST completa**: Finalizar la API REST, completamente documentada, para facilitar su implementación
+
+</details>
 
 ---
 
@@ -273,5 +281,6 @@ MAJOR.MINOR.PATCH
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
+
 
 
