@@ -293,7 +293,7 @@ ls -lh backup_*.tar.gz
 <details>
 <summary><b>Windows</b></summary>
 
-```cmd
+```bash
 REM Backup del archivo principal
 copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
 
@@ -332,7 +332,7 @@ npm start
 <details>
 <summary><b>Windows</b></summary>
 
-```cmd
+```bash
 # 1️⃣ Detener el servidor
 Ctrl + C
 
