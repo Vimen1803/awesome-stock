@@ -864,25 +864,35 @@ netstat -ano | findstr :3000  # Windows
 
 ## ❓ Preguntas Frecuentes
 
-- **¿Los datos se guardan automáticamente?**
+<details>
+<summary>¿Los datos se guardan automáticamente?</summary>
  
-  Sí, cada operación se guarda automáticamente en `data/data.json`.
+Sí, cada operación se guarda automáticamente en `data/data.json`.
+</details>
 
-- **¿Puedo usar esto en múltiples tiendas?**
+<details>
+<summary>¿Puedo usar esto en múltiples tiendas?</summary>
  
-  No directamente. Cada instancia gestiona una sola base de datos local. Para múltiples tiendas necesitarías múltiples instancias o migrar a una base de datos centralizada.
+No directamente. Cada instancia gestiona una sola base de datos local. Para múltiples tiendas necesitarías múltiples instancias o migrar a una base de datos centralizada.
+</details>
 
-- **¿Hay límite de productos?**
+<details>
+<summary>¿Hay límite de productos?</summary>
   
   No hay límite establecido, pero por rendimiento se recomienda no superar 10,000 productos con el almacenamiento JSON actual.
+</details>
 
-- **¿Funciona sin conexión a internet?**
+<details>
+<summary>¿Funciona sin conexión a internet?</summary>
   
-  Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js, Flatpickr) en el frontend.
+Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js, Flatpickr) en el frontend.
+</details>
 
-- **¿Puedo acceder desde otro dispositivo en mi red?**
+<details>
+<summary>¿Puedo acceder desde otro dispositivo en mi red?</summary>
   
   Sí, usa la IP local del servidor: `http://192.168.1.X:3000`
+</details>
 
 ---
 
