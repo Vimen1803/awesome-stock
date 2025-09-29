@@ -624,7 +624,7 @@ npm start
 ## 🛠️ Tecnologías Utilizadas
 
 <details>
-<summary> 🔧 Backend</summary>summary>
+<summary> 🔧 Backend</summary>
 
 | Tecnología | Versión | Propósito |
 |------------|---------|-----------|
