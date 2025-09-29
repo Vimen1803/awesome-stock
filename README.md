@@ -789,9 +789,8 @@ Ver archivo LICENSE para el texto completo.
 
 ---
 
-## 👨‍💻 Autor
-
 <div align="center">
+## 👨‍💻 Autor
 
 **Victor Menjon**
 
