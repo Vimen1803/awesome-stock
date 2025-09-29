@@ -59,7 +59,7 @@ Consulta el archivo licencia y las guías necesarias
 ## 📸 Capturas de Pantalla
 
 <details>
-<summary>📦 <b>Gestión de Productos</b></summary>
+<summary>📦 <b>Gestión de Productos</b> (Click para expandir) </summary>
 
 <br>
 
@@ -74,7 +74,7 @@ Consulta el archivo licencia y las guías necesarias
 </details>
 
 <details>
-<summary>📜 <b>Historial de Operaciones</b></summary>
+<summary>📜 <b>Historial de Operaciones</b> (Click para expandir) </summary>
 
 <br>
 
@@ -89,7 +89,7 @@ Consulta el archivo licencia y las guías necesarias
 </details>
 
 <details>
-<summary>💰 <b>Análisis Financiero</b></summary>
+<summary>💰 <b>Análisis Financiero</b> (Click para expandir) </summary>
 
 <br>
 
