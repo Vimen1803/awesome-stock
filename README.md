@@ -268,6 +268,64 @@ http://192.168.1.100:3000
 # Linux: sudo ufw allow 3000/tcp
 ```
 ---
+## 💾 Backup y Recuperación
+
+### 📦 Hacer Backup Manual
+
+<details>
+<summary><b>Linux / macOS</b></summary>
+
+```bash
+# Backup rápido del archivo principal
+cp data/data.json data/backup_$(date +%Y%m%d).json
+
+# Backup completo de la carpeta data
+cp -r data/ backup_data_$(date +%Y%m%d)/
+
+# Backup comprimido (recomendado)
+tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/
+
+# Listar backups
+ls -lh backup_*.tar.gz
+```
+
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+```cmd
+REM Backup del archivo principal
+copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
+
+REM Backup completo de la carpeta
+xcopy data backup_data_%date:~-4,4%%date:~-7,2%%date:~-10,2%\ /E /I
+
+REM Comprimir con PowerShell
+powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.zip
+```
+
+</details>
+
+---
+
+### ♻️ Restaurar desde Backup
+
+```bash
+# 1️⃣ Detener el servidor
+Ctrl + C
+
+# 2️⃣ Restaurar archivo de datos
+cp data/backup_20250828.json data/data.json
+
+# 3️⃣ O restaurar carpeta completa
+rm -rf data/
+cp -r backup_data_20250828/ data/
+
+# 4️⃣ Reiniciar servidor
+npm start
+```
+---
 
 ## 📁 Estructura del Proyecto
 
@@ -641,66 +699,6 @@ npm start
 | **JavaScript ES6+** | Nativo | Lógica del cliente |
 | **Chart.js** | CDN (v3.9.1) | Gráficos interactivos |
 | **Flatpickr** | CDN (v4.6.13) | Selector de fechas avanzado |
-
----
-
-## 💾 Backup y Recuperación
-
-### 📦 Hacer Backup Manual
-
-<details>
-<summary><b>Linux / macOS</b></summary>
-
-```bash
-# Backup rápido del archivo principal
-cp data/data.json data/backup_$(date +%Y%m%d).json
-
-# Backup completo de la carpeta data
-cp -r data/ backup_data_$(date +%Y%m%d)/
-
-# Backup comprimido (recomendado)
-tar -czf backup_vimenstock_$(date +%Y%m%d).tar.gz data/
-
-# Listar backups
-ls -lh backup_*.tar.gz
-```
-
-</details>
-
-<details>
-<summary><b>Windows</b></summary>
-
-```cmd
-REM Backup del archivo principal
-copy data\data.json data\backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.json
-
-REM Backup completo de la carpeta
-xcopy data backup_data_%date:~-4,4%%date:~-7,2%%date:~-10,2%\ /E /I
-
-REM Comprimir con PowerShell
-powershell Compress-Archive -Path data\ -DestinationPath backup_%date:~-4,4%%date:~-7,2%%date:~-10,2%.zip
-```
-
-</details>
-
----
-
-### ♻️ Restaurar desde Backup
-
-```bash
-# 1️⃣ Detener el servidor
-Ctrl + C
-
-# 2️⃣ Restaurar archivo de datos
-cp data/backup_20250828.json data/data.json
-
-# 3️⃣ O restaurar carpeta completa
-rm -rf data/
-cp -r backup_data_20250828/ data/
-
-# 4️⃣ Reiniciar servidor
-npm start
-```
 
 ---
 
