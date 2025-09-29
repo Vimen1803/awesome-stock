@@ -1,0 +1,264 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family: "Segoe UI", Roboto, sans-serif; }
+body { background:#f4f6f9; color:#333; min-height:100vh; display:flex; flex-direction:column; transition: background-color 0.3s ease, color 0.3s ease; }
+body.dark { background:#1e1e1e; color:#e0e0e0; }
+
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#0078d7; color:white; }
+header .center a { margin:0 10px; text-decoration:none; color:white; padding:6px 10px; border-radius:8px; }
+header .center a:hover { background:cyan; color:black; }
+header .left{display: flex; flex-direction: row; justify-content: space-between;align-items: center; gap: 20px;}
+body.dark header { background:#0d47a1; }
+
+/* Container */
+.container, .container-hist { flex:1; padding:30px 8%;}
+
+/* Formularios y colapsables unificados */
+.collapsible-form, form { margin-bottom:25px; padding:20px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition: background-color 0.3s ease, color 0.3s ease; }
+body.dark .collapsible-form, body.dark form { background:#2c2c2c; color:white; }
+.collapsible-form label, form label { display:flex; flex-direction:column; margin-bottom:10px; font-weight:500; font-size:0.9rem; }
+.collapsible-form input, .collapsible-form select, form input, form select, #total-compra input, #total-venta input, #busqueda-producto { width:100%; padding:8px; margin-top:4px; border-radius:6px; border:1px solid #ccc; font-size:0.9rem; outline:none; transition:border-color 0.2s, background-color 0.3s, color 0.3s; }
+.collapsible-form input:focus, .collapsible-form select:focus, form input:focus, form select:focus, #busqueda-producto:focus,#total-compra input:focus, #total-venta input:focus { border-color:#4caf50; }
+.collapsible-form button, form button { cursor:pointer; border:none; border-radius:6px; padding:8px 12px; font-weight:500; transition:0.2s, background-color 0.2s; }
+.collapsible-form button:hover, form button:hover { opacity:0.9; }
+
+/* Botones colapsables */
+#btn-toggle-add, #btn-toggle-comprar, #btn-toggle-vender, #btn-toggle-filtros { width:100%; background:#28a745; color:white; font-weight:600; margin-bottom:10px; height:41px; display:block; justify-content:space-between; align-items:center; transition: background-color 0.2s;border: none;}
+#btn-toggle-add:hover, #btn-toggle-comprar:hover, #btn-toggle-vender:hover, #btn-toggle-filtros:hover { background:#218838; }
+
+/* Botones reset filtros */
+#reset-filtros { background-color:#4caf50; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:500; transition: background-color 0.2s; margin-top:10px; }
+#reset-filtros:hover { background-color:#43a047; }
+
+/* Select */
+select { padding:6px 10px; border-radius:6px; border:1px solid #ccc; transition:border-color 0.2s, background-color 0.3s, color 0.3s; }
+body.dark select, body.dark .collapsible-form select, body.dark #bloque-filtros select, body.dark .container-hist select { background-color:#444; color:white}
+
+/* Operacion rows */
+.operacion-row { display:flex; gap:10px; margin-bottom:8px; }
+.operacion-row input { flex:1; padding:6px; border-radius:6px; border:1px solid #ccc; }
+.btn-remove{ background:#dc3545; color:white; }
+
+/* Tablas */
+table, #tabla-historial { width:100%; border-collapse:collapse; margin-top:15px; background:white; border-radius:12px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+body.dark table, body.dark #tabla-historial { background:#2c2c2c; }
+th, td, #tabla-historial th, #tabla-historial td { padding:12px; text-align:center; border-bottom:1px solid #ddd; }
+body.dark th, body.dark td, body.dark #tabla-historial th, body.dark #tabla-historial td { border-color:#444; }
+thead, #tabla-historial thead { background:#0078d7; color:white; }
+body.dark thead, body.dark #tabla-historial thead { background:#1565c0; }
+td img {width: 64px;height: 64px;border-radius: 6px;object-fit: fill;}
+
+/* Acciones */
+.acciones-producto { display:flex; flex-direction:column; gap:6px; }
+.acciones-row { display:flex; justify-content:center; gap:8px; }
+.acciones-row button { padding:6px 8px; border-radius:6px; font-size:0.9rem; border: none; }
+.acciones-row .editar { background:#ffc107; color:black; width: 48%;}
+.acciones-row .eliminar { background:#dc3545; color:white; width: 48%;}
+.acciones-row .historial-btn { background:#17a2b8; color:white; width: 100%; }
+
+/* Modales */
+.modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; }
+.modal-content { background:white; padding:25px; border-radius:12px; min-width:320px; max-height:80vh; overflow-y:auto; position:relative; }
+body.dark .modal-content { background:#2c2c2c; color:white; }
+.close-btn { position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer; }
+.collapsed { display:none; }
+
+/* Historial */
+#listaHistorial { margin-top:10px; list-style:none; }
+#listaHistorial li { padding:6px; border-bottom:1px solid #ddd; }
+body.dark #listaHistorial li { border-color:#444; }
+
+/* Colores filas historial */
+#tabla-historial tr.Añadido td { background-color:#fff3cd; }
+#tabla-historial tr.Comprado td { background-color:#f8d7da; }
+#tabla-historial tr.Vendido td { background-color:#d4edda; }
+#tabla-historial tr.Editado td { background-color:#d1ecf1; }
+body.dark #tabla-historial tr.Añadido td { background-color:#5a4b20; color:#fff; }
+body.dark #tabla-historial tr.Comprado td { background-color:#5c1f1f; color:#fff; }
+body.dark #tabla-historial tr.Vendido td { background-color:#1f5c1f; color:#fff; }
+body.dark #tabla-historial tr.Editado td { background-color:#1f4b5c; color:#fff; }
+#tabla-historial tr:hover td { filter:brightness(0.95); }
+body.dark #tabla-historial tr:hover td { filter:brightness(1.2); }
+
+/* Bloque de información */
+.info-block {
+  background: #e3f2fd; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+  border-radius: 8px; 
+  border-left: 4px solid #2196f3;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .info-block {
+  background: #2c2c2c;
+  color: #e0e0e0;
+  border-left-color: #2196f3;
+}
+
+/* Bloques de filtros */
+#bloque-filtros { display:none; margin-bottom:20px; padding:15px; border-radius:8px; background-color:#f5f5f5; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition: background-color 0.3s ease, color 0.3s ease; }
+#bloque-filtros.show { display:block; }
+#bloque-filtros label { display:flex; flex-direction:column; margin-bottom:15px; font-weight:500; font-size:0.9rem; }
+#bloque-filtros input, #bloque-filtros select { margin-top:5px; padding:5px 8px; border-radius:6px; border:1px solid #ccc; font-size:0.9rem; outline:none; transition:border-color 0.2s, background-color 0.3s, color 0.3s; }
+#bloque-filtros input:focus, #bloque-filtros select:focus { border-color:#4caf50; }
+body.dark #bloque-filtros { background-color:#2c2c2c; color:#fff; }
+body.dark #bloque-filtros label { color:#fff; }
+body.dark #bloque-filtros input, body.dark #bloque-filtros select { background-color:#3a3a3a; color:#fff; border:1px solid #555; }
+
+/* Rango fechas */
+.rango-fechas { display:flex; gap:10px; align-items:center; margin-bottom:15px; }
+.rango-fechas label { flex:1; display:flex; flex-direction:column; font-weight:500; font-size:0.9rem; }
+.rango-fechas input { margin-top:5px; padding:5px 8px; border-radius:6px; border:1px solid #ccc; outline:none; transition:border-color 0.2s; }
+.rango-fechas input:focus { border-color:#4caf50; }
+
+/* Toggle modo oscuro */
+.toggle-btn { position:relative; width:50px; height:25px; background-color:#f0f0f0; border-radius:50px; border:none; cursor:pointer; outline:none; transition:background-color 0.3s ease; }
+.toggle-btn .icon { position:absolute; top:50%; transform:translateY(-50%); width:20px; height:20px; border-radius:50%; transition:transform 0.3s ease, background-color 0.3s ease; }
+.toggle-btn .icon-sun { left:5px; background-color:#ffd700; }
+.toggle-btn .icon-moon { right:5px; background-color:#fff; transform:translateY(-50%) scale(0); }
+body.dark .toggle-btn { background-color:#333; }
+body.dark .toggle-btn .icon-sun { transform:translateY(-50%) scale(0); }
+body.dark .toggle-btn .icon-moon { transform:translateY(-50%) scale(1); }
+
+/* Collapsible forms unificados para index y historial */
+.collapsible-form { display:none; margin-bottom:20px; padding:15px; border-radius:8px; background-color:#f5f5f5; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition: background-color 0.3s ease, color 0.3s ease; }
+.collapsible-form.show { display:block; }
+.collapsible-form label, #total-compra label, #total-venta label { display:flex; flex-direction:column; margin-bottom:15px; font-weight:500; font-size:0.9rem; }
+.collapsible-form input, .collapsible-form select, #total-compra input, #total-venta input, #total-compra select, #total-venta select, #busqueda-producto input { margin-top:5px; padding:5px 8px; border-radius:6px; border:1px solid #ccc; font-size:0.9rem; outline:none; transition:border-color 0.2s, background-color 0.3s, color 0.3s; }
+.collapsible-form input:focus, .collapsible-form select:focus, #total-compra input:focus, #total-venta input:focus { border-color:#4caf50; }
+.collapsible-form button { margin-top:10px; background-color:#4caf50; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:500; transition: background-color 0.2s; }
+.collapsible-form button:hover { background-color:#43a047; }
+body.dark .collapsible-form,body.dark #busqueda-producto{ background-color:#2c2c2c; color:white; }
+body.dark .collapsible-form input, body.dark .collapsible-form select, body.dark #total-compra input, body.dark #total-venta input, body.dark #busqueda-producto input { background-color:#444; color:#fff;}
+body.dark .collapsible-form input:focus, body.dark .collapsible-form select:focus, #total-compra input:focus, #total-venta input:focus, body.dark #busqueda-producto input:focus { border-color:#4caf50; }
+/* Botones añadir fila / productos */
+#btn-add-row-comprar, #btn-add-row-vender, #btn-add-prod { background:#0078d7; color:white; margin-top:10px;}
+#btn-add-row-comprar:hover, #btn-add-row-vender:hover, #btn-add-prod:hover { background:#005bb5; }
+#btn-remove{background-color: red; margin-top: 4px; height: auto;}
+
+/* -------------------- FINANZAS -------------------- */
+.finanzas-container{display:flex;gap:20px;padding:20px;margin:50px; margin-left: 100px;}
+.finanzas-left{flex:1;display:flex;flex-direction:column;align-items:flex-start;}
+.finanzas-right{flex:2;display:flex;justify-content:center;align-items:center;min-width:400px;}
+#grafico{width:800px;height:600px;}
+.calendar-container{width:560px;border:2px solid #4a90e2;border-radius:10px;padding:10px;margin-top:15px;background-color:#f0f8ff;position:relative;}
+.calendar-header{display:flex;justify-content:center;align-items:center;margin-bottom:8px;position:relative;}
+#month-year{text-align:center;flex:1;}
+.calendar-header button{cursor:pointer;background:#4a90e2;color:white;border:none;padding:5px 10px;border-radius:6px;position:absolute;top:0;}
+#prev-month{left:0;}
+#next-month{right:0;}
+#calendar{width:100%;border-collapse:collapse;}
+#calendar td{width:14%;height:40px;text-align:center;vertical-align:middle;position:relative;}
+#calendar td span{display:inline-flex;justify-content:center;align-items:center;width:30px;height:30px;border-radius:50%;}
+#calendar td.selected span{background-color:#2196f3;color:white;font-weight:bold;}
+#calendar td.today-selected span{background-color:#4caf50;color:white;font-weight:bold;}
+#beneficio-total{margin-top:20px;font-size:1.5rem;font-weight:bold;color:#2196f3;padding:10px 15px;border:2px solid #2196f3;border-radius:8px;background-color:#e3f2fd;}
+body.dark .finanzas-container{background-color:#1e1e1e;color:#e0e0e0;}
+body.dark .calendar-container{background-color:#2c2c2c;border-color:#4a90e2;}
+body.dark .calendar-header button{background:#1565c0;color:white;}
+body.dark #month-year{color:white;}
+body.dark #calendar td span{color:white;}
+body.dark #calendar td.selected span{background-color:#2196f3;color:white;}
+body.dark #calendar td.today-selected span{background-color:#4caf50;color:white;}
+body.dark #beneficio-total{background-color:#2c2c2c;color:#e0e0e0;border-color:#2196f3;}
+/* Tu CSS original sin cambios excepto el total label agregado */
+/* Input total al final de cada formulario de compra/venta */
+/* Input total general debajo de todas las filas de compra/venta */
+/* Total general debajo de filas, mismo tamaño que los inputs del form */
+#total-compra, #total-venta {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background-color: #f5f5f5;
+  color: #333;
+  outline: none;
+  display: inline-block;     /* se comporta como input normal */
+  min-width: 120px;          /* ancho similar a los inputs de arriba */
+}
+body.dark #total-compra, body.dark #total-venta {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+/* Input de búsqueda igual que los inputs de los formularios */
+#input-buscar {
+  margin-top: 5px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+#input-buscar:focus {
+  border-color: #4caf50;
+  background-color: #fff;
+}
+
+/* Botón de quitar filtros */
+#btn-reset-filtros {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: background-color 0.2s;
+}
+
+#btn-reset-filtros:hover {
+  background-color: #43a047;
+}
+
+/* Para que estén en la misma línea */
+#filtros-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+/* Contenedor de filtros */
+#filtros-container { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+
+/* Input de búsqueda, select y botón unificados */
+#filtros-container input, #filtros-container select, #filtros-container button { height: 38px; padding: 8px 12px; border-radius: 6px;font-size: 0.9rem; outline: none; transition: border-color 0.2s, background-color 0.3s, color 0.3s; box-sizing: border-box; }
+#filtros-container select{margin-top: 3px;}
+/* Aseguramos que el botón tiene el mismo tamaño */
+#filtros-container button { display: flex; justify-content: center; align-items: center; min-width: 120px; }
+
+/* Focus para input y select */
+#filtros-container input:focus, #filtros-container select:focus { border-color: #4caf50; }
+
+/* Estilos específicos del botón quitar filtros */
+#btn-reset-filtros { background-color: #4caf50; color: white; cursor: pointer; font-weight: 500; border: none; transition: background-color 0.2s; height: 38px; margin-top: 3px;align-content: center; width: 10%;}
+#btn-reset-filtros:hover { background-color: #43a047; }
+
+.brillante {
+    color: yellow;
+    text-shadow: 0 0 2px yellow, 0 0 5px yellow, 0 0 10px yellow, 0 0 15px red;
+  }
+
+body.dark .select-group select {
+    background-color: #444;
+    color: white;
+    border-color: #555;
+  }
+  
+body.dark .select-group input {
+  background-color: #444;
+  color: white;
+  border-color: #555;
+}
+
+body.dark .select-group label {
+  color: #e0e0e0;
+}

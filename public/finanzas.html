@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VimenStock - Finanzas</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+  body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  
+  /* Estilos para los selects en línea */
+  .selects-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .select-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .select-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  .select-group select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+    min-width: 120px;
+  }
+  
+  .select-group select:focus {
+    border-color: #4caf50;
+  }
+  
+  body.dark .select-group select {
+    background-color: #444;
+    color: white;
+    border-color: #555;
+  }
+  
+  body.dark .select-group label {
+    color: #e0e0e0;
+  }
+  
+  /* Estilos para el bloque de información en historial */
+  .info-block {
+    background: #e3f2fd; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    border-left: 4px solid #2196f3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark .info-block {
+    background: #2c2c2c;
+    color: #e0e0e0;
+    border-left-color: #2196f3;
+  }
+</style>
+<body>
+
+<header>
+  <div class="left">
+    <img src="https://victormenjon.es/favicon.ico" class="icon">
+    <span>VimenStock</span>
+  </div>
+  <div class="center">
+    <a href="index.html">Productos</a>
+    <a href="historial.html">Historial</a>
+    <a href="finanzas.html">Finanzas</a>
+  </div>
+  <div class="right">
+    <button id="toggle-dark" class="toggle-btn">
+      <span class="icon icon-sun"></span>
+      <span class="icon icon-moon"></span>
+    </button>
+  </div>
+</header>
+
+<div class="container finanzas-container">
+
+  <!-- Columna izquierda: calendario + beneficio -->
+  <div class="finanzas-left">
+    <div class="selects-container">
+      <div class="select-group">
+        <label for="select-periodo">Periodo:</label>
+        <select id="select-periodo">
+          <option value="siempre">Siempre</option>
+          <option value="diaria">Diaria</option>
+          <option value="semanal">Semanal</option>
+          <option value="mensual">Mensual</option>
+          <option value="anual">Anual</option>
+        </select>
+      </div>
+
+      <div class="select-group">
+        <label for="select-categoria">Categoría:</label>
+        <select id="select-categoria">
+          <option value="todos">Todos</option>
+          <option value="Alimentación">Alimentación</option>
+          <option value="Bebidas">Bebidas</option>
+          <option value="Limpieza">Limpieza</option>
+          <option value="Tecnología">Tecnología</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Juguetes">Juguetes</option>
+          <option value="Cosmética">Cosmética</option>
+          <option value="Ropa">Ropa</option>
+          <option value="Deportes">Deportes</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="select-group">
+        <label for="input-producto-id">ID Producto:</label>
+        <input type="text" id="input-producto-id" placeholder="Ej: P001" style="padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 0.9rem; outline: none; transition: border-color 0.2s, background-color 0.3s, color 0.3s; min-width: 120px;">
+      </div>
+
+    </div>
+
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prev-month">«</button>
+        <span id="month-year"></span>
+        <button id="next-month">»</button>
+      </div>
+      <table id="calendar">
+        <thead>
+          <tr>
+            <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th>
+            <th>Vie</th><th>Sáb</th><th>Dom</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="beneficio-total">Beneficio Total: 0 €</div>
+  </div>
+
+  <!-- Columna derecha: gráfico -->
+  <div class="finanzas-right">
+    <canvas id="grafico"></canvas>
+  </div>
+
+</div>
+
+<script src="finanzas.js"></script>
+<script src="lightdark.js"></script>
+</body>
+</html>

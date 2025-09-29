@@ -1,0 +1,29 @@
+{
+  "name": "vimenstock",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de inventario con generación de tickets PDF",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "data": "node src/generateData.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "node": "^24.9.0",
+    "pdfkit": "^0.13.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "inventario",
+    "stock",
+    "pdf",
+    "tickets",
+    "nodejs"
+  ],
+  "author": "VimenStock",
+  "license": "MIT"
+}
