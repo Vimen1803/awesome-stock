@@ -901,11 +901,11 @@ Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js,
 <details>
 <summary> Versión 2.1.0 (futuro)</summary>
    
-- [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
-   
-- [ ] **⚠️ Alertas de Stock Bajo**: Notificaciones por email para alertas de stock
-      
-- [ ] **📋 Backup automático**: Se programa un back-up que hace copias de los datos
+- [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
+
+- [ ] **📊 Informes personalizados**: Se permitirá generar informes formato PDF/xlsx sobre distintos datos almacenados, productos y estadísticas a tiempo real
+
+- [ ] **📋 + Categorías**: Sistema que permite añadir nuevas categorías desde la aplicacion, sin necesidad de acceder al código
 
 </details>
 
