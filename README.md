@@ -496,12 +496,6 @@ npm start
 
 ## 🏷️ Categorías
 
-### 📂 Categorías Predefinidas
-
-El sistema incluye **10 categorías** por defecto:
-
----
-
 ### ✏️ Cómo Editar las Categorías
 
 <details>
