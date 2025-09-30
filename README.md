@@ -11,7 +11,7 @@
 
 [![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Express.js](https://img.shields.io/badge/Express.js-ES6+-f7df1e?style=for-the-badge&logo=express)](https://expressjs.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-f7df1e?style=for-the-badge&logo=express)](https://expressjs.com/)
 
 ---
 
