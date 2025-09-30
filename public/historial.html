@@ -1,93 +1,254 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VimenStock - Historial</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-</head>
-<body>
-<header>
-  <div class="left">
-    <img src="https://victormenjon.es/favicon.ico" class="icon">
-    <span>VimenStock</span>
-  </div>
-  <div class="center">
-    <a href="index.html">Productos</a>
-    <a href="historial.html">Historial</a>
-    <a href="finanzas.html">Finanzas</a>
-    <a href="estadisticas.html">Estadísticas</a>
-  </div>
-  <div class="right">
-    <button id="toggle-dark" class="toggle-btn">
-      <span class="icon icon-sun"></span>
-      <span class="icon icon-moon"></span>
-    </button>
-  </div>
-</header>
+const tablaHistorial = document.querySelector("#tabla-historial tbody");
+const filtroTipo = document.getElementById("filtro-tipo");
+const filtroCategoria = document.getElementById("filtro-categoria");
+const filtroID = document.getElementById("filtro-id");
+const btnReset = document.getElementById("reset-filtros");
+const btnToggleFiltros = document.getElementById("btn-toggle-filtros");
+const bloqueFiltros = document.getElementById("bloque-filtros");
 
-<div class="container-hist">
-  <button id="btn-toggle-filtros" type="button">▼ FILTROS ▼</button>
+const fechaPicker = flatpickr("#filtro-fecha", { dateFormat: "d/m/Y", allowInput: true });
+const desdePicker = flatpickr("#filtro-fecha-desde", { dateFormat: "d/m/Y", allowInput: true });
+const hastaPicker = flatpickr("#filtro-fecha-hasta", { dateFormat: "d/m/Y", allowInput: true });
 
-  <div id="bloque-filtros" class="collapsible-form">
-    <label>Filtrar por tipo:
-      <select id="filtro-tipo">
-        <option value="todos">Todos</option>
-        <option value="Comprado">Comprado</option>
-        <option value="Vendido">Vendido</option>
-        <option value="Editado">Editado</option>
-        <option value="Añadido">Añadido</option>
-        <option value="Eliminado">Eliminado</option>
-      </select>
-    </label>
+let historialGlobal = [];
+let categoriasGlobales = [];
 
-    <label>Filtrar por categoría:
-      <select id="filtro-categoria">
-        <option value="todos">Todos</option>
-      </select>
-    </label>
+function parseFechaISO(str) {
+  if (!str) return null;
+  const d = new Date(str);
+  return isNaN(d) ? null : d;
+}
 
-    <label>Fecha exacta:
-      <input type="text" id="filtro-fecha" placeholder="dd/mm/yyyy">
-    </label>
+function sameDay(d1, d2) {
+  return d1.getFullYear() === d2.getFullYear() &&
+         d1.getMonth() === d2.getMonth() &&
+         d1.getDate() === d2.getDate();
+}
 
-    <div class="rango-fechas">
-      <label>Desde
-        <input type="text" id="filtro-fecha-desde" placeholder="dd/mm/yyyy">
-      </label>
-      <label>Hasta
-        <input type="text" id="filtro-fecha-hasta" placeholder="dd/mm/yyyy">
-      </label>
-    </div>
+function poblarSelectCategoria() {
+  filtroCategoria.innerHTML = '<option value="todos">Todos</option>';
+  categoriasGlobales.forEach(categoria => {
+    const option = document.createElement("option");
+    option.value = categoria;
+    option.textContent = categoria;
+    filtroCategoria.appendChild(option);
+  });
+}
 
-    <label>Filtrar por ID de Producto/Ticket:
-      <input type="input" id="filtro-id" placeholder="ID">
-    </label>
+function mostrarNotificacion(mensaje, exito = true) {
+  const notif = document.createElement("div");
+  notif.className = "notificacion";
+  notif.style.position = "fixed";
+  notif.style.top = "50%";
+  notif.style.left = "50%";
+  notif.style.transform = "translate(-50%, -50%)";
+  notif.style.padding = "15px 25px";
+  notif.style.borderRadius = "8px";
+  notif.style.backgroundColor = exito ? "#28a745" : "#dc3545";
+  notif.style.color = "white";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "1.1rem";
+  notif.style.opacity = "0";
+  notif.style.transition = "opacity 0.5s ease";
+  notif.style.zIndex = "10000";
 
-    <button id="reset-filtros" type="button">Reiniciar filtros</button>
-  </div>
+  notif.innerText = mensaje;
+  document.body.appendChild(notif);
 
-  <div class="info-block">
-    <strong>💡 Información:</strong> Para descargar tickets PDF, haz clic directamente sobre el texto <span style="color: #0078d7; text-decoration: underline; cursor: pointer;">"Ticket: [ID]"</span> que aparece debajo del precio por unidad en la columna de Acción cuando se muestre en azul y subrayado.
-  </div>
+  requestAnimationFrame(() => { notif.style.opacity = "1"; });
 
-  <table id="tabla-historial">
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Producto (ID / Nombre)</th>
-        <th>Acción</th>
-        <th>Cantidad / Cambios</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+  setTimeout(() => { 
+    notif.style.opacity = "0";
+    setTimeout(() => notif.remove(), 500);
+  }, 2000);
+}
 
-<script src="historial.js"></script>
-<script src="lightdark.js"></script>
-</body>
+async function descargarTicket(tipo, fileName) {
+  try {
+    const response = await fetch(`/api/descargar-ticket/${tipo}/${fileName}`);
+    
+    if (!response.ok) {
+      mostrarNotificacion("Ticket no encontrado o error en la descarga", false);
+      return;
+    }
 
-</html>
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+    
+    mostrarNotificacion("Ticket descargado correctamente");
+    
+  } catch (error) {
+    console.error('Error descargando ticket:', error);
+    mostrarNotificacion("Error al descargar el ticket", false);
+  }
+}
+
+async function cargarHistorial() {
+  try {
+    const res = await fetch("/api/data");
+    if (!res.ok) throw new Error("Error al leer historial");
+    const data = await res.json();
+
+    historialGlobal = (data.historial || []).map(h => ({
+      ...h,
+      fechaObj: parseFechaISO(h.fecha),
+      categoria: h.categoria || "Otro"
+    })).sort((a, b) => b.fechaObj - a.fechaObj);
+
+    categoriasGlobales = data.categorias || [];
+    poblarSelectCategoria();
+    renderHistorial();
+  } catch (err) {
+    console.error("Error cargando historial:", err);
+    historialGlobal = [];
+    categoriasGlobales = [];
+    renderHistorial();
+  }
+}
+
+function renderHistorial() {
+  const tipo = filtroTipo.value;
+  const categoria = filtroCategoria.value;
+  const fechaExacta = fechaPicker.selectedDates[0] || null;
+  const desde = desdePicker.selectedDates[0] || null;
+  const hasta = hastaPicker.selectedDates[0] || null;
+  const idBuscado = filtroID.value ? filtroID.value.toLowerCase() : null;
+
+  tablaHistorial.innerHTML = "";
+
+  let filtrado = historialGlobal.filter(h => {
+    if (!h.fechaObj) return false;
+    const filaFecha = h.fechaObj;
+
+    let idMatch = false;
+    if (!idBuscado) {
+      idMatch = true;
+    } else {
+      if (h.productoID && h.productoID.toString().toLowerCase().includes(idBuscado)) {
+        idMatch = true;
+      } else if (h.ticketID && h.ticketID.toString().toLowerCase().includes(idBuscado)) {
+        idMatch = true;
+      } else if (h.productos && Array.isArray(h.productos)) {
+        idMatch = h.productos.some(p => p.productoID.toString().toLowerCase().includes(idBuscado));
+      }
+    }
+
+    let categoriaValida = false;
+    if (categoria === "todos") {
+      categoriaValida = true;
+    } else {
+      categoriaValida =
+        (h.categoria && h.categoria === categoria) ||
+        (h.productos && Array.isArray(h.productos) && h.productos.some(p => p.categoria === categoria));
+    }
+
+    const fechaValida = (!fechaExacta || sameDay(filaFecha, fechaExacta)) &&
+                        (!desde || filaFecha >= desde) &&
+                        (!hasta || filaFecha <= hasta);
+
+    return (tipo === "todos" || h.accion === tipo) &&
+           categoriaValida &&
+           fechaValida &&
+           idMatch;
+  });
+
+  filtrado = filtrado.slice(0, 1000);
+
+  filtrado.forEach(h => {
+    const filaFecha = h.fechaObj;
+    const tr = document.createElement("tr");
+    tr.className = h.accion;
+    const dia = String(filaFecha.getDate()).padStart(2, '0');
+    const mes = String(filaFecha.getMonth() + 1).padStart(2, '0');
+    const anio = filaFecha.getFullYear();
+    const hora = String(filaFecha.getHours()).padStart(2,'0');
+    const minuto = String(filaFecha.getMinutes()).padStart(2,'0');
+
+    let accionText = h.accion;
+
+    if ((h.accion === "Comprado" || h.accion === "Vendido")) {
+      if (h.productos && Array.isArray(h.productos)) {
+        accionText += `<br><small style="opacity:0.7">Productos: ${h.productos.length}</small>`;
+      } else if (h.precioUnitario) {
+        accionText += `<br><small style="opacity:0.7">€${h.precioUnitario.toFixed(2)}/unidad</small>`;
+      }
+    }
+
+    if (h.ticketID && h.ticketFile && (h.accion === "Comprado" || h.accion === "Vendido")) {
+      const tipoTicket = h.accion === "Comprado" ? "compra" : "venta";
+      accionText += `<br><small><span style="cursor:pointer; text-decoration:underline; color:#0078d7;" 
+                     onclick="descargarTicket('${tipoTicket}', '${h.ticketFile}')"
+                     title="Hacer clic para descargar ticket">Ticket: ${h.ticketID}</span></small>`;
+    }
+
+    let cantidadText = "";
+
+    if (h.accion === "Editado" && h.cambios && h.cambios.length > 0) {
+      cantidadText = h.cambios.join('<br>');
+    } else if (h.productos && Array.isArray(h.productos)) {
+      cantidadText = h.productos.map(p => 
+        `${p.productoID} - ${p.cantidad} unidades<br><small>€${p.precioUnitario.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/unidad</small>`
+      ).join('<br><hr style="margin:4px 0;">');
+      if (h.precioTotalOperacion) {
+        cantidadText += `<br><strong>Total operación: €${h.precioTotalOperacion.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>`;
+      }
+    } else if (h.cantidad && h.cantidad > 0) {
+      cantidadText = `${h.cantidad} unidades`;
+      if (h.precioTotal) {
+        cantidadText += `<br><strong>Total: €${h.precioTotal.toFixed(2)}</strong>`;
+      }
+    } else {
+      cantidadText = "-";
+    }
+
+    let productoCol = "";
+    if (h.productos && Array.isArray(h.productos)) {
+      productoCol = h.productos.map(p => `${p.productoID}<br><small>${p.productoNombre}</small>`).join('<hr style="margin:4px 0;">');
+    } else {
+      productoCol = `${h.productoID}<br><small>${h.productoNombre || ""}</small>`;
+    }
+
+    tr.innerHTML = `
+      <td>${dia}/${mes}/${anio} ${hora}:${minuto}</td>
+      <td>${productoCol}</td>
+      <td>${accionText}</td>
+      <td style="font-size:0.9rem">${cantidadText}</td>
+    `;
+    tablaHistorial.appendChild(tr);
+  });
+}
+
+btnReset.onclick = () => {
+  filtroTipo.value = "todos";
+  filtroCategoria.value = "todos";
+  filtroID.value = "";
+  fechaPicker.clear();
+  desdePicker.clear();
+  hastaPicker.clear();
+  renderHistorial();
+};
+
+btnToggleFiltros.addEventListener("click", () => {
+  bloqueFiltros.classList.toggle("show");
+  if (bloqueFiltros.classList.contains("show")) {
+    btnToggleFiltros.textContent = "▲ FILTROS ▲";
+  } else {
+    btnToggleFiltros.textContent = "▼ FILTROS ▼";
+  }
+});
+
+[filtroTipo, filtroCategoria, filtroID].forEach(el => el.addEventListener("input", renderHistorial));
+[fechaPicker, desdePicker, hastaPicker].forEach(picker => picker.config.onChange.push(renderHistorial));
+
+window.descargarTicket = descargarTicket;
+
+cargarHistorial();
