@@ -1102,7 +1102,9 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 </details>
 
 <details>
-<summary> Versión 2.1.0 [Ya implementada](https://github.com/Vimen1803/awesome-stock/tree/2.1.0)</summary>
+<summary>✅ Versión 2.1.0 (Ya implementada)</summary>
+
+[Ya implementada](https://github.com/Vimen1803/awesome-stock/tree/2.1.0)
    
 - [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
 
