@@ -1286,4 +1286,3 @@ Desarrollado con ❤️ para facilitar la gestión de inventarios
 *v2.1.0 | Octubre 2025*
 
 </div>
-```
