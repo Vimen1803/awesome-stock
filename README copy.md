@@ -17,10 +17,10 @@
 
 **Sistema completo de gestión de inventario con códigos de barras EAN-13, backups automatizados, informes personalizados PDF/Excel, categorías dinámicas, análisis financiero avanzado y sistema profesional de logs.**
 
-[Documentación](#-características-principales) •
+[Documentación](#-estructura-del-proyecto) •
 [Instalación](#-instalación) •
 [Tecnologías](#%EF%B8%8F-tecnologías-utilizadas) •
-[CLI Tools](#%EF%B8%8F-herramientas-cli)
+[CLI Tools - Comandos](#-estructura-del-proyecto)
 
 </div>
 
