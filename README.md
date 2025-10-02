@@ -882,7 +882,9 @@ Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js,
 ## 🗺️ Roadmap
 
 <details>
-<summary> Versión 2.0.0 (próximamente)</summary>
+<summary>✅ Versión 2.0.0 (Ya implementada)</summary>
+
+[Ya implementada](https://github.com/Vimen1803/awesome-stock/tree/2.0.0)
    
 - [ ] **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
    
@@ -899,7 +901,9 @@ Casi completamente. Solo necesita internet para las CDN de librerías (Chart.js,
 </details>
 
 <details>
-<summary> Versión 2.1.0 (futuro)</summary>
+<summary>✅ Versión 2.1.0 (Ya implementada)</summary>
+
+[Ya implementada](https://github.com/Vimen1803/awesome-stock/tree/2.1.0)
    
 - [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
 
