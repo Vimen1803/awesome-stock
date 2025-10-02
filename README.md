@@ -229,23 +229,9 @@ Consulta el archivo licencia y las guías necesarias
 </details>
 
 <details>
-<summary>📊 <b>Exportación a Excel</b> (Click para expandir)</summary>
+<summary>📊 <b>Listado de Comandos</b> (Click para expandir)</summary>
 
-![Excel exportado](docs/screenshots/excel_export.png)
-
-```
-🖱️ CÓMO USAR
-1. Ir a la página de Productos
-2. Clic en "📊 Exportar a Excel" (botón verde)
-3. Se genera automáticamente "data.xlsx"
-```
-
-**📄 HOJAS INCLUIDAS:**
-
-- 📦 **HOJA 1: Productos** - Inventario completo
-- 📜 **HOJA 2: Historial** - Todas las operaciones
-- 💰 **HOJA 3: Finanzas** - Registros contables
-- 📈 **HOJA 4: Resumen** - KPIs y métricas
+![Comando de Ayuda](docs/screenshots/help.png)
 
 </details>
 
