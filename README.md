@@ -229,7 +229,7 @@ Consulta el archivo licencia y las guías necesarias
 </details>
 
 <details>
-<summary>📊 <b>Listado de Comandos</b> (Click para expandir)</summary>
+<summary>⚙ <b>Listado de Comandos</b> (Click para expandir)</summary>
 
 ![Comando de Ayuda](docs/screenshots/help.png)
 
