@@ -20,7 +20,7 @@
 [Documentación](#-estructura-del-proyecto) •
 [Instalación](#-instalación) •
 [Tecnologías](#%EF%B8%8F-tecnologías-utilizadas) •
-[CLI Tools - Comandos](#-estructura-del-proyecto)
+[CLI Tools - Comandos](#-comandos-disponibles---herramientas-cli)
 
 </div>
 
