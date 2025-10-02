@@ -55,7 +55,8 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-## 🌟 Características Destacadas v2.1.0
+<details>
+<summary>🌟 Características Destacadas v2.1.0</summary>
 
 <div align="center">
 
@@ -113,12 +114,14 @@ Consulta el archivo licencia y las guías necesarias
 </td>
 </tr>
 </table>
+</details>
 
 ---
 
 ## 🛠️ Herramientas CLI
 
-### 📦 Sistema de Backups
+<details>
+<summary>📦 Sistema de Backups</summary>
 
 ```bash
 # Crear backup manual
@@ -137,16 +140,20 @@ npm run backup:delete 5
 npm run backup:help
 ```
 
-**Características:**
+<details>
+<summary>Características:<\summary>
 - 💾 Backups automáticos cada 12 horas
 - 📁 Máximo 28 backups (los antiguos se eliminan)
 - 🔄 Restauración completa con un comando
 - 📊 Lista ordenada por fecha
 - ⚠️ Confirmaciones de seguridad (3 seg)
+</details>
+</details>
 
 ---
 
-### 🏷️ Gestión de Códigos de Barras
+<details>
+<summary> 🏷️ Gestión de Códigos de Barras</summary>
 
 ```bash
 # Generar código EAN-13 para un producto
@@ -164,15 +171,18 @@ npm run barcode:delete all
 # Ver ayuda
 npm run barcode:help
 ```
-
-**Formato EAN-13:**
+<details>
+<summary>Formato EAN-13:</summary>
 - 📊 13 dígitos (12 + control)
 - ✅ Validación automática
 - 🎨 Alta calidad (400x200px)
 - 🏭 Estándar internacional
+</details>
+</details>
 
 ---
 
+<details>
 ### 📷 Lector de Códigos de Barras
 
 ```bash
@@ -182,16 +192,19 @@ npm run barcode:read data/bar_code/P001.png
 # Leer desde ruta personalizada
 npm run barcode:read ./mi_codigo.png
 ```
-
-**Información que muestra:**
+<details>
+<summary>Información que muestra:</summary>
 - 🆔 ID del producto
 - 🏷️ Código EAN-13 completo
 - 🔢 Formato decimal
 - ✅ Validación del dígito control
 - 📦 Información del producto (si existe)
+</details>
+</details>
 
 ---
 
+<details>
 ### 📊 Generación de Informes
 
 ```bash
@@ -250,6 +263,8 @@ npm run informe:help
 - 📜 Historial de movimientos
 - 📊 Resumen de categoría
 - 💰 Análisis financiero
+
+</details>
 
 </details>
 
