@@ -1085,7 +1085,7 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 ## 🗺️ Roadmap
 
 <details>
-<summary> Versión 2.0.0 (esta!)</summary>
+<summary>✅ Versión 2.0.0 (actual)</summary>
    
 - [X] **✨ Códigos de Barras**: Generación automática de códigos de barras Code 128 para cada producto
    
@@ -1102,7 +1102,7 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 </details>
 
 <details>
-<summary> Versión 2.1.0 (en desarrollo)</summary>
+<summary> Versión 2.1.0 [Ya implementada](https://github.com/Vimen1803/awesome-stock/tree/2.1.0)</summary>
    
 - [ ] **📋 Backup automático**: Se programa un back-up que hace realiza copias de seguridad de los datos para evitar pérdidas
 
@@ -1113,14 +1113,14 @@ Ver sección [💾 Backup y Recuperación](#-backup-y-recuperación) para instru
 </details>
 
 <details>
-<summary> Versión 2.2.0 (futuro)</summary>
+<summary> Versión 3.0.0 (futuro)</summary>
 
 - [ ] **💻 Base de datos**: Mudanza de base de datos online (MongoDB)
 
 </details>
 
 <details>
-<summary> Versión 3.0.0 (futuro)</summary>
+<summary> Versión 3.1.0 (futuro)</summary>
    
 - [ ] **📡 API REST completa**: Finalizar la API REST, completamente documentada, para facilitar su implementación
 
