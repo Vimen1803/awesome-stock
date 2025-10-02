@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Status](https://img.shields.io/badge/status-inactive-red.svg)]()
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)]()
 
 [![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?style=for-the-badge&logo=node.js)](https://nodejs.org/)
@@ -16,6 +16,8 @@
 ---
 
 **Sistema de gestión de inventario con generación automática de tickets PDF, códigos de barras, exportación a Excel, análisis financiero avanzado y sistema completo de logs.**
+
+>  ⚠️ **Nota:** Esta es la versión 1.2.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.1.0](https://github.com/Vimen1803/awesome-stock/blob/2.1.0/README.md)
 
 [Documentación](#-estructura-del-proyecto) •
 [Instalación](#-instalación) •
