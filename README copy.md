@@ -264,7 +264,7 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-##🌟 Características Destacadas v2.1.0
+## 🌟 Características Destacadas v2.1.0
 
 <div align="center">
 
