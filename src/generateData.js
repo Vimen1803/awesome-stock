@@ -29,7 +29,7 @@ const nombres = [
 ];
 
 const startDate = new Date(2024, 0, 1);
-const today = new Date();
+const today = new Date(); 
 
 function getRandomDate(start, end) {
   const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -40,12 +40,15 @@ function getRandomDate(start, end) {
   return randomDate.toISOString();
 }
 
-for (let i = 1; i <= 200; i++) {
+// Obtener el número de productos a generar desde los argumentos de la línea de comandos
+const numProductos = process.argv[2] ? parseInt(process.argv[2]) : 20;  // Por defecto 20 productos
+
+for (let i = 1; i <= numProductos; i++) {
   const id = "P" + i.toString().padStart(3, "0");
   const nombreBase = nombres[Math.floor(Math.random() * nombres.length)];
   const nombre = nombreBase + (i > nombres.length ? " " + Math.ceil(i / nombres.length) : "");
-  const categoria = categorias[Math.floor(Math.random() * categorias.length)];
-  const proveedor = proveedores[Math.floor(Math.random() * proveedores.length)];
+  const categoria = categorias[Math.floor(Math.random() * categorias.length)]; // Categoria aleatoria
+  const proveedor = proveedores[Math.floor(Math.random() * proveedores.length)]; // Proveedor aleatorio
 
   productos[id] = {
     nombre,

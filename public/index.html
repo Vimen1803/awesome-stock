@@ -16,6 +16,7 @@
     <a href="index.html">Productos</a>
     <a href="historial.html">Historial</a>
     <a href="finanzas.html">Finanzas</a>
+    <a href="estadisticas.html">Estadísticas</a>
   </div>
   <div class="right">
     <button id="toggle-dark" class="toggle-btn">
@@ -41,7 +42,6 @@
     <label>Proveedor<input type="text" id="proveedor" required></label>
     <label>Precio Compra (€)<input type="number" id="precioCompra" step="0.01" required></label>
     <label>Precio Venta (€)<input type="number" id="precioVenta" step="0.01" required></label>
-    <label>Imagen URL<input type="text" id="imagen"></label>
     <button type="submit">+ Añadir Producto</button>
   </form>
 
@@ -59,12 +59,14 @@
     <button type="button" id="btn-confirm-vender">Confirmar Venta</button>
   </form>
 
-  <div id="filtros-container" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
-    <input type="text" id="busqueda-producto" placeholder="Buscar por ID o nombre" style="flex:1;">
-    <select id="filtro-categoria" style="flex:0.5;">
+  <div id="filtros-container" style="display:flex; align-items:center; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
+    <input type="text" id="busqueda-producto" placeholder="Buscar por ID o nombre" style="flex:1; min-width:200px;">
+    <select id="filtro-categoria" style="flex:0.5; min-width:120px;">
       <option value="todos">Todos</option>
     </select>
     <button type="button" id="btn-reset-filtros">Quitar filtros</button>
+    <button type="button" id="btn-generar-informe" style="background-color:#ff9800; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">📄 Generar Informe</button>
+    <button type="button" id="btn-crear-backup" style="background-color:#0078d7; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">💾 Crear Backup</button>
   </div>
 
   <table id="tabla-productos">
@@ -79,7 +81,7 @@
         <th class="brillante">Stock</th>
         <th class="brillante">Ventas Totales</th>
         <th class="brillante">Balance (€)</th>
-        <th>Imagen</th>
+        <th>Bar Code</th>
         <th>Acciones</th>
       </tr>
     </thead>

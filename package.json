@@ -1,18 +1,40 @@
 {
   "name": "vimenstock",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Sistema de gestión de inventario con generación de tickets PDF",
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "data": "node src/generateData.js"
+    "data": "node src/generateData.js",
+    "backup": "node src/backup-cli.js",
+    "backup:list": "node src/backup-cli.js list",
+    "backup:restore": "node src/backup-cli.js restore",
+    "backup:delete": "node src/backup-cli.js delete",
+    "backup:help": "node src/backup-cli.js help",
+    "informe:balance": "node src/informes-cli.js balance",
+    "informe:producto": "node src/informes-cli.js producto",
+    "informe:categoria": "node src/informes-cli.js categoria",
+    "informe:list": "node src/informes-cli.js list",
+    "informe:delete": "node src/informes-cli.js delete",
+    "informe:clean": "node src/informes-cli.js clean",
+    "informe:help": "node src/informes-cli.js help",
+    "barcode:generate": "node src/barcode-cli.js generate",
+    "barcode:read": "node src/barcode-reader-cli.js",
+    "barcode:list": "node src/barcode-cli.js list",
+    "barcode:delete": "node src/barcode-cli.js delete",
+    "barcode:help": "node src/barcode-cli.js help",
+    "help": "node -e \"const c={r:'\\x1b[0m',g:'\\x1b[32m',b:'\\x1b[36m',y:'\\x1b[33m',gr:'\\x1b[90m',bold:'\\x1b[1m'};console.log('\\n'+c.b+c.bold+'╔═══════════════════════════════════════════════════════════╗'+c.r);console.log(c.b+c.bold+'║'+c.r+'           '+c.b+c.bold+'📦 VIMENSTOCK - SISTEMA DE GESTIÓN'+c.r+'              '+c.b+c.bold+'║'+c.r);console.log(c.b+c.bold+'╚═══════════════════════════════════════════════════════════╝'+c.r+'\\n');console.log(c.b+c.bold+'🚀 SERVIDOR'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm start'+c.r+c.gr+'              - Iniciar servidor de producción'+c.r);console.log(c.gr+'  └─'+c.r+' '+c.g+'npm run dev'+c.r+c.gr+'            - Iniciar servidor en modo desarrollo'+c.r);console.log('');console.log(c.b+c.bold+'💾 GESTIÓN DE BACKUPS'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run backup'+c.r+c.gr+'         - Crear backup manual'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run backup:list'+c.r+c.gr+'    - Listar backups disponibles'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run backup:restore'+c.r+c.gr+' - Restaurar un backup'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run backup:delete'+c.r+c.gr+'  - Eliminar un backup'+c.r);console.log(c.gr+'  └─'+c.r+' '+c.g+'npm run backup:help'+c.r+c.gr+'    - Ver ayuda detallada de backups'+c.r);console.log('');console.log(c.b+c.bold+'📊 GESTIÓN DE INFORMES'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:balance'+c.r+c.gr+'    - Generar informe de balance general'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:producto'+c.r+c.gr+'   - Generar informe de producto'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:categoria'+c.r+c.gr+'  - Generar informe de categoría'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:list'+c.r+c.gr+'       - Listar informes generados'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:delete'+c.r+c.gr+'     - Eliminar un informe'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run informe:clean'+c.r+c.gr+'      - Limpiar informes antiguos'+c.r);console.log(c.gr+'  └─'+c.r+' '+c.g+'npm run informe:help'+c.r+c.gr+'       - Ver ayuda detallada de informes'+c.r);console.log('');console.log(c.b+c.bold+'▌│█║▌│║▌│█│ CÓDIGO DE BARRAS'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run barcode:generate <ID>'+c.r+c.gr+'  - Generar un código de barras'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run barcode:read <archivo>'+c.r+c.gr+' - Leer un código de barras'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run barcode:list'+c.r+c.gr+'           - Listar códigos generados'+c.r);console.log(c.gr+'  ├─'+c.r+' '+c.g+'npm run barcode:delete <f|all>'+c.r+c.gr+' - Eliminar un código o todos'+c.r);console.log(c.gr+'  └─'+c.r+' '+c.g+'npm run barcode:help'+c.r+c.gr+'           - Ver ayuda detallada de códigos'+c.r);console.log('');console.log(c.b+c.bold+'🔧 UTILIDADES'+c.r);console.log(c.gr+'  └─'+c.r+' '+c.g+'npm run data <cantidad>'+c.r+c.gr+'        - Generar datos de prueba'+c.r);console.log('');console.log(c.y+'💡 Consejo:'+c.r+c.gr+' Usa los comandos con terminación '+c.g+':help'+c.r+c.gr+' para más detalles'+c.r);console.log(c.b+c.bold+'\\n═══════════════════════════════════════════════════════════\\n'+c.r);\""
   },
   "dependencies": {
+    "bwip-js": "^4.7.0",
+    "canvas": "^3.2.0",
+    "exceljs": "^4.4.0",
     "express": "^4.21.2",
     "node": "^24.9.0",
     "pdfkit": "^0.13.0",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "jsbarcode": "^3.11.0" 
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
@@ -22,7 +44,8 @@
     "stock",
     "pdf",
     "tickets",
-    "nodejs"
+    "nodejs",
+    "barcode"
   ],
   "author": "VimenStock",
   "license": "MIT"

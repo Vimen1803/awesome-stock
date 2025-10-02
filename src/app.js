@@ -4,6 +4,8 @@ let finanzas = [];
 let categoriasGlobales = [];
 let ultimaIDUsada = 0;
 
+const STOCKBAJO = 25;
+
 const tablaProductos = document.querySelector("#tabla-productos tbody");
 
 const formAdd = document.getElementById("form-add");
@@ -12,7 +14,6 @@ const inputProveedor = document.getElementById("proveedor");
 const selectCategoria = document.getElementById("categoria");
 const inputPrecioCompra = document.getElementById("precioCompra");
 const inputPrecioVenta = document.getElementById("precioVenta");
-const inputImagen = document.getElementById("imagen");
 
 const formComprar = document.getElementById("form-comprar");
 const comprarContainer = document.getElementById("comprar-container");
@@ -29,8 +30,362 @@ const totalVenta = document.getElementById("total-venta");
 const inputBusqueda = document.getElementById("busqueda-producto");
 const filtroCategoriaSelect = document.getElementById("filtro-categoria");
 const btnResetFiltros = document.getElementById("btn-reset-filtros");
+const btnCrearBackup = document.getElementById("btn-crear-backup");
+const btnGenerarInforme = document.getElementById("btn-generar-informe");
+
 let ordenActual = "id", ascendente = true;
 
+// ==================== NUEVA FUNCIONALIDAD: AÑADIR CATEGORÍA ====================
+function manejarCategoriaOtro() {
+  const categoriaActual = selectCategoria.value;
+  
+  const inputCategoriaExistente = document.getElementById("input-nueva-categoria");
+  if (inputCategoriaExistente) {
+    inputCategoriaExistente.remove();
+  }
+
+  if (categoriaActual === "Otro") {
+    const inputNuevaCategoria = document.createElement("input");
+    inputNuevaCategoria.type = "text";
+    inputNuevaCategoria.id = "input-nueva-categoria";
+    inputNuevaCategoria.placeholder = "Nombre de nueva categoría";
+    inputNuevaCategoria.style.marginTop = "5px";
+    inputNuevaCategoria.style.padding = "8px";
+    inputNuevaCategoria.style.borderRadius = "6px";
+    inputNuevaCategoria.style.border = "1px solid #ccc";
+    inputNuevaCategoria.style.width = "100%";
+
+    selectCategoria.parentElement.appendChild(inputNuevaCategoria);
+  }
+}
+
+selectCategoria.addEventListener("change", manejarCategoriaOtro);
+
+async function agregarNuevaCategoria(nombreCategoria) {
+  try {
+    const response = await fetch("/api/agregar-categoria", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombreCategoria })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      categoriasGlobales = data.categorias;
+      poblarSelectsCategorias();
+      mostrarNotificacion(`Categoría "${data.categoria}" agregada con éxito`);
+      return data.categoria;
+    } else {
+      mostrarNotificacion(data.error || "Error agregando categoría", false);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error agregando categoría:", error);
+    mostrarNotificacion("Error al agregar categoría", false);
+    return null;
+  }
+}
+
+// ==================== NUEVA FUNCIONALIDAD: BACKUP MANUAL ====================
+async function crearBackup() {
+  try {
+    mostrarNotificacion("Creando backup...", true);
+    
+    const response = await fetch("/api/crear-backup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      mostrarNotificacion(`Backup creado exitosamente`, true);
+    } else {
+      mostrarNotificacion("Error creando backup", false);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    mostrarNotificacion("Error al crear backup", false);
+  }
+}
+
+if (btnCrearBackup) {
+  btnCrearBackup.onclick = crearBackup;
+}
+
+// ==================== NUEVA FUNCIONALIDAD: INFORMES PERSONALIZADOS ====================
+function mostrarModalInformes() {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+  modal.style.opacity = "0";
+  modal.style.transition = "opacity 0.3s ease";
+
+  const bgColor = document.body.classList.contains("dark") ? "#2c2c2c" : "#fff";
+  const textColor = document.body.classList.contains("dark") ? "#fff" : "#000";
+
+  modal.innerHTML = `<div class="modal-content" style="
+    width:500px; padding:25px; border-radius:12px;
+    background-color:${bgColor}; color:${textColor};">
+    <h2 style="margin-bottom:20px;">Generar Informe Personalizado</h2>
+    
+    <label style="display:block; margin-bottom:15px;">
+      Tipo de Informe:
+      <select id="select-tipo-informe" style="width:100%; margin-top:5px; padding:8px; border-radius:6px;">
+        <option value="producto">Informe de Producto</option>
+        <option value="categoria">Informe por Categoría</option>
+        <option value="balance">Balance General</option>
+      </select>
+    </label>
+
+    <div id="filtros-informe"></div>
+
+    <div id="formato-container" style="display:none;">
+      <label style="display:block; margin-bottom:15px;">
+        Formato:
+        <select id="select-formato-informe" style="width:100%; margin-top:5px; padding:8px; border-radius:6px;">
+          <option value="pdf">PDF</option>
+          <option value="excel">Excel</option>
+        </select>
+      </label>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:20px;">
+      <button id="btn-generar-informe-modal" style="flex:1; padding:10px; background:#28a745; color:white; border:none; border-radius:6px; cursor:pointer;">Generar Informe</button>
+      <button id="btn-cerrar-modal-informe" style="flex:1; padding:10px; background:#dc3545; color:white; border:none; border-radius:6px; cursor:pointer;">Cerrar</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(modal);
+  requestAnimationFrame(() => { modal.style.opacity = "1"; });
+
+  const selectTipo = modal.querySelector("#select-tipo-informe");
+  const filtrosDiv = modal.querySelector("#filtros-informe");
+  const formatoContainer = modal.querySelector("#formato-container");
+
+  function actualizarFiltros() {
+    const tipo = selectTipo.value;
+    filtrosDiv.innerHTML = "";
+
+    // Mostrar selector de formato solo para Balance General
+    if (tipo === "balance") {
+      formatoContainer.style.display = "block";
+    } else {
+      formatoContainer.style.display = "none";
+    }
+
+    if (tipo === "producto") {
+      filtrosDiv.innerHTML = `
+        <label style="display:block; margin-bottom:15px;">
+          ID del Producto:
+          <input type="text" id="input-producto-id-informe" placeholder="Ej: P001" 
+            style="width:100%; margin-top:5px; padding:8px; border-radius:6px; border:1px solid #ccc;">
+        </label>`;
+    } else if (tipo === "categoria") {
+      const opcionesCategorias = categoriasGlobales.map(cat => 
+        `<option value="${cat}">${cat}</option>`
+      ).join('');
+      
+      filtrosDiv.innerHTML = `
+        <label style="display:block; margin-bottom:15px;">
+          Categoría:
+          <select id="select-categoria-informe" style="width:100%; margin-top:5px; padding:8px; border-radius:6px;">
+            ${opcionesCategorias}
+          </select>
+        </label>`;
+    }
+  }
+
+  selectTipo.addEventListener("change", actualizarFiltros);
+  actualizarFiltros();
+
+  modal.querySelector("#btn-generar-informe-modal").onclick = async () => {
+    const tipo = selectTipo.value;
+    // Solo usar el formato si es balance general, sino siempre PDF
+    const formato = tipo === "balance" ? modal.querySelector("#select-formato-informe").value : "pdf";
+    let filtros = {};
+
+    if (tipo === "producto") {
+      const productoID = modal.querySelector("#input-producto-id-informe")?.value.trim().toUpperCase();
+      if (!productoID) {
+        mostrarNotificacion("Debe ingresar un ID de producto", false);
+        return;
+      }
+      filtros.productoID = productoID;
+    } else if (tipo === "categoria") {
+      filtros.categoria = modal.querySelector("#select-categoria-informe")?.value;
+    }
+
+    await generarInforme(tipo, formato, filtros);
+    modal.remove();
+  };
+
+  modal.querySelector("#btn-cerrar-modal-informe").onclick = () => modal.remove();
+  modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+}
+
+async function generarInforme(tipo, formato, filtros) {
+  try {
+    mostrarNotificacion(`Generando informe ${formato.toUpperCase()}...`, true);
+
+    const response = await fetch("/api/generar-informe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tipo, formato, filtros })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      mostrarNotificacion(`Informe generado: ${data.fileName}`, true);
+      
+      // Usar el tipo devuelto por el servidor para construir la URL correcta
+      const downloadResponse = await fetch(`/api/descargar-informe/${data.tipo}/${data.fileName}`);
+      const blob = await downloadResponse.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = data.fileName;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } else {
+      mostrarNotificacion(data.error || "Error generando informe", false);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    mostrarNotificacion("Error al generar informe", false);
+  }
+}
+
+if (btnGenerarInforme) {
+  btnGenerarInforme.onclick = mostrarModalInformes;
+}
+
+// ==================== GENERACIÓN DE CÓDIGO DE BARRAS ====================
+async function generarCodigoBarras(id) {
+  try {
+    const response = await fetch("/api/generar-codigo-barras", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id })
+    });
+    
+    if (!response.ok) {
+      throw new Error("Error generando código de barras");
+    }
+    
+    const data = await response.json();
+    console.log(`Código de barras generado para ${id}: ${data.fileName}`);
+    return data.imageData;
+  } catch (error) {
+    console.error("Error generando código de barras:", error);
+    return generarCodigoBarrasLocal(id);
+  }
+}
+
+function generarCodigoBarrasLocal(id) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = 200;
+  canvas.height = 80;
+  
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  const code = id.replace('P', '');
+  const barcodeData = generateBarcode128(code);
+  
+  ctx.fillStyle = '#000000';
+  let x = 10;
+  const barHeight = 50;
+  const barWidth = 2;
+  
+  for (let i = 0; i < barcodeData.length; i++) {
+    if (barcodeData[i] === '1') {
+      ctx.fillRect(x, 10, barWidth, barHeight);
+    }
+    x += barWidth;
+  }
+  
+  ctx.fillStyle = '#000000';
+  ctx.font = '12px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText(id, canvas.width / 2, canvas.height - 10);
+  
+  return canvas.toDataURL('image/png');
+}
+
+function generateBarcode128(text) {
+  const patterns = {
+    '0': '11011001100',
+    '1': '11001101100',
+    '2': '11001100110',
+    '3': '10010011000',
+    '4': '10010001100',
+    '5': '10001001100',
+    '6': '10011001000',
+    '7': '10011000100',
+    '8': '10001100100',
+    '9': '11001001000'
+  };
+  
+  let barcode = '11010010000';
+  
+  for (let char of text) {
+    if (patterns[char]) {
+      barcode += patterns[char];
+    }
+  }
+  
+  barcode += '1100011101011';
+  
+  return barcode;
+}
+
+// ==================== EXPORTAR A EXCEL ====================
+async function exportarExcel() {
+  try {
+    mostrarNotificacion("Generando Excel, por favor espera...");
+    
+    // Llamar a la función generarInforme con tipo 'balance' y formato 'excel'
+    await generarInforme('balance', 'excel', {}); // No se necesitan filtros específicos para el balance general
+    
+  } catch (error) {
+    console.error("Error exportando a Excel:", error);
+    mostrarNotificacion("Error al exportar Excel", false);
+  }
+}
+
+// ==================== ALERTAS DE STOCK BAJO ====================
+async function registrarAlertasStock(productosStockBajo) {
+  try {
+    const response = await fetch("/api/registrar-alerta-stock", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productos: productosStockBajo })
+    });
+    
+    if (!response.ok) {
+      console.error("Error registrando alertas de stock");
+      return;
+    }
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      console.log(`Alertas de stock registradas: ${data.alertasRegistradas}`);
+    }
+  } catch (error) {
+    console.error("Error registrando alertas de stock:", error);
+  }
+}
+
+// ==================== MODO OSCURO ====================
 let modoOscuro = localStorage.getItem("modo") === "dark";
 if(modoOscuro) document.body.classList.add("dark");
 document.getElementById("toggle-dark").onclick = ()=>{
@@ -38,9 +393,17 @@ document.getElementById("toggle-dark").onclick = ()=>{
   localStorage.setItem("modo", document.body.classList.contains("dark")?"dark":"light");
 }
 
+// ==================== POBLAR SELECTS DE CATEGORÍAS ====================
 function poblarSelectsCategorias() {
+  // Ordenar categorías alfabéticamente pero manteniendo "Otro" al final
+  const categoriasOrdenadas = [...categoriasGlobales].sort((a, b) => {
+    if (a === "Otro") return 1;
+    if (b === "Otro") return -1;
+    return a.localeCompare(b);
+  });
+
   selectCategoria.innerHTML = "";
-  categoriasGlobales.forEach(categoria => {
+  categoriasOrdenadas.forEach(categoria => {
     const option = document.createElement("option");
     option.value = categoria;
     option.textContent = categoria;
@@ -49,7 +412,7 @@ function poblarSelectsCategorias() {
   });
 
   filtroCategoriaSelect.innerHTML = '<option value="todos">Todos</option>';
-  categoriasGlobales.forEach(categoria => {
+  categoriasOrdenadas.forEach(categoria => {
     const option = document.createElement("option");
     option.value = categoria;
     option.textContent = categoria;
@@ -57,7 +420,7 @@ function poblarSelectsCategorias() {
   });
 }
 
-// ------------------ CARGAR / GUARDAR ------------------
+// ==================== CARGAR / GUARDAR ====================
 async function cargarDatos(){
   try{
     const res = await fetch("/api/data");
@@ -76,11 +439,16 @@ async function cargarDatos(){
     
     poblarSelectsCategorias();
     
-    Object.keys(productos).forEach(id => {
+    for(const id of Object.keys(productos)) {
       if(!productos[id].categoria) {
         productos[id].categoria = "Otro";
       }
-    });
+      if(!productos[id].imagen) {
+        const imagenBarras = await generarCodigoBarras(id);
+        productos[id].imagen = imagenBarras;
+        await guardarDatos();
+      }
+    }
     
     renderTabla();
   }catch(err){
@@ -103,13 +471,13 @@ async function guardarDatos(){
   }
 }
 
-// ------------------ ID AUTOMÁTICO ------------------
+// ==================== ID AUTOMÁTICO ====================
 function generarID(){
-  ultimaIDUsada++; // Incrementar el contador global
+  ultimaIDUsada++;
   return `P${ultimaIDUsada.toString().padStart(3,"0")}`;
 }
 
-// ------------------ NOTIFICACIONES Y CONFIRMACIONES ------------------
+// ==================== NOTIFICACIONES Y CONFIRMACIONES ====================
 function mostrarNotificacion(mensaje, exito=true){
   const notif = document.createElement("div");
   notif.className = "notificacion";
@@ -166,8 +534,8 @@ function mostrarConfirmacion(mensaje, callback){
   modal.onclick = e => { if(e.target===modal) modal.remove(); };
 }
 
-// ------------------ RENDER TABLA ------------------
-function renderTabla(){
+// ==================== RENDER TABLA ====================
+async function renderTabla(){
   tablaProductos.innerHTML="";
   let arr = Object.entries(productos);
 
@@ -203,19 +571,27 @@ function renderTabla(){
     return ascendente ? valA - valB : valB - valA;
   });
 
-  arr.forEach(([id, prod]) => {
+  for(const [id, prod] of arr) {
     const tr = document.createElement("tr");
     const balance = prod.balance || 0.00;
+    
+    const imagenBarras = `/bar_code/${id}.png`;
+    
+    const stockBajo = prod.stock < STOCKBAJO;
+    const stockHTML = stockBajo 
+      ? `<span style="color: #dc3545; font-weight: bold; font-size: 1.1em;">${prod.stock}</span>`
+      : prod.stock;
+    
     tr.innerHTML = `<td>${id}</td>
       <td>${prod.nombre}</td>
       <td>${prod.categoria || "Otro"}</td>
       <td>${prod.proveedor}</td>
       <td>${prod.precioCompra.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td>
       <td>${prod.precioVenta.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td>
-      <td>${prod.stock}</td>
+      <td>${stockHTML}</td>
       <td>${prod.ventasTotales}</td>
-      <td>${balance.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td> <!-- Mostrar balance -->
-      <td>${prod.imagen ? `<img src="${prod.imagen}">` : `<img src="https://victormenjon.es/favicon.ico"></img>`}</td>
+      <td>${balance.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td>
+      <td><img src="${imagenBarras}" style="width:100px; height:auto; cursor:pointer;" title="Clic para ampliar" data-id="${id}"></td>
       <td>
         <div class="acciones-producto">
           <div class="acciones-row">
@@ -228,32 +604,100 @@ function renderTabla(){
         </div>
       </td>`;
 
+    const imgElement = tr.querySelector("img");
+    
+    imgElement.onerror = async function() {
+      console.log(`Código de barras no encontrado para ${id}, generando...`);
+      try {
+        const imagenGenerada = await generarCodigoBarras(id);
+        this.src = imagenGenerada;
+        this.onerror = null;
+        
+        productos[id].imagen = imagenGenerada;
+        await guardarDatos();
+      } catch (error) {
+        console.error(`Error generando código de barras para ${id}:`, error);
+        this.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'40\'%3E%3Crect fill=\'%23ddd\' width=\'100\' height=\'40\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23666\' font-size=\'10\'%3EError%3C/text%3E%3C/svg%3E';
+      }
+    };
+    
+    imgElement.onclick = () => ampliarCodigoBarras(imagenBarras, id);
     tr.querySelector(".editar").onclick = () => abrirEditar(id);
     tr.querySelector(".eliminar").onclick = () => eliminarProducto(id);
     tr.querySelector(".historial-btn").onclick = () => mostrarHistorialProducto(id);
     tablaProductos.appendChild(tr);
-  });
+  }
 }
 
-// ------------------ FORMULARIOS ------------------
+// ==================== AMPLIAR CÓDIGO DE BARRAS ====================
+function ampliarCodigoBarras(imgSrc, id) {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+  modal.style.opacity = "0";
+  modal.style.transition = "opacity 0.3s ease";
 
-// Añadir producto
+  const bgColor = modoOscuro ? "#2c2c2c" : "#fff";
+
+  modal.innerHTML = `<div class="modal-content" style="
+    width:400px; padding:20px; border-radius:12px;
+    background-color:${bgColor}; text-align:center;
+    transform: translateY(-20px); transition: transform 0.3s ease;">
+    <h3>Código de Barras - ${id}</h3>
+    <img src="${imgSrc}" style="width:100%; height:auto; margin:20px 0;">
+    <button id="btn-cerrar" style="width:100%; padding:10px; border:none; border-radius:6px; background-color:#0078d7; color:white; font-weight:bold; cursor:pointer;">Cerrar</button>
+  </div>`;
+
+  document.body.appendChild(modal);
+  requestAnimationFrame(() => {
+    modal.style.opacity = "1";
+    modal.querySelector(".modal-content").style.transform = "translateY(0)";
+  });
+
+  modal.querySelector("#btn-cerrar").onclick = () => {
+    modal.style.opacity = "0";
+    setTimeout(() => modal.remove(), 300);
+  };
+  modal.onclick = e => {
+    if (e.target === modal) {
+      modal.style.opacity = "0";
+      setTimeout(() => modal.remove(), 300);
+    }
+  };
+}
+
+// ==================== FORMULARIOS ====================
 formAdd.onsubmit=async (e)=>{
   e.preventDefault();
   if(Object.values(productos).some(p=>p.nombre===inputNombre.value)){
     mostrarNotificacion("Producto ya existe", false);
     return;
   }
+  
   mostrarConfirmacion("¿Añadir nuevo producto?", async ()=>{
+    let categoriaFinal = selectCategoria.value;
+    
+    if (categoriaFinal === "Otro") {
+      const inputNuevaCategoria = document.getElementById("input-nueva-categoria");
+      if (inputNuevaCategoria && inputNuevaCategoria.value.trim() !== "") {
+        const nuevaCategoria = await agregarNuevaCategoria(inputNuevaCategoria.value.trim());
+        if (nuevaCategoria) {
+          categoriaFinal = nuevaCategoria;
+        }
+      }
+    }
+    
     const codigo=generarID();
+    const imagenBarras = await generarCodigoBarras(codigo);
     const nuevo={
       nombre: inputNombre.value,
-      categoria: selectCategoria.value,
+      categoria: categoriaFinal,
       proveedor: inputProveedor.value,
       precioCompra: parseFloat(inputPrecioCompra.value),
       precioVenta: parseFloat(inputPrecioVenta.value),
       stock:0, ventasTotales:0, balance:0,
-      imagen: inputImagen.value,
+      imagen: imagenBarras,
       fechaAñadido: new Date().toISOString()
     };
     productos[codigo]=nuevo;
@@ -269,11 +713,17 @@ formAdd.onsubmit=async (e)=>{
     renderTabla();
     formAdd.reset();
     selectCategoria.value = "Otro";
+    
+    const inputNuevaCategoria = document.getElementById("input-nueva-categoria");
+    if (inputNuevaCategoria) {
+      inputNuevaCategoria.remove();
+    }
+    
     mostrarNotificacion("Producto añadido con éxito");
   });
 }
 
-// ------------------ COMPRAR / VENDER ------------------
+// ==================== COMPRAR / VENDER ====================
 function crearFila(tipo){
   const div=document.createElement("div");
   div.className="operacion-row";
@@ -302,7 +752,6 @@ function crearFila(tipo){
       const total = precio * cantidad;
 
       inputPrecio.value = precio.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
-
       inputTotal.value = total.toFixed(2).toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
     } else {
       inputNombre.value = "";
@@ -340,6 +789,7 @@ async function operar(tipo){
   mostrarConfirmacion(`¿Confirmar ${tipo==="compra"?"compra":"venta"}?`, async ()=>{
     let cambios=false;
     let operacionesTicket = [];
+    let productosStockBajo = [];
     const fechaOperacion = new Date().toISOString();
     
     for(const fila of filas){
@@ -365,6 +815,15 @@ async function operar(tipo){
         productos[cod].stock -= cant;
         productos[cod].ventasTotales += cant;
         productos[cod].balance += montoTotal;
+        
+        if(productos[cod].stock < STOCKBAJO) {
+          productosStockBajo.push({
+            id: cod,
+            nombre: productos[cod].nombre,
+            stock: productos[cod].stock
+          });
+        }
+        
         finanzas.push({
           fecha: fechaOperacion,
           tipo: "ingreso",
@@ -383,6 +842,10 @@ async function operar(tipo){
           productoID: cod,
         });
       }
+    }
+    
+    if(tipo === "venta" && productosStockBajo.length > 0) {
+      await registrarAlertasStock(productosStockBajo);
     }
 
     if(cambios){
@@ -478,7 +941,7 @@ async function operar(tipo){
 btnConfirmComprar.onclick=()=>operar("compra");
 btnConfirmVender.onclick=()=>operar("venta");
 
-// ------------------ EDITAR / HISTORIAL / ELIMINAR ------------------
+// ==================== EDITAR / HISTORIAL / ELIMINAR ====================
 function abrirEditar(id){
   const prod = productos[id];
   const modal = document.createElement("div");
@@ -506,7 +969,6 @@ function abrirEditar(id){
       <label>Proveedor<input value="${prod.proveedor}" id="edit-proveedor" style="margin-top:5px; padding:5px; border-radius:6px; border:1px solid #ccc; width:100%;"></label>
       <label>Precio Compra (€)<input type="number" value="${prod.precioCompra}" id="edit-compra" style="margin-top:5px; padding:5px; border-radius:6px; border:1px solid #ccc; width:100%;"></label>
       <label>Precio Venta (€)<input type="number" value="${prod.precioVenta}" id="edit-venta" style="margin-top:5px; padding:5px; border-radius:6px; border:1px solid #ccc; width:100%;"></label>
-      <label>Imagen<input value="${prod.imagen}" id="edit-img" style="margin-top:5px; padding:5px; border-radius:6px; border:1px solid #ccc; width:100%;"></label>
       <button id="btn-save" style="width:100%; padding:10px; border:none; border-radius:6px; background-color:#28a745; color:white; font-weight:bold; cursor:pointer; margin-top:10px;">Guardar</button>
       <button id="btn-close" style="width:100%; padding:10px; border:none; border-radius:6px; background-color:#dc3545; color:white; font-weight:bold; cursor:pointer; margin-top:10px;">Cerrar</button>
     </div>`;
@@ -519,8 +981,7 @@ function abrirEditar(id){
     categoria: prod.categoria || "Otro",
     proveedor: prod.proveedor,
     precioCompra: prod.precioCompra,
-    precioVenta: prod.precioVenta,
-    imagen: prod.imagen
+    precioVenta: prod.precioVenta
   };
 
   function hayCambios(){
@@ -571,21 +1032,18 @@ function abrirEditar(id){
       const nuevoProveedor = modal.querySelector("#edit-proveedor").value;
       const nuevoPrecioCompra = parseFloat(modal.querySelector("#edit-compra").value);
       const nuevoPrecioVenta = parseFloat(modal.querySelector("#edit-venta").value);
-      const nuevaImagen = modal.querySelector("#edit-img").value;
 
       if(nuevoNombre !== valoresOriginales.nombre) cambios.push(`Nombre: ${valoresOriginales.nombre} → ${nuevoNombre}`);
       if(nuevaCategoria !== valoresOriginales.categoria) cambios.push(`Categoría: ${valoresOriginales.categoria} → ${nuevaCategoria}`);
       if(nuevoProveedor !== valoresOriginales.proveedor) cambios.push(`Proveedor: ${valoresOriginales.proveedor} → ${nuevoProveedor}`);
       if(nuevoPrecioCompra !== valoresOriginales.precioCompra) cambios.push(`P.Compra: ${valoresOriginales.precioCompra}€ → ${nuevoPrecioCompra}€`);
       if(nuevoPrecioVenta !== valoresOriginales.precioVenta) cambios.push(`P.Venta: ${valoresOriginales.precioVenta}€ → ${nuevoPrecioVenta}€`);
-      if(nuevaImagen !== valoresOriginales.imagen) cambios.push(`Imagen actualizada`);
 
       prod.nombre = nuevoNombre;
       prod.categoria = nuevaCategoria;
       prod.proveedor = nuevoProveedor;
       prod.precioCompra = nuevoPrecioCompra;
       prod.precioVenta = nuevoPrecioVenta;
-      prod.imagen = nuevaImagen;
 
       historial.push({
         fecha:new Date().toISOString(),
@@ -627,8 +1085,6 @@ function eliminarProducto(id){
 }
 
 function mostrarHistorialProducto(id) {
-  console.log(`Buscando historial para el producto con ID: ${id}`);
-
   const modal = document.createElement("div");
   modal.className = "modal";
   modal.style.justifyContent = "center";
@@ -643,12 +1099,9 @@ function mostrarHistorialProducto(id) {
     return h.productoID === id;
   });
 
-  console.log("Historial filtrado:", historialProd);
-
   historialProd.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   if (historialProd.length === 0) {
-    console.log("No se encontró historial para este producto.");
     modal.innerHTML = `<div class="modal-content" style="width:400px; padding:20px; background-color:#fff; color:#000; border-radius:12px;">
       <h3>No hay historial disponible</h3>
       <button id="btn-close" style="width:100%; padding:10px; border:none; border-radius:6px; background-color:#0078d7; color:white; font-weight:bold; cursor:pointer; margin-top:10px;">Cerrar</button>
@@ -660,7 +1113,6 @@ function mostrarHistorialProducto(id) {
     });
     modal.querySelector("#btn-close").onclick = () => {
       modal.style.opacity = "0";
-      modal.querySelector(".modal-content").style.transform = "translateY(-20px)";
       setTimeout(() => modal.remove(), 300);
     };
     return;
@@ -743,19 +1195,17 @@ function mostrarHistorialProducto(id) {
 
   modal.querySelector("#btn-close").onclick = () => {
     modal.style.opacity = "0";
-    modal.querySelector(".modal-content").style.transform = "translateY(-20px)";
     setTimeout(() => modal.remove(), 300);
   };
   modal.onclick = e => {
     if (e.target === modal) {
       modal.style.opacity = "0";
-      modal.querySelector(".modal-content").style.transform = "translateY(-20px)";
       setTimeout(() => modal.remove(), 300);
     }
   };
 }
 
-// ------------------ FILTROS ------------------
+// ==================== FILTROS ====================
 inputBusqueda.addEventListener("input", renderTabla);
 filtroCategoriaSelect.addEventListener("change", renderTabla);
 
@@ -768,7 +1218,7 @@ btnResetFiltros.onclick = () => {
   actualizarFlechas();
 };
 
-// ------------------ ORDEN POR CLIC EN CABECERA CON FLECHAS ------------------
+// ==================== ORDEN POR CLIC EN CABECERA CON FLECHAS ====================
 const ths = document.querySelectorAll("#tabla-productos thead th");
 ths.forEach((th, index) => {
   const text = th.textContent;
@@ -814,7 +1264,7 @@ function actualizarFlechas(){
 
 actualizarFlechas();
 
-// ------------------ INICIAL ------------------
+// ==================== INICIAL ====================
 cargarDatos();
 crearFila("compra");
 crearFila("venta");

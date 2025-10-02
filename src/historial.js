@@ -145,10 +145,10 @@ function renderHistorial() {
     let categoriaValida = false;
     if (categoria === "todos") {
       categoriaValida = true;
-    } else if (h.categoria) {
-      categoriaValida = h.categoria === categoria;
-    } else if (h.productos && Array.isArray(h.productos)) {
-      categoriaValida = h.productos.some(p => p.categoria === categoria);
+    } else {
+      categoriaValida =
+        (h.categoria && h.categoria === categoria) ||
+        (h.productos && Array.isArray(h.productos) && h.productos.some(p => p.categoria === categoria));
     }
 
     const fechaValida = (!fechaExacta || sameDay(filaFecha, fechaExacta)) &&
