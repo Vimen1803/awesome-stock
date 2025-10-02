@@ -1216,21 +1216,18 @@ Sí, con `npm run barcode:read <archivo.png>` puedes leer cualquier código EAN-
 </details>
 
 <details>
-<summary>📋 Versión 2.2.0 (próxima)</summary>
+<summary>📋 Versión 3.0.0 (próxima)</summary>
 
 - [ ] **💻 Base de datos MongoDB**: Migración a BD en la nube
-- [ ] **👥 Sistema de usuarios**: Roles y permisos
-- [ ] **📱 App móvil**: Interfaz responsive mejorada
 - [ ] **🔔 Notificaciones**: Alertas por email/SMS
 
 </details>
 
 <details>
-<summary>🚀 Versión 3.0.0 (futuro)</summary>
+<summary>🚀 Versión 3.1.0 (futuro)</summary>
    
 - [ ] **📡 API REST completa**: Documentación con Swagger
 - [ ] **🔐 Autenticación JWT**: Sistema de seguridad
-- [ ] **📊 Dashboard avanzado**: Analytics en tiempo real
 - [ ] **🌐 Multi-tienda**: Gestión centralizada
 
 </details>
