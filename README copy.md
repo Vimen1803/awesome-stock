@@ -55,221 +55,6 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-<details>
-<summary>🌟 Características Destacadas v2.1.0</summary>
-
-<div align="center">
-
-| 🏷️ EAN-13 | 💾 Backups Auto | 📊 Informes | 📂 Categorías |
-|:---:|:---:|:---:|:---:|
-| Códigos profesionales | Cada 12 horas | PDF/Excel | Dinámicas |
-
-</div>
-
-### ✨ Novedades de la Versión 2.1.0
-
-<table>
-<tr>
-<td width="50%">
-
-#### 🏷️ Códigos de Barras EAN-13
-- ✅ Formato internacional estándar
-- ✅ Dígito de control automático
-- ✅ CLI completo para gestión
-- ✅ Lector integrado
-- ✅ Compatible con lectores comerciales
-
-</td>
-<td width="50%">
-
-#### 💾 Sistema de Backups
-- ✅ Backups automáticos cada 12h
-- ✅ CLI con 28 copias máx
-- ✅ Restauración simple
-- ✅ Gestión completa
-- ✅ Logs de operaciones
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-#### 📊 Informes Personalizados
-- ✅ Balance General (PDF/Excel)
-- ✅ Informe por Producto (PDF)
-- ✅ Informe por Categoría (PDF)
-- ✅ CLI dedicado
-- ✅ Diseño profesional
-
-</td>
-<td width="50%">
-
-#### 📂 Categorías Dinámicas
-- ✅ Añadir desde la aplicación
-- ✅ Sin editar código
-- ✅ Validación automática
-- ✅ Ordenación alfabética
-- ✅ Actualización en tiempo real
-
-</td>
-</tr>
-</table>
-</details>
-
----
-
-## 🛠️ Herramientas CLI
-
-<details>
-<summary>📦 Sistema de Backups</summary>
-
-```bash
-# Crear backup manual
-npm run backup
-
-# Listar todos los backups
-npm run backup:list
-
-# Restaurar backup específico (índice 0 = más reciente)
-npm run backup:restore 0
-
-# Eliminar backup específico
-npm run backup:delete 5
-
-# Ver ayuda completa
-npm run backup:help
-```
-
-<details>
-<summary>Características:<\summary>
-- 💾 Backups automáticos cada 12 horas
-- 📁 Máximo 28 backups (los antiguos se eliminan)
-- 🔄 Restauración completa con un comando
-- 📊 Lista ordenada por fecha
-- ⚠️ Confirmaciones de seguridad (3 seg)
-</details>
-</details>
-
----
-
-<details>
-<summary> 🏷️ Gestión de Códigos de Barras</summary>
-
-```bash
-# Generar código EAN-13 para un producto
-npm run barcode:generate P001
-
-# Listar todos los códigos generados
-npm run barcode:list
-
-# Eliminar código específico
-npm run barcode:delete P001
-
-# Eliminar todos los códigos
-npm run barcode:delete all
-
-# Ver ayuda
-npm run barcode:help
-```
-<details>
-<summary>Formato EAN-13:</summary>
-- 📊 13 dígitos (12 + control)
-- ✅ Validación automática
-- 🎨 Alta calidad (400x200px)
-- 🏭 Estándar internacional
-</details>
-</details>
-
----
-
-<details>
-### 📷 Lector de Códigos de Barras
-
-```bash
-# Leer código desde archivo PNG
-npm run barcode:read data/bar_code/P001.png
-
-# Leer desde ruta personalizada
-npm run barcode:read ./mi_codigo.png
-```
-<details>
-<summary>Información que muestra:</summary>
-- 🆔 ID del producto
-- 🏷️ Código EAN-13 completo
-- 🔢 Formato decimal
-- ✅ Validación del dígito control
-- 📦 Información del producto (si existe)
-</details>
-</details>
-
----
-
-<details>
-### 📊 Generación de Informes
-
-```bash
-# Balance General (PDF por defecto)
-npm run informe:balance
-npm run informe:balance pdf
-npm run informe:balance excel
-
-# Informe de Producto específico
-npm run informe:producto P001
-
-# Informe por Categoría
-npm run informe:categoria Alimentación
-
-# Listar informes generados
-npm run informe:list
-npm run informe:list general
-npm run informe:list productos
-npm run informe:list categorias
-
-# Ver ayuda
-npm run informe:help
-```
-
-**Tipos de Informes:**
-
-<details>
-<summary><b>📈 Balance General</b> (PDF/Excel)</summary>
-
-**Incluye:**
-- 💰 KPIs principales
-- 🏆 Top 10 productos más vendidos
-- ⚠️ Productos con stock bajo
-- 📊 Distribución de stock por categoría
-- 💵 Análisis de beneficios por categoría
-- 📦 Lista completa de productos (Excel)
-
-</details>
-
-<details>
-<summary><b>📦 Informe de Producto</b> (PDF)</summary>
-
-**Incluye:**
-- 📋 Información completa del producto
-- 📜 Historial completo de movimientos
-- 💰 Análisis financiero individual
-- 📊 Estadísticas de ventas
-
-</details>
-
-<details>
-<summary><b>📂 Informe por Categoría</b> (PDF)</summary>
-
-**Incluye:**
-- 📦 Lista de todos los productos
-- 📜 Historial de movimientos
-- 📊 Resumen de categoría
-- 💰 Análisis financiero
-
-</details>
-
-</details>
-
----
-
 ## 📸 Capturas de Pantalla
 
 <details>
@@ -474,6 +259,272 @@ npm run informe:help
 - ✅ Información detallada
 - ✅ Formato alineado y legible
 - ✅ Soporte para múltiples productos
+
+</details>
+
+---
+
+##🌟 Características Destacadas v2.1.0
+
+<div align="center">
+
+| 🏷️ EAN-13 | 💾 Backups Auto | 📊 Informes | 📂 Categorías |
+|:---:|:---:|:---:|:---:|
+| Códigos profesionales | Cada 12 horas | PDF/Excel | Dinámicas |
+
+</div>
+
+### ✨ Novedades de la Versión 2.1.0
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🏷️ Códigos de Barras EAN-13
+- ✅ Formato internacional estándar
+- ✅ Dígito de control automático
+- ✅ CLI completo para gestión
+- ✅ Lector integrado
+- ✅ Compatible con lectores comerciales
+
+</td>
+<td width="50%">
+
+#### 💾 Sistema de Backups
+- ✅ Backups automáticos cada 12h
+- ✅ CLI con 28 copias máx
+- ✅ Restauración simple
+- ✅ Gestión completa
+- ✅ Logs de operaciones
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+#### 📊 Informes Personalizados
+- ✅ Balance General (PDF/Excel)
+- ✅ Informe por Producto (PDF)
+- ✅ Informe por Categoría (PDF)
+- ✅ CLI dedicado
+- ✅ Diseño profesional
+
+</td>
+<td width="50%">
+
+#### 📂 Categorías Dinámicas
+- ✅ Añadir desde la aplicación
+- ✅ Sin editar código
+- ✅ Validación automática
+- ✅ Ordenación alfabética
+- ✅ Actualización en tiempo real
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📁 Estructura del Proyecto
+
+```markdown
+├── 📂 data/                     # Datos y archivos generados
+│   ├── 📄 data.json             # Base de datos JSON
+│   ├── 📂 logs/                 # Sistema de logs
+│   │   ├── 📄 app.log           # Log general
+│   │   └── 📄 stock_alerts.txt  # Alertas de stock
+│   ├── 📂 tickets/              # Tickets PDF
+│   │   ├── 📂 compra/
+│   │   └── 📂 venta/
+│   ├── 📂 bar_code/             # Códigos de barras EAN-13 ⭐
+│   │   └── 📄 P001.png
+│   └── 📂 informes/             # Informes generados ⭐
+│       ├── 📂 general/          # Balance general
+│       ├── 📂 productos/        # Informes de productos
+│       └── 📂 categorias/       # Informes de categorías
+│
+├── 📂 docs/                     # Documentación
+│   └── 📂 screenshots/          # Capturas de pantalla
+│
+├── 📂 public/                   # Frontend
+│   ├── 🌐 index.html            # Página de productos
+│   ├── 🌐 historial.html        # Página de historial
+│   ├── 🌐 finanzas.html         # Página de finanzas
+│   ├── 🌐 estadisticas.html     # Dashboard estadísticas
+│   └── 🎨 style.css             # Estilos principales
+│
+├── 📂 src/                      # Backend
+│   ├── ⚙️ server.js             # Servidor Express + APIs ⭐
+│   ├── 📱 app.js                # Lógica principal ⭐
+│   ├── 🏷️ barcode-cli.js        # CLI códigos barras ⭐
+│   ├── 📷 barcode-reader-cli.js # CLI lector EAN-13 ⭐
+│   ├── 💾 backup-cli.js         # CLI backups ⭐
+│   ├── 📊 informes-cli.js       # CLI informes ⭐
+│   ├── 🔧 generateData.js       # Generador de datos
+│   ├── 📜 historial.js          # Gestión de historial
+│   ├── 💰 finanzas.js           # Análisis financiero
+│   ├── 📈 estadisticas.js       # Estadísticas avanzadas
+│   └── 🌓 lightdark.js          # Control modo oscuro
+│
+├── 📄 .gitignore
+├── 📋 CHANGELOG.md              # Historial de cambios ⭐
+├── 📜 LICENSE
+├── 📖 README.md
+├── 📦 package.json              # Scripts CLI añadidos ⭐
+└── 🔒 package-lock.json
+
+⭐ = Nuevos/Modificados en v2.1.0
+```
+
+---
+
+## 🛠️ Herramientas CLI
+
+<details>
+<summary>📦 Sistema de Backups</summary>
+
+```bash
+# Crear backup manual
+npm run backup
+
+# Listar todos los backups
+npm run backup:list
+
+# Restaurar backup específico (índice 0 = más reciente)
+npm run backup:restore 0
+
+# Eliminar backup específico
+npm run backup:delete 5
+
+# Ver ayuda completa
+npm run backup:help
+```
+
+<details>
+<summary>Características:<\summary>
+- 💾 Backups automáticos cada 12 horas
+- 📁 Máximo 28 backups (los antiguos se eliminan)
+- 🔄 Restauración completa con un comando
+- 📊 Lista ordenada por fecha
+- ⚠️ Confirmaciones de seguridad (3 seg)
+</details>
+</details>
+
+---
+
+<details>
+<summary> 🏷️ Gestión de Códigos de Barras</summary>
+
+```bash
+# Generar código EAN-13 para un producto
+npm run barcode:generate P001
+
+# Listar todos los códigos generados
+npm run barcode:list
+
+# Eliminar código específico
+npm run barcode:delete P001
+
+# Eliminar todos los códigos
+npm run barcode:delete all
+
+# Ver ayuda
+npm run barcode:help
+```
+<details>
+<summary>Formato EAN-13:</summary>
+- 📊 13 dígitos (12 + control)
+- ✅ Validación automática
+- 🎨 Alta calidad (400x200px)
+- 🏭 Estándar internacional
+</details>
+</details>
+
+---
+
+<details>
+### 📷 Lector de Códigos de Barras
+
+```bash
+# Leer código desde archivo PNG
+npm run barcode:read data/bar_code/P001.png
+
+# Leer desde ruta personalizada
+npm run barcode:read ./mi_codigo.png
+```
+<details>
+<summary>Información que muestra:</summary>
+- 🆔 ID del producto
+- 🏷️ Código EAN-13 completo
+- 🔢 Formato decimal
+- ✅ Validación del dígito control
+- 📦 Información del producto (si existe)
+</details>
+</details>
+
+---
+
+<details>
+### 📊 Generación de Informes
+
+```bash
+# Balance General (PDF por defecto)
+npm run informe:balance
+npm run informe:balance pdf
+npm run informe:balance excel
+
+# Informe de Producto específico
+npm run informe:producto P001
+
+# Informe por Categoría
+npm run informe:categoria Alimentación
+
+# Listar informes generados
+npm run informe:list
+npm run informe:list general
+npm run informe:list productos
+npm run informe:list categorias
+
+# Ver ayuda
+npm run informe:help
+```
+
+**Tipos de Informes:**
+
+<details>
+<summary><b>📈 Balance General</b> (PDF/Excel)</summary>
+
+**Incluye:**
+- 💰 KPIs principales
+- 🏆 Top 10 productos más vendidos
+- ⚠️ Productos con stock bajo
+- 📊 Distribución de stock por categoría
+- 💵 Análisis de beneficios por categoría
+- 📦 Lista completa de productos (Excel)
+
+</details>
+
+<details>
+<summary><b>📦 Informe de Producto</b> (PDF)</summary>
+
+**Incluye:**
+- 📋 Información completa del producto
+- 📜 Historial completo de movimientos
+- 💰 Análisis financiero individual
+- 📊 Estadísticas de ventas
+
+</details>
+
+<details>
+<summary><b>📂 Informe por Categoría</b> (PDF)</summary>
+
+**Incluye:**
+- 📦 Lista de todos los productos
+- 📜 Historial de movimientos
+- 📊 Resumen de categoría
+- 💰 Análisis financiero
+
+</details>
 
 </details>
 
@@ -984,59 +1035,6 @@ npm start
 | `POST` | `/api/agregar-categoria` | Añadir nueva categoría | `{ nombreCategoria }` |
 
 </details>
-
----
-
-## 📁 Estructura del Proyecto
-
-```markdown
-├── 📂 data/                     # Datos y archivos generados
-│   ├── 📄 data.json             # Base de datos JSON
-│   ├── 📂 logs/                 # Sistema de logs
-│   │   ├── 📄 app.log           # Log general
-│   │   └── 📄 stock_alerts.txt  # Alertas de stock
-│   ├── 📂 tickets/              # Tickets PDF
-│   │   ├── 📂 compra/
-│   │   └── 📂 venta/
-│   ├── 📂 bar_code/             # Códigos de barras EAN-13 ⭐
-│   │   └── 📄 P001.png
-│   └── 📂 informes/             # Informes generados ⭐
-│       ├── 📂 general/          # Balance general
-│       ├── 📂 productos/        # Informes de productos
-│       └── 📂 categorias/       # Informes de categorías
-│
-├── 📂 docs/                     # Documentación
-│   └── 📂 screenshots/          # Capturas de pantalla
-│
-├── 📂 public/                   # Frontend
-│   ├── 🌐 index.html            # Página de productos
-│   ├── 🌐 historial.html        # Página de historial
-│   ├── 🌐 finanzas.html         # Página de finanzas
-│   ├── 🌐 estadisticas.html     # Dashboard estadísticas
-│   └── 🎨 style.css             # Estilos principales
-│
-├── 📂 src/                      # Backend
-│   ├── ⚙️ server.js             # Servidor Express + APIs ⭐
-│   ├── 📱 app.js                # Lógica principal ⭐
-│   ├── 🏷️ barcode-cli.js        # CLI códigos barras ⭐
-│   ├── 📷 barcode-reader-cli.js # CLI lector EAN-13 ⭐
-│   ├── 💾 backup-cli.js         # CLI backups ⭐
-│   ├── 📊 informes-cli.js       # CLI informes ⭐
-│   ├── 🔧 generateData.js       # Generador de datos
-│   ├── 📜 historial.js          # Gestión de historial
-│   ├── 💰 finanzas.js           # Análisis financiero
-│   ├── 📈 estadisticas.js       # Estadísticas avanzadas
-│   └── 🌓 lightdark.js          # Control modo oscuro
-│
-├── 📄 .gitignore
-├── 📋 CHANGELOG.md              # Historial de cambios ⭐
-├── 📜 LICENSE
-├── 📖 README.md
-├── 📦 package.json              # Scripts CLI añadidos ⭐
-└── 🔒 package-lock.json
-
-⭐ = Nuevos/Modificados en v2.1.0
-```
 
 ---
 
