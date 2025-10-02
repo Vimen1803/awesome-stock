@@ -17,10 +17,10 @@
 
 **Sistema completo de gestión de inventario con códigos de barras EAN-13, backups automatizados, informes personalizados PDF/Excel, categorías dinámicas, análisis financiero avanzado y sistema profesional de logs.**
 
-[Documentación](#-estructura-del-proyecto) •
+[Documentación](#-características-principales) •
 [Instalación](#-instalación) •
 [Tecnologías](#%EF%B8%8F-tecnologías-utilizadas) •
-[CLI Tools](#-herramientas-cli)
+[CLI Tools](#%EF%B8%8F-herramientas-cli)
 
 </div>
 
@@ -973,8 +973,6 @@ npm start
 ---
 
 ## 📁 Estructura del Proyecto
-
-# README.md (continuación)
 
 ```markdown
 ├── 📂 data/                     # Datos y archivos generados
