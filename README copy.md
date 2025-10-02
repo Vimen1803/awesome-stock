@@ -378,155 +378,37 @@ Consulta el archivo licencia y las guías necesarias
 
 ---
 
-## 🛠️ Herramientas CLI
-
-<details>
-<summary>📦 Sistema de Backups</summary>
+## 📌 Comandos Disponibles - Herramientas CLI
 
 ```bash
-# Crear backup manual
-npm run backup
+# Servidor
+npm start              # Iniciar servidor
+npm run dev            # Desarrollo con nodemon
 
-# Listar todos los backups
-npm run backup:list
+# Datos
+npm run data           # Generar datos prueba
 
-# Restaurar backup específico (índice 0 = más reciente)
-npm run backup:restore 0
+# Backups ⭐
+npm run backup         # Crear backup manual
+npm run backup:list    # Listar backups
+npm run backup:restore # Restaurar backup
+npm run backup:delete  # Eliminar backup
+npm run backup:help    # Ayuda completa
 
-# Eliminar backup específico
-npm run backup:delete 5
+# Códigos de Barras ⭐
+npm run barcode:generate  # Generar EAN-13
+npm run barcode:list      # Listar códigos
+npm run barcode:read      # Leer código
+npm run barcode:delete    # Eliminar código(s)
+npm run barcode:help      # Ayuda completa
 
-# Ver ayuda completa
-npm run backup:help
+# Informes ⭐
+npm run informe:balance    # Balance general
+npm run informe:producto   # Por producto
+npm run informe:categoria  # Por categoría
+npm run informe:list       # Listar informes
+npm run informe:help       # Ayuda completa
 ```
-
-<details>
-<summary>Características:<\summary>
-- 💾 Backups automáticos cada 12 horas
-- 📁 Máximo 28 backups (los antiguos se eliminan)
-- 🔄 Restauración completa con un comando
-- 📊 Lista ordenada por fecha
-- ⚠️ Confirmaciones de seguridad (3 seg)
-</details>
-</details>
-
----
-
-<details>
-<summary> 🏷️ Gestión de Códigos de Barras</summary>
-
-```bash
-# Generar código EAN-13 para un producto
-npm run barcode:generate P001
-
-# Listar todos los códigos generados
-npm run barcode:list
-
-# Eliminar código específico
-npm run barcode:delete P001
-
-# Eliminar todos los códigos
-npm run barcode:delete all
-
-# Ver ayuda
-npm run barcode:help
-```
-<details>
-<summary>Formato EAN-13:</summary>
-- 📊 13 dígitos (12 + control)
-- ✅ Validación automática
-- 🎨 Alta calidad (400x200px)
-- 🏭 Estándar internacional
-</details>
-</details>
-
----
-
-<details>
-### 📷 Lector de Códigos de Barras
-
-```bash
-# Leer código desde archivo PNG
-npm run barcode:read data/bar_code/P001.png
-
-# Leer desde ruta personalizada
-npm run barcode:read ./mi_codigo.png
-```
-<details>
-<summary>Información que muestra:</summary>
-- 🆔 ID del producto
-- 🏷️ Código EAN-13 completo
-- 🔢 Formato decimal
-- ✅ Validación del dígito control
-- 📦 Información del producto (si existe)
-</details>
-</details>
-
----
-
-<details>
-### 📊 Generación de Informes
-
-```bash
-# Balance General (PDF por defecto)
-npm run informe:balance
-npm run informe:balance pdf
-npm run informe:balance excel
-
-# Informe de Producto específico
-npm run informe:producto P001
-
-# Informe por Categoría
-npm run informe:categoria Alimentación
-
-# Listar informes generados
-npm run informe:list
-npm run informe:list general
-npm run informe:list productos
-npm run informe:list categorias
-
-# Ver ayuda
-npm run informe:help
-```
-
-**Tipos de Informes:**
-
-<details>
-<summary><b>📈 Balance General</b> (PDF/Excel)</summary>
-
-**Incluye:**
-- 💰 KPIs principales
-- 🏆 Top 10 productos más vendidos
-- ⚠️ Productos con stock bajo
-- 📊 Distribución de stock por categoría
-- 💵 Análisis de beneficios por categoría
-- 📦 Lista completa de productos (Excel)
-
-</details>
-
-<details>
-<summary><b>📦 Informe de Producto</b> (PDF)</summary>
-
-**Incluye:**
-- 📋 Información completa del producto
-- 📜 Historial completo de movimientos
-- 💰 Análisis financiero individual
-- 📊 Estadísticas de ventas
-
-</details>
-
-<details>
-<summary><b>📂 Informe por Categoría</b> (PDF)</summary>
-
-**Incluye:**
-- 📦 Lista de todos los productos
-- 📜 Historial de movimientos
-- 📊 Resumen de categoría
-- 💰 Análisis financiero
-
-</details>
-
-</details>
 
 ---
 
@@ -1035,40 +917,6 @@ npm start
 | `POST` | `/api/agregar-categoria` | Añadir nueva categoría | `{ nombreCategoria }` |
 
 </details>
-
----
-
-## 📌 Comandos Disponibles
-
-```bash
-# Servidor
-npm start              # Iniciar servidor
-npm run dev            # Desarrollo con nodemon
-
-# Datos
-npm run data           # Generar datos prueba
-
-# Backups ⭐
-npm run backup         # Crear backup manual
-npm run backup:list    # Listar backups
-npm run backup:restore # Restaurar backup
-npm run backup:delete  # Eliminar backup
-npm run backup:help    # Ayuda completa
-
-# Códigos de Barras ⭐
-npm run barcode:generate  # Generar EAN-13
-npm run barcode:list      # Listar códigos
-npm run barcode:read      # Leer código
-npm run barcode:delete    # Eliminar código(s)
-npm run barcode:help      # Ayuda completa
-
-# Informes ⭐
-npm run informe:balance    # Balance general
-npm run informe:producto   # Por producto
-npm run informe:categoria  # Por categoría
-npm run informe:list       # Listar informes
-npm run informe:help       # Ayuda completa
-```
 
 ---
 
