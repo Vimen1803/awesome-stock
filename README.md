@@ -17,7 +17,7 @@
 
 **Sistema de gestión de inventario con generación automática de tickets PDF, análisis financiero y seguimiento completo de operaciones.**
 
->  ⚠️ **Nota:** Esta es la versión 1.2.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.0.0](https://github.com/Vimen1803/awesome-stock/blob/2.0.0/README.md)
+>  ⚠️ **Nota:** Esta es la versión 1.2.0 (inactiva). Para la última versión con más funcionalidades, consulta la [versión 2.0.0](https://github.com/Vimen1803/awesome-stock/blob/2.1.0/README.md)
 
 [Documentación](#-uso) •
 [Instalación](#-instalación) •
